@@ -34,7 +34,7 @@ namespace EduData.Repository.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>(new UserMap().Configure);
             modelBuilder.Entity<Class>(new ClassMap().Configure);
-            modelBuilder.Entity<Student>(new StudentMap().Configure);
+            modelBuilder.Entity<Student>(new StudentMap().Configure);t
             modelBuilder.Entity<College_Subject>(new College_SubjectMap().Configure);
             modelBuilder.Entity<Enrollment>(new EnrollmentMap().Configure);
             modelBuilder.Entity<Evaluation>(new EvaluationMap().Configure);
