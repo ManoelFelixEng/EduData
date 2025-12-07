@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EduData.Domain.Base;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using EduData.Domain.Base;
 
-namespace EduData.Domain.Entities
-{
-    public class Class : BaseEntity<int>
+    namespace EduData.Domain.Entities
     {
-
-
-        public Class() { 
-        
-        }
-        public Class(int id,int period,string course,int number_students ) : base(id)
+        public class Class : BaseEntity<int>
         {
-            Period = period;
-            Course = course;
-            Number_students = number_students;
-        }
 
-        public int Period { get; set; }
-        public string Course { get; set; }
-        public int Number_students {  get; set; }
+
+            public Class() { 
+        
+            }
+            public Class(int id,int period,string course,int number_students ) : base(id)
+            {
+                Period = period;
+                Course = course;
+                Number_students = number_students;
+            }
+
+            public int Period { get; set; }
+            public string Course { get; set; }
+            public int Number_students {  get; set; }
+        }
     }
-}

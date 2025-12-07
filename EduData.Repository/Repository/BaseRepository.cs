@@ -19,7 +19,6 @@ namespace EduData.Repository.Repository
         {
             _mysSqlContext = mysSqlContext;
         }
-
         public void AttachObject(object obj)
         {
             _mysSqlContext.Attach(obj);

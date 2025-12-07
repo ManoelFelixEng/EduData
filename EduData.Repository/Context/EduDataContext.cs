@@ -18,7 +18,7 @@ namespace EduData.Repository.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=IFSPStore2025;user=root;password=");
+            optionsBuilder.UseMySQL("server=localhost;database=IFSPStore;user=root;password=");
         }
 
 
