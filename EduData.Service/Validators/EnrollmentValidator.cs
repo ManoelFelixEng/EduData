@@ -7,19 +7,19 @@ namespace EduData.Service.Validators
     {
         public EnrollmentValidator()
         {
-            RuleFor(x => x.IdStudent)
+            RuleFor(x => x.Id_Student)
                 .GreaterThan(0).WithMessage("Aluno inválido para matrícula.");
 
-            RuleFor(x => x.IdClass)
+            RuleFor(x => x.Id_Class)
                 .GreaterThan(0).WithMessage("Turma inválida para matrícula.");
 
-            RuleFor(x => x.IdCollegeSubject)
+            RuleFor(x => x.Id_College_Subject)
                 .GreaterThan(0).WithMessage("Disciplina inválida para matrícula.");
 
-            
-            RuleFor(x => x.FinalScore)
-                .GreaterThanOrEqualTo(0).When(x => x.FinalScore.HasValue)
-                .WithMessage("A nota final não pode ser negativa.");
+
+            RuleFor(x => x.Final_Score)
+                .GreaterThanOrEqualTo(0).WithMessage("A nota final não pode ser negativa.")
+                .LessThanOrEqualTo(10).WithMessage("A nota final não pode ser maior que 10.");
         }
     }
 }

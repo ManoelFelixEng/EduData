@@ -14,22 +14,21 @@ namespace EduData.Domain.Entities
         public Enrollment() 
         {
         }
-        public Enrollment(int idStudent, int idClass, int idCollegeSubject, int finalScore)
+        public Enrollment(int id, int id_student, int id_class, int id_collegeSubject, int finalScore) : base(id)
         {
-            Id_student = idStudent;
-            Id_class = idClass;
-            Id_college_subject = idCollegeSubject;
-            Final_score = finalScore;
+            Id_Student = id_student;
+            Id_Class = id_class;
+            Id_College_Subject = id_collegeSubject;
+            Final_Score = finalScore;
         }
-        public int Final_score { get; set; }
-
+        public int Final_Score { get; set; }
+            
         //chave estrangeira
-        public int Id_student { get; set; }
-        public int Id_class { get; set; }
-        public int Id_college_subject { get; set; }
+        public int Id_Student { get; set; }
+        public int Id_Class { get; set; }
+        public int Id_College_Subject { get; set; }
   
     }
 }
-
 
 

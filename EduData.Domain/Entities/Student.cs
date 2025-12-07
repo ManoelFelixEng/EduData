@@ -16,17 +16,17 @@ namespace EduData.Domain.Entities
         }
        
 
-        public Student(int id, string name, int idClass, DateTime dateBirth) : base(id)
+        public Student(int id, string name, int id_class, DateTime dateBirth) : base(id)
         {
             Name = name;
-            Id_class = idClass;
+            Id_Class = id_class;
             Date_Birth = dateBirth;
         }
         public string Name { get; set; }
         public DateTime Date_Birth { get; set; }
 
         //cHAVE ESTRANGEIRA
-        public int Id_class { get; set; }
+        public int Id_Class { get; set; }
         
 
 

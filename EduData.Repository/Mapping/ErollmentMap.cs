@@ -13,16 +13,14 @@ namespace EduData.Repository.Mapping
         public void Configure(EntityTypeBuilder<Enrollment> builder)
         {
             builder.ToTable("enrolment");
-            builder.HasKey(prop => new { prop.Id_student, prop.Id_class, prop.Id_college_subject });
+            builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Id_student).HasColumnName("id_student").IsRequired();
-            builder.Property(prop => prop.Id_class).HasColumnName("id_class").IsRequired();
-            builder.Property(prop => prop.Id_college_subject).HasColumnName("id_college_subject").IsRequired();
+            builder.Property(prop => prop.Id_Student).HasColumnName("id_student").IsRequired();
+            builder.Property(prop => prop.Id_Class).HasColumnName("id_class").IsRequired();
+            builder.Property(prop => prop.Id_College_Subject).HasColumnName("id_college_subject").IsRequired();
 
-            builder.Property(e => e.Final_score).HasColumnName("final_score").IsRequired();
+            builder.Property(e => e.Final_Score).HasColumnName("final_score").IsRequired();
         }
     }
 }
-
-
 

@@ -15,7 +15,7 @@ namespace EduData.Service.Validators
                 .GreaterThan(0).WithMessage("O período deve ser maior que zero.");
 
             
-            RuleFor(x => x.NumberStudents)
+            RuleFor(x => x.Number_Students)
                 .GreaterThan(0).WithMessage("A capacidade de alunos deve ser maior que zero.");
         }
     }

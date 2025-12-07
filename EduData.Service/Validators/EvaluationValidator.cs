@@ -7,14 +7,14 @@ namespace EduData.Service.Validators
     {
         public EvaluationValidator()
         {
-            RuleFor(x => x.NameEvaluation)
+            RuleFor(x => x.Name_Evaluation)
                 .NotEmpty().WithMessage("O nome da avaliação é obrigatório.");
 
-            RuleFor(x => x.ScoreValue)
+            RuleFor(x => x.Score_Value)
                 .GreaterThan(0).WithMessage("O valor da nota deve ser maior que zero.")
                 .LessThanOrEqualTo(100).WithMessage("A nota máxima permitida é 100."); // preciso ajustar ainda 10 ou 100)
 
-            RuleFor(x => x.DateEvaluation)
+            RuleFor(x => x.Date_Evaluation)
                 .NotEmpty().WithMessage("A data da avaliação é obrigatória.");
         }
     }

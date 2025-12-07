@@ -18,7 +18,7 @@ namespace EduData.Repository.Mapping
             builder.Property(prop => prop.Id).HasColumnName("id_class").IsRequired();
             builder.Property(prop => prop.Period).HasColumnName("period").IsRequired();
             builder.Property(prop => prop.Course).HasColumnName("course").HasMaxLength(100).IsRequired();
-            builder.Property(prop => prop.Number_students).HasColumnName("number_students").IsRequired();
+            builder.Property(prop => prop.Number_Students).HasColumnName("number_students").IsRequired();
 
         }
 

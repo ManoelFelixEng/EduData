@@ -17,11 +17,13 @@ namespace EduData.Repository.Mapping
 
             builder.Property(prop => prop.Id).HasColumnName("id_evaluation").IsRequired();
 
-            builder.Property(prop => prop.Name_evaluation).HasColumnName("name_evaluation").HasMaxLength(100).IsRequired();
+            builder.Property(prop => prop.Name_Evaluation).HasColumnName("name_evaluation").HasMaxLength(100).IsRequired();
 
-            builder.Property(prop => prop.Date_evaluation).HasColumnName("date_evaluation").HasColumnType("DATE").IsRequired();
+            builder.Property(prop => prop.Date_Evaluation).HasColumnName("date_evaluation").HasColumnType("DATE").IsRequired();
 
-            builder.Property(prop => prop.Score_value).HasColumnName("score_value").IsRequired();
+            builder.Property(prop => prop.Score_Value).HasColumnName("score_value").IsRequired();
+
+            builder.Property(prop => prop.IdEnrollment) .HasColumnName("id_enrollment").IsRequired();
 
             //estrangeiras
             builder.Property(prop => prop.Id_student).HasColumnName("enrolment_student_id_student").IsRequired();
@@ -34,7 +36,6 @@ namespace EduData.Repository.Mapping
 
 
 
-        // **NOTA**: A configuração do relacionamento entre Evaluation e Enrollment, 
-        // que usa esta FK composta, é mais facilmente feita no DbContext 
-        // quando as propriedades de navegação estão ausentes do modelo.
- 
+
+
+

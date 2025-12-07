@@ -18,11 +18,11 @@
             {
                 Period = period;
                 Course = course;
-                Number_students = number_students;
+                Number_Students = number_students;
             }
 
             public int Period { get; set; }
             public string Course { get; set; }
-            public int Number_students {  get; set; }
+            public int Number_Students {  get; set; }
         }
     }
