@@ -1,6 +1,6 @@
 using AutoMapper;
 using EduData.App.ViewModel;         // Onde estão seus ViewModels
-using EduData.App.View;              // Onde estarão seus Forms (crie essa pasta se não tiver)
+//using EduData.App.View;
 using EduData.Domain.Base;
 using EduData.Domain.Entities;
 using EduData.Repository.Context;
@@ -15,7 +15,7 @@ namespace EduData.App.Infra
 {
     public static class ConfigureDI
     {
-        pupublic static ServiceCollection services;
+        public static ServiceCollection services;
         public static IServiceProvider? serviceProvider;
 
         public static void ConfigureServices()
@@ -24,7 +24,7 @@ namespace EduData.App.Infra
             var dbConfigFile = "Config/DBConfig.txt";
             var strCon = File.ReadAllText(dbConfigFile);
             services = new ServiceCollection();
-            services.AddDbContext<IFSPStoreContext>(
+            services.AddDbContext<EduDataContext>(
                 options =>
                 {
                     options.LogTo(Console.WriteLine);

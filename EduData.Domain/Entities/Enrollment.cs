@@ -1,19 +1,18 @@
-﻿using System;
+﻿using EduData.Domain.Base;
+using EduData.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EduData.Domain.Entities;
 
 namespace EduData.Domain.Entities
 {
-    public class Enrollment
+    public class Enrollment : BaseEntity<int>
     {
 
         public Enrollment() 
         {
-        
-        
         }
         public Enrollment(int idStudent, int idClass, int idCollegeSubject, int finalScore)
         {
@@ -28,12 +27,9 @@ namespace EduData.Domain.Entities
         public int Id_student { get; set; }
         public int Id_class { get; set; }
         public int Id_college_subject { get; set; }
-
-
-
-        
-        
+  
     }
 }
+
 
 
