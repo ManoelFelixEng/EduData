@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CollegeSubjectForm";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CollegeSubjectForm));
+            SuspendLayout();
+            // 
+            // CollegeSubjectForm
+            // 
+            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(11, 24, 87);
+            ClientSize = new Size(800, 450);
+            HeaderColor = Color.FromArgb(28, 59, 214);
+            Image = (Image)resources.GetObject("$this.Image");
+            Name = "CollegeSubjectForm";
+            Text = "CollegeSubjectForm";
+            ResumeLayout(false);
         }
 
         #endregion
