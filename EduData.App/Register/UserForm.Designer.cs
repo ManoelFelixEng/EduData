@@ -32,8 +32,8 @@
             label1 = new Label();
             hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
             hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            btnCreate = new ReaLTaiizor.Controls.MaterialButton();
+            btnExit = new ReaLTaiizor.Controls.MaterialButton();
             SuspendLayout();
             // 
             // label1
@@ -94,46 +94,46 @@
             hopeTextBox2.TabStop = false;
             hopeTextBox2.UseSystemPasswordChar = false;
             // 
-            // materialButton1
+            // btnCreate
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(372, 284);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(76, 36);
-            materialButton1.TabIndex = 3;
-            materialButton1.Text = "Create";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
-            materialButton1.Click += materialButton1_Click;
+            btnCreate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCreate.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCreate.Depth = 0;
+            btnCreate.HighEmphasis = true;
+            btnCreate.Icon = null;
+            btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnCreate.Location = new Point(372, 284);
+            btnCreate.Margin = new Padding(4, 6, 4, 6);
+            btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCreate.Name = "btnCreate";
+            btnCreate.NoAccentTextColor = Color.Empty;
+            btnCreate.Size = new Size(76, 36);
+            btnCreate.TabIndex = 3;
+            btnCreate.Text = "Create";
+            btnCreate.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCreate.UseAccentColor = false;
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += materialButton1_Click;
             // 
-            // materialButton2
+            // btnExit
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton2.Location = new Point(298, 284);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(64, 36);
-            materialButton2.TabIndex = 4;
-            materialButton2.Text = "EXIT";
-            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnExit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnExit.Depth = 0;
+            btnExit.HighEmphasis = true;
+            btnExit.Icon = null;
+            btnExit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnExit.Location = new Point(298, 284);
+            btnExit.Margin = new Padding(4, 6, 4, 6);
+            btnExit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnExit.Name = "btnExit";
+            btnExit.NoAccentTextColor = Color.Empty;
+            btnExit.Size = new Size(64, 36);
+            btnExit.TabIndex = 4;
+            btnExit.Text = "EXIT";
+            btnExit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnExit.UseAccentColor = false;
+            btnExit.UseVisualStyleBackColor = true;
             // 
             // UserForm
             // 
@@ -141,8 +141,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
             ClientSize = new Size(800, 450);
-            Controls.Add(materialButton2);
-            Controls.Add(materialButton1);
+            Controls.Add(btnExit);
+            Controls.Add(btnCreate);
             Controls.Add(hopeTextBox2);
             Controls.Add(hopeTextBox1);
             Controls.Add(label1);
@@ -159,7 +159,7 @@
         private Label label1;
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton2;
+        private ReaLTaiizor.Controls.MaterialButton btnCreate;
+        private ReaLTaiizor.Controls.MaterialButton btnExit;
     }
 }

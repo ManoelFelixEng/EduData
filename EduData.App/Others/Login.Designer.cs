@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            btnLogin = new ReaLTaiizor.Controls.MaterialButton();
+            btnRegister = new ReaLTaiizor.Controls.MaterialButton();
             hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
             hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
             label2 = new Label();
@@ -49,47 +49,47 @@
             label1.Text = "EduData";
             label1.Click += label1_Click;
             // 
-            // materialButton1
+            // btnLogin
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Font = new Font("Segoe UI", 9F);
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(185, 330);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(64, 36);
-            materialButton1.TabIndex = 1;
-            materialButton1.Text = "LOGIN";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnLogin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnLogin.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnLogin.Depth = 0;
+            btnLogin.Font = new Font("Segoe UI", 9F);
+            btnLogin.HighEmphasis = true;
+            btnLogin.Icon = null;
+            btnLogin.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnLogin.Location = new Point(185, 330);
+            btnLogin.Margin = new Padding(4, 6, 4, 6);
+            btnLogin.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnLogin.Name = "btnLogin";
+            btnLogin.NoAccentTextColor = Color.Empty;
+            btnLogin.Size = new Size(64, 36);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "LOGIN";
+            btnLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnLogin.UseAccentColor = false;
+            btnLogin.UseVisualStyleBackColor = true;
             // 
-            // materialButton2
+            // btnRegister
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.Font = new Font("Segoe UI", 9F);
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton2.Location = new Point(77, 330);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(89, 36);
-            materialButton2.TabIndex = 2;
-            materialButton2.Text = "REGISTER";
-            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnRegister.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRegister.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRegister.Depth = 0;
+            btnRegister.Font = new Font("Segoe UI", 9F);
+            btnRegister.HighEmphasis = true;
+            btnRegister.Icon = null;
+            btnRegister.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnRegister.Location = new Point(77, 330);
+            btnRegister.Margin = new Padding(4, 6, 4, 6);
+            btnRegister.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnRegister.Name = "btnRegister";
+            btnRegister.NoAccentTextColor = Color.Empty;
+            btnRegister.Size = new Size(89, 36);
+            btnRegister.TabIndex = 2;
+            btnRegister.Text = "REGISTER";
+            btnRegister.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRegister.UseAccentColor = false;
+            btnRegister.UseVisualStyleBackColor = true;
             // 
             // hopeTextBox1
             // 
@@ -158,8 +158,8 @@
             Controls.Add(label2);
             Controls.Add(hopeTextBox2);
             Controls.Add(hopeTextBox1);
-            Controls.Add(materialButton2);
-            Controls.Add(materialButton1);
+            Controls.Add(btnRegister);
+            Controls.Add(btnLogin);
             Controls.Add(label1);
             HeaderColor = Color.FromArgb(28, 59, 214);
             Image = (Image)resources.GetObject("$this.Image");
@@ -173,8 +173,8 @@
         #endregion
 
         private Label label1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton2;
+        private ReaLTaiizor.Controls.MaterialButton btnLogin;
+        private ReaLTaiizor.Controls.MaterialButton btnRegister;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
         private Label label2;
