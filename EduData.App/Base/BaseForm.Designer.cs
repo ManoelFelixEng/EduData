@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             Register = new TabPage();
-            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            btnCreate = new ReaLTaiizor.Controls.MaterialButton();
+            btnBack = new ReaLTaiizor.Controls.MaterialButton();
             Stats = new TabPage();
             poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
-            materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton5 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton7 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton8 = new ReaLTaiizor.Controls.MaterialButton();
+            btnClear = new ReaLTaiizor.Controls.MaterialButton();
+            btnDelete = new ReaLTaiizor.Controls.MaterialButton();
+            btnEdit = new ReaLTaiizor.Controls.MaterialButton();
+            btnBackList = new ReaLTaiizor.Controls.MaterialButton();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             Stats.SuspendLayout();
@@ -70,8 +70,8 @@
             // Register
             // 
             Register.BackColor = Color.FromArgb(11, 24, 87);
-            Register.Controls.Add(materialButton2);
-            Register.Controls.Add(materialButton1);
+            Register.Controls.Add(btnCreate);
+            Register.Controls.Add(btnBack);
             Register.ForeColor = SystemColors.ControlText;
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
@@ -79,57 +79,60 @@
             Register.Size = new Size(790, 366);
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
+            Register.Click += Register_Click;
             // 
-            // materialButton2
+            // btnCreate
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.Font = new Font("Segoe UI", 9F);
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton2.Location = new Point(176, 295);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(76, 36);
-            materialButton2.TabIndex = 20;
-            materialButton2.Text = "CREATE";
-            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnCreate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCreate.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCreate.Depth = 0;
+            btnCreate.Font = new Font("Segoe UI", 9F);
+            btnCreate.HighEmphasis = true;
+            btnCreate.Icon = null;
+            btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnCreate.Location = new Point(176, 295);
+            btnCreate.Margin = new Padding(4, 6, 4, 6);
+            btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCreate.Name = "btnCreate";
+            btnCreate.NoAccentTextColor = Color.Empty;
+            btnCreate.Size = new Size(76, 36);
+            btnCreate.TabIndex = 20;
+            btnCreate.Text = "CREATE";
+            btnCreate.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCreate.UseAccentColor = false;
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
-            // materialButton1
+            // btnBack
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Font = new Font("Segoe UI", 9F);
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(60, 295);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(64, 36);
-            materialButton1.TabIndex = 19;
-            materialButton1.Text = "Back";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnBack.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnBack.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnBack.Depth = 0;
+            btnBack.Font = new Font("Segoe UI", 9F);
+            btnBack.HighEmphasis = true;
+            btnBack.Icon = null;
+            btnBack.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnBack.Location = new Point(60, 295);
+            btnBack.Margin = new Padding(4, 6, 4, 6);
+            btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnBack.Name = "btnBack";
+            btnBack.NoAccentTextColor = Color.Empty;
+            btnBack.Size = new Size(64, 36);
+            btnBack.TabIndex = 19;
+            btnBack.Text = "Back";
+            btnBack.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnBack.UseAccentColor = false;
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // Stats
             // 
             Stats.BackColor = Color.FromArgb(11, 24, 87);
             Stats.Controls.Add(poisonListView1);
-            Stats.Controls.Add(materialButton6);
-            Stats.Controls.Add(materialButton5);
-            Stats.Controls.Add(materialButton7);
-            Stats.Controls.Add(materialButton8);
+            Stats.Controls.Add(btnClear);
+            Stats.Controls.Add(btnDelete);
+            Stats.Controls.Add(btnEdit);
+            Stats.Controls.Add(btnBackList);
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
@@ -150,89 +153,93 @@
             poisonListView1.UseCompatibleStateImageBehavior = false;
             poisonListView1.UseSelectable = true;
             // 
-            // materialButton6
+            // btnClear
             // 
-            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton6.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton6.Depth = 0;
-            materialButton6.Font = new Font("Segoe UI", 9F);
-            materialButton6.HighEmphasis = true;
-            materialButton6.Icon = null;
-            materialButton6.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton6.Location = new Point(314, 296);
-            materialButton6.Margin = new Padding(4, 6, 4, 6);
-            materialButton6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton6.Name = "materialButton6";
-            materialButton6.NoAccentTextColor = Color.Empty;
-            materialButton6.Size = new Size(66, 36);
-            materialButton6.TabIndex = 35;
-            materialButton6.Text = "CLEAR";
-            materialButton6.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton6.UseAccentColor = false;
-            materialButton6.UseVisualStyleBackColor = true;
+            btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnClear.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnClear.Depth = 0;
+            btnClear.Font = new Font("Segoe UI", 9F);
+            btnClear.HighEmphasis = true;
+            btnClear.Icon = null;
+            btnClear.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnClear.Location = new Point(314, 296);
+            btnClear.Margin = new Padding(4, 6, 4, 6);
+            btnClear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnClear.Name = "btnClear";
+            btnClear.NoAccentTextColor = Color.Empty;
+            btnClear.Size = new Size(66, 36);
+            btnClear.TabIndex = 35;
+            btnClear.Text = "CLEAR";
+            btnClear.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnClear.UseAccentColor = false;
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
-            // materialButton5
+            // btnDelete
             // 
-            materialButton5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton5.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton5.Depth = 0;
-            materialButton5.Font = new Font("Segoe UI", 9F);
-            materialButton5.HighEmphasis = true;
-            materialButton5.Icon = null;
-            materialButton5.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton5.Location = new Point(406, 296);
-            materialButton5.Margin = new Padding(4, 6, 4, 6);
-            materialButton5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton5.Name = "materialButton5";
-            materialButton5.NoAccentTextColor = Color.Empty;
-            materialButton5.Size = new Size(73, 36);
-            materialButton5.TabIndex = 34;
-            materialButton5.Text = "DELETE";
-            materialButton5.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton5.UseAccentColor = false;
-            materialButton5.UseVisualStyleBackColor = true;
+            btnDelete.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnDelete.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnDelete.Depth = 0;
+            btnDelete.Font = new Font("Segoe UI", 9F);
+            btnDelete.HighEmphasis = true;
+            btnDelete.Icon = null;
+            btnDelete.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnDelete.Location = new Point(406, 296);
+            btnDelete.Margin = new Padding(4, 6, 4, 6);
+            btnDelete.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnDelete.Name = "btnDelete";
+            btnDelete.NoAccentTextColor = Color.Empty;
+            btnDelete.Size = new Size(73, 36);
+            btnDelete.TabIndex = 34;
+            btnDelete.Text = "DELETE";
+            btnDelete.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnDelete.UseAccentColor = false;
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // materialButton7
+            // btnEdit
             // 
-            materialButton7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton7.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton7.Depth = 0;
-            materialButton7.Font = new Font("Segoe UI", 9F);
-            materialButton7.HighEmphasis = true;
-            materialButton7.Icon = null;
-            materialButton7.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton7.Location = new Point(519, 296);
-            materialButton7.Margin = new Padding(4, 6, 4, 6);
-            materialButton7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton7.Name = "materialButton7";
-            materialButton7.NoAccentTextColor = Color.Empty;
-            materialButton7.Size = new Size(64, 36);
-            materialButton7.TabIndex = 32;
-            materialButton7.Text = "EDIT";
-            materialButton7.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton7.UseAccentColor = false;
-            materialButton7.UseVisualStyleBackColor = true;
+            btnEdit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnEdit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnEdit.Depth = 0;
+            btnEdit.Font = new Font("Segoe UI", 9F);
+            btnEdit.HighEmphasis = true;
+            btnEdit.Icon = null;
+            btnEdit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnEdit.Location = new Point(519, 296);
+            btnEdit.Margin = new Padding(4, 6, 4, 6);
+            btnEdit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnEdit.Name = "btnEdit";
+            btnEdit.NoAccentTextColor = Color.Empty;
+            btnEdit.Size = new Size(64, 36);
+            btnEdit.TabIndex = 32;
+            btnEdit.Text = "EDIT";
+            btnEdit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnEdit.UseAccentColor = false;
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
-            // materialButton8
+            // btnBackList
             // 
-            materialButton8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton8.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton8.Depth = 0;
-            materialButton8.Font = new Font("Segoe UI", 9F);
-            materialButton8.HighEmphasis = true;
-            materialButton8.Icon = null;
-            materialButton8.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton8.Location = new Point(211, 296);
-            materialButton8.Margin = new Padding(4, 6, 4, 6);
-            materialButton8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton8.Name = "materialButton8";
-            materialButton8.NoAccentTextColor = Color.Empty;
-            materialButton8.Size = new Size(64, 36);
-            materialButton8.TabIndex = 31;
-            materialButton8.Text = "BACK";
-            materialButton8.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton8.UseAccentColor = false;
-            materialButton8.UseVisualStyleBackColor = true;
+            btnBackList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnBackList.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnBackList.Depth = 0;
+            btnBackList.Font = new Font("Segoe UI", 9F);
+            btnBackList.HighEmphasis = true;
+            btnBackList.Icon = null;
+            btnBackList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnBackList.Location = new Point(211, 296);
+            btnBackList.Margin = new Padding(4, 6, 4, 6);
+            btnBackList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnBackList.Name = "btnBackList";
+            btnBackList.NoAccentTextColor = Color.Empty;
+            btnBackList.Size = new Size(64, 36);
+            btnBackList.TabIndex = 31;
+            btnBackList.Text = "BACK";
+            btnBackList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnBackList.UseAccentColor = false;
+            btnBackList.UseVisualStyleBackColor = true;
+            btnBackList.Click += btnBackList_Click;
             // 
             // BaseForm
             // 
@@ -257,13 +264,13 @@
 
         private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         private TabPage Register;
-        private ReaLTaiizor.Controls.MaterialButton materialButton2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private ReaLTaiizor.Controls.MaterialButton btnCreate;
+        private ReaLTaiizor.Controls.MaterialButton btnBack;
         private TabPage Stats;
         private ReaLTaiizor.Controls.PoisonListView poisonListView1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton6;
-        private ReaLTaiizor.Controls.MaterialButton materialButton5;
-        private ReaLTaiizor.Controls.MaterialButton materialButton7;
-        private ReaLTaiizor.Controls.MaterialButton materialButton8;
+        private ReaLTaiizor.Controls.MaterialButton btnClear;
+        private ReaLTaiizor.Controls.MaterialButton btnDelete;
+        private ReaLTaiizor.Controls.MaterialButton btnEdit;
+        private ReaLTaiizor.Controls.MaterialButton btnBackList;
     }
 }

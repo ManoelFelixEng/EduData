@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnrollmentForm));
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             Register = new TabPage();
+            hopeTextBox3 = new ReaLTaiizor.Controls.HopeTextBox();
+            label4 = new Label();
+            hopeComboBox2 = new ReaLTaiizor.Controls.HopeComboBox();
+            label3 = new Label();
+            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             label2 = new Label();
-            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            btnCreate = new ReaLTaiizor.Controls.MaterialButton();
+            btnBack = new ReaLTaiizor.Controls.MaterialButton();
             Stats = new TabPage();
+            poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
             materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
             materialButton5 = new ReaLTaiizor.Controls.MaterialButton();
             materialButton7 = new ReaLTaiizor.Controls.MaterialButton();
             materialButton8 = new ReaLTaiizor.Controls.MaterialButton();
-            label3 = new Label();
-            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
-            hopeComboBox2 = new ReaLTaiizor.Controls.HopeComboBox();
-            label4 = new Label();
-            hopeTextBox3 = new ReaLTaiizor.Controls.HopeTextBox();
-            poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             Stats.SuspendLayout();
@@ -82,8 +82,8 @@
             Register.Controls.Add(label3);
             Register.Controls.Add(hopeComboBox1);
             Register.Controls.Add(label2);
-            Register.Controls.Add(materialButton2);
-            Register.Controls.Add(materialButton1);
+            Register.Controls.Add(btnCreate);
+            Register.Controls.Add(btnBack);
             Register.ForeColor = SystemColors.ControlText;
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
@@ -91,6 +91,79 @@
             Register.Size = new Size(790, 366);
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
+            // 
+            // hopeTextBox3
+            // 
+            hopeTextBox3.BackColor = Color.White;
+            hopeTextBox3.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox3.BorderColorA = Color.FromArgb(64, 158, 255);
+            hopeTextBox3.BorderColorB = Color.FromArgb(220, 223, 230);
+            hopeTextBox3.Font = new Font("Segoe UI", 12F);
+            hopeTextBox3.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeTextBox3.Hint = "id";
+            hopeTextBox3.Location = new Point(457, 144);
+            hopeTextBox3.MaxLength = 32767;
+            hopeTextBox3.Multiline = false;
+            hopeTextBox3.Name = "hopeTextBox3";
+            hopeTextBox3.PasswordChar = '\0';
+            hopeTextBox3.ScrollBars = ScrollBars.None;
+            hopeTextBox3.SelectedText = "";
+            hopeTextBox3.SelectionLength = 0;
+            hopeTextBox3.SelectionStart = 0;
+            hopeTextBox3.Size = new Size(42, 38);
+            hopeTextBox3.TabIndex = 41;
+            hopeTextBox3.TabStop = false;
+            hopeTextBox3.UseSystemPasswordChar = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
+            label4.ForeColor = SystemColors.Window;
+            label4.Location = new Point(64, 116);
+            label4.Name = "label4";
+            label4.Size = new Size(87, 27);
+            label4.TabIndex = 40;
+            label4.Text = "Student";
+            // 
+            // hopeComboBox2
+            // 
+            hopeComboBox2.DrawMode = DrawMode.OwnerDrawFixed;
+            hopeComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            hopeComboBox2.FlatStyle = FlatStyle.Flat;
+            hopeComboBox2.Font = new Font("Segoe UI", 12F);
+            hopeComboBox2.FormattingEnabled = true;
+            hopeComboBox2.ItemHeight = 30;
+            hopeComboBox2.Location = new Point(60, 146);
+            hopeComboBox2.Name = "hopeComboBox2";
+            hopeComboBox2.Size = new Size(172, 36);
+            hopeComboBox2.TabIndex = 39;
+            hopeComboBox2.SelectedIndexChanged += hopeComboBox2_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
+            label3.ForeColor = SystemColors.Window;
+            label3.Location = new Point(254, 116);
+            label3.Name = "label3";
+            label3.Size = new Size(158, 27);
+            label3.TabIndex = 36;
+            label3.Text = "CollegeSubject";
+            label3.Click += label3_Click;
+            // 
+            // hopeComboBox1
+            // 
+            hopeComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            hopeComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            hopeComboBox1.FlatStyle = FlatStyle.Flat;
+            hopeComboBox1.Font = new Font("Segoe UI", 12F);
+            hopeComboBox1.FormattingEnabled = true;
+            hopeComboBox1.ItemHeight = 30;
+            hopeComboBox1.Location = new Point(254, 146);
+            hopeComboBox1.Name = "hopeComboBox1";
+            hopeComboBox1.Size = new Size(172, 36);
+            hopeComboBox1.TabIndex = 35;
             // 
             // label2
             // 
@@ -104,47 +177,47 @@
             label2.Text = "Enrollment Management";
             label2.Click += label2_Click;
             // 
-            // materialButton2
+            // btnCreate
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.Font = new Font("Segoe UI", 9F);
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton2.Location = new Point(156, 239);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(76, 36);
-            materialButton2.TabIndex = 20;
-            materialButton2.Text = "CREATE";
-            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnCreate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCreate.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCreate.Depth = 0;
+            btnCreate.Font = new Font("Segoe UI", 9F);
+            btnCreate.HighEmphasis = true;
+            btnCreate.Icon = null;
+            btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnCreate.Location = new Point(156, 239);
+            btnCreate.Margin = new Padding(4, 6, 4, 6);
+            btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCreate.Name = "btnCreate";
+            btnCreate.NoAccentTextColor = Color.Empty;
+            btnCreate.Size = new Size(76, 36);
+            btnCreate.TabIndex = 20;
+            btnCreate.Text = "CREATE";
+            btnCreate.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCreate.UseAccentColor = false;
+            btnCreate.UseVisualStyleBackColor = true;
             // 
-            // materialButton1
+            // btnBack
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Font = new Font("Segoe UI", 9F);
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(60, 239);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(64, 36);
-            materialButton1.TabIndex = 19;
-            materialButton1.Text = "Back";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnBack.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnBack.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnBack.Depth = 0;
+            btnBack.Font = new Font("Segoe UI", 9F);
+            btnBack.HighEmphasis = true;
+            btnBack.Icon = null;
+            btnBack.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnBack.Location = new Point(60, 239);
+            btnBack.Margin = new Padding(4, 6, 4, 6);
+            btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnBack.Name = "btnBack";
+            btnBack.NoAccentTextColor = Color.Empty;
+            btnBack.Size = new Size(64, 36);
+            btnBack.TabIndex = 19;
+            btnBack.Text = "Back";
+            btnBack.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnBack.UseAccentColor = false;
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // Stats
             // 
@@ -160,6 +233,19 @@
             Stats.Size = new Size(790, 366);
             Stats.TabIndex = 1;
             Stats.Text = "LIST";
+            // 
+            // poisonListView1
+            // 
+            poisonListView1.Font = new Font("Segoe UI", 12F);
+            poisonListView1.FullRowSelect = true;
+            poisonListView1.HideSelection = true;
+            poisonListView1.Location = new Point(202, 40);
+            poisonListView1.Name = "poisonListView1";
+            poisonListView1.OwnerDraw = true;
+            poisonListView1.Size = new Size(381, 217);
+            poisonListView1.TabIndex = 36;
+            poisonListView1.UseCompatibleStateImageBehavior = false;
+            poisonListView1.UseSelectable = true;
             // 
             // materialButton6
             // 
@@ -245,92 +331,6 @@
             materialButton8.UseAccentColor = false;
             materialButton8.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.Window;
-            label3.Location = new Point(254, 116);
-            label3.Name = "label3";
-            label3.Size = new Size(158, 27);
-            label3.TabIndex = 36;
-            label3.Text = "CollegeSubject";
-            label3.Click += label3_Click;
-            // 
-            // hopeComboBox1
-            // 
-            hopeComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            hopeComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            hopeComboBox1.FlatStyle = FlatStyle.Flat;
-            hopeComboBox1.Font = new Font("Segoe UI", 12F);
-            hopeComboBox1.FormattingEnabled = true;
-            hopeComboBox1.ItemHeight = 30;
-            hopeComboBox1.Location = new Point(254, 146);
-            hopeComboBox1.Name = "hopeComboBox1";
-            hopeComboBox1.Size = new Size(172, 36);
-            hopeComboBox1.TabIndex = 35;
-            // 
-            // hopeComboBox2
-            // 
-            hopeComboBox2.DrawMode = DrawMode.OwnerDrawFixed;
-            hopeComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            hopeComboBox2.FlatStyle = FlatStyle.Flat;
-            hopeComboBox2.Font = new Font("Segoe UI", 12F);
-            hopeComboBox2.FormattingEnabled = true;
-            hopeComboBox2.ItemHeight = 30;
-            hopeComboBox2.Location = new Point(60, 146);
-            hopeComboBox2.Name = "hopeComboBox2";
-            hopeComboBox2.Size = new Size(172, 36);
-            hopeComboBox2.TabIndex = 39;
-            hopeComboBox2.SelectedIndexChanged += hopeComboBox2_SelectedIndexChanged;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
-            label4.ForeColor = SystemColors.Window;
-            label4.Location = new Point(64, 116);
-            label4.Name = "label4";
-            label4.Size = new Size(87, 27);
-            label4.TabIndex = 40;
-            label4.Text = "Student";
-            // 
-            // hopeTextBox3
-            // 
-            hopeTextBox3.BackColor = Color.White;
-            hopeTextBox3.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox3.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox3.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox3.Font = new Font("Segoe UI", 12F);
-            hopeTextBox3.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox3.Hint = "id";
-            hopeTextBox3.Location = new Point(457, 144);
-            hopeTextBox3.MaxLength = 32767;
-            hopeTextBox3.Multiline = false;
-            hopeTextBox3.Name = "hopeTextBox3";
-            hopeTextBox3.PasswordChar = '\0';
-            hopeTextBox3.ScrollBars = ScrollBars.None;
-            hopeTextBox3.SelectedText = "";
-            hopeTextBox3.SelectionLength = 0;
-            hopeTextBox3.SelectionStart = 0;
-            hopeTextBox3.Size = new Size(42, 38);
-            hopeTextBox3.TabIndex = 41;
-            hopeTextBox3.TabStop = false;
-            hopeTextBox3.UseSystemPasswordChar = false;
-            // 
-            // poisonListView1
-            // 
-            poisonListView1.Font = new Font("Segoe UI", 12F);
-            poisonListView1.FullRowSelect = true;
-            poisonListView1.HideSelection = true;
-            poisonListView1.Location = new Point(202, 40);
-            poisonListView1.Name = "poisonListView1";
-            poisonListView1.OwnerDraw = true;
-            poisonListView1.Size = new Size(381, 217);
-            poisonListView1.TabIndex = 36;
-            poisonListView1.UseCompatibleStateImageBehavior = false;
-            poisonListView1.UseSelectable = true;
-            // 
             // EnrollmentForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -355,8 +355,8 @@
         private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         private TabPage Register;
         private Label label2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private ReaLTaiizor.Controls.MaterialButton btnCreate;
+        private ReaLTaiizor.Controls.MaterialButton btnBack;
         private TabPage Stats;
         private ReaLTaiizor.Controls.MaterialButton materialButton6;
         private ReaLTaiizor.Controls.MaterialButton materialButton5;

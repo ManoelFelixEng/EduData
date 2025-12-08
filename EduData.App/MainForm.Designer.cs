@@ -34,7 +34,6 @@
             Stats = new TabPage();
             Register_Class = new ToolStripButton();
             Registration_CollegeSubject = new ToolStripButton();
-            this.Resgistration_Student = new ToolStripButton();
             toolStrip1 = new ToolStrip();
             Enrollment_Management = new ToolStripButton();
             Evaluation_Management = new ToolStripButton();
@@ -114,16 +113,11 @@
             // 
             // Resgistration_Student
             // 
-            this.Resgistration_Student.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
-            this.Resgistration_Student.Image = (Image)resources.GetObject("Resgistration_Student.Image");
-            this.Resgistration_Student.ImageTransparentColor = Color.Magenta;
-            this.Resgistration_Student.Name = "Resgistration_Student";
-            this.Resgistration_Student.Size = new Size(136, 22);
-            this.Resgistration_Student.Text = "Registration Student";
+
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { Register_Class, toolStripSeparator1, Registration_CollegeSubject, toolStripSeparator2, this.Resgistration_Student, toolStripSeparator3, Enrollment_Management, toolStripSeparator4, Evaluation_Management, toolStripSeparator5 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { Register_Class, toolStripSeparator1, Registration_CollegeSubject, toolStripSeparator2, toolStripSeparator3, Enrollment_Management, toolStripSeparator4, Evaluation_Management, toolStripSeparator5 });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(827, 25);
