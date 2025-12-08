@@ -165,6 +165,7 @@
             Image = (Image)resources.GetObject("$this.Image");
             Name = "Login";
             Text = "Login";
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }

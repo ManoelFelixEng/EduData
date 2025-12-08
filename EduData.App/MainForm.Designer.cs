@@ -33,9 +33,9 @@
             Register = new TabPage();
             toolStrip1 = new ToolStrip();
             Register_Class = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
             Registration_CollegeSubject = new ToolStripButton();
             Stats = new TabPage();
-            toolStripSeparator1 = new ToolStripSeparator();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -51,11 +51,11 @@
             hopeTabPage1.ForeColorB = Color.Gray;
             hopeTabPage1.ForeColorC = Color.FromArgb(150, 255, 255, 255);
             hopeTabPage1.ItemSize = new Size(120, 40);
-            hopeTabPage1.Location = new Point(0, 50);
+            hopeTabPage1.Location = new Point(5, 39);
             hopeTabPage1.Name = "hopeTabPage1";
             hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new Size(802, 427);
+            hopeTabPage1.Size = new Size(833, 427);
             hopeTabPage1.SizeMode = TabSizeMode.Fixed;
             hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             hopeTabPage1.TabIndex = 0;
@@ -72,7 +72,7 @@
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
             Register.Padding = new Padding(3);
-            Register.Size = new Size(802, 387);
+            Register.Size = new Size(833, 387);
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
             // 
@@ -81,7 +81,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { Register_Class, toolStripSeparator1, Registration_CollegeSubject });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(796, 30);
+            toolStrip1.Size = new Size(827, 30);
             toolStrip1.TabIndex = 0;
             toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
@@ -93,6 +93,14 @@
             Register_Class.Name = "Register_Class";
             Register_Class.Size = new Size(138, 27);
             Register_Class.Text = "Register Class";
+            Register_Class.Click += Register_Class_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.AutoSize = false;
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Overflow = ToolStripItemOverflow.Never;
+            toolStripSeparator1.Size = new Size(60, 30);
             // 
             // Registration_CollegeSubject
             // 
@@ -105,20 +113,13 @@
             // 
             // Stats
             // 
+            Stats.BackColor = Color.FromArgb(11, 24, 87);
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
             Stats.Size = new Size(802, 387);
             Stats.TabIndex = 1;
             Stats.Text = "Stats";
-            Stats.UseVisualStyleBackColor = true;
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.AutoSize = false;
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Overflow = ToolStripItemOverflow.Never;
-            toolStripSeparator1.Size = new Size(60, 30);
             // 
             // MainForm
             // 

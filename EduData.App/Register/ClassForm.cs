@@ -17,5 +17,15 @@ namespace EduData.App.Register
         {
             InitializeComponent();
         }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hopeTextBox4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

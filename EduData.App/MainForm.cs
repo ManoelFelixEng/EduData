@@ -32,5 +32,10 @@ namespace EduData.App
         {
 
         }
+
+        private void Register_Class_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

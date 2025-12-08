@@ -11,26 +11,11 @@ using System.Windows.Forms;
 
 namespace EduData.App.Others
 {
-    public partial class Login : LostForm
+    public partial class EnrollmentForm : LostForm
     {
-        public Login()
+        public EnrollmentForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hopeTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
