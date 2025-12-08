@@ -31,11 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             Register = new TabPage();
-            toolStrip1 = new ToolStrip();
-            Register_Class = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            Registration_CollegeSubject = new ToolStripButton();
             Stats = new TabPage();
+            Register_Class = new ToolStripButton();
+            Registration_CollegeSubject = new ToolStripButton();
+            this.Resgistration_Student = new ToolStripButton();
+            toolStrip1 = new ToolStrip();
+            Enrollment_Management = new ToolStripButton();
+            Evaluation_Management = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator2 = new ToolStripSeparator();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
+            toolStripSeparator5 = new ToolStripSeparator();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -76,50 +83,95 @@
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
             // 
-            // toolStrip1
-            // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { Register_Class, toolStripSeparator1, Registration_CollegeSubject });
-            toolStrip1.Location = new Point(3, 3);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(827, 30);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
-            // 
-            // Register_Class
-            // 
-            Register_Class.Font = new Font("Trebuchet MS", 12.12F);
-            Register_Class.Image = (Image)resources.GetObject("Register_Class.Image");
-            Register_Class.ImageTransparentColor = Color.Magenta;
-            Register_Class.Name = "Register_Class";
-            Register_Class.Size = new Size(138, 27);
-            Register_Class.Text = "Register Class";
-            Register_Class.Click += Register_Class_Click;
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.AutoSize = false;
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Overflow = ToolStripItemOverflow.Never;
-            toolStripSeparator1.Size = new Size(60, 30);
-            // 
-            // Registration_CollegeSubject
-            // 
-            Registration_CollegeSubject.Font = new Font("Trebuchet MS", 12.12F, FontStyle.Bold);
-            Registration_CollegeSubject.Image = (Image)resources.GetObject("Registration_CollegeSubject.Image");
-            Registration_CollegeSubject.ImageTransparentColor = Color.Magenta;
-            Registration_CollegeSubject.Name = "Registration_CollegeSubject";
-            Registration_CollegeSubject.Size = new Size(250, 27);
-            Registration_CollegeSubject.Text = "Registration CollegeSubject";
-            // 
             // Stats
             // 
             Stats.BackColor = Color.FromArgb(11, 24, 87);
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
-            Stats.Size = new Size(802, 387);
+            Stats.Size = new Size(833, 387);
             Stats.TabIndex = 1;
             Stats.Text = "Stats";
+            // 
+            // Register_Class
+            // 
+            Register_Class.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
+            Register_Class.Image = (Image)resources.GetObject("Register_Class.Image");
+            Register_Class.ImageTransparentColor = Color.Magenta;
+            Register_Class.Name = "Register_Class";
+            Register_Class.Size = new Size(100, 22);
+            Register_Class.Text = "Register Class";
+            Register_Class.Click += Register_Class_Click;
+            // 
+            // Registration_CollegeSubject
+            // 
+            Registration_CollegeSubject.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
+            Registration_CollegeSubject.Image = (Image)resources.GetObject("Registration_CollegeSubject.Image");
+            Registration_CollegeSubject.ImageTransparentColor = Color.Magenta;
+            Registration_CollegeSubject.Name = "Registration_CollegeSubject";
+            Registration_CollegeSubject.Size = new Size(176, 22);
+            Registration_CollegeSubject.Text = "Registration CollegeSubject";
+            // 
+            // Resgistration_Student
+            // 
+            this.Resgistration_Student.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
+            this.Resgistration_Student.Image = (Image)resources.GetObject("Resgistration_Student.Image");
+            this.Resgistration_Student.ImageTransparentColor = Color.Magenta;
+            this.Resgistration_Student.Name = "Resgistration_Student";
+            this.Resgistration_Student.Size = new Size(136, 22);
+            this.Resgistration_Student.Text = "Registration Student";
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { Register_Class, toolStripSeparator1, Registration_CollegeSubject, toolStripSeparator2, this.Resgistration_Student, toolStripSeparator3, Enrollment_Management, toolStripSeparator4, Evaluation_Management, toolStripSeparator5 });
+            toolStrip1.Location = new Point(3, 3);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(827, 25);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
+            // 
+            // Enrollment_Management
+            // 
+            Enrollment_Management.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
+            Enrollment_Management.Image = (Image)resources.GetObject("Enrollment_Management.Image");
+            Enrollment_Management.ImageTransparentColor = Color.Magenta;
+            Enrollment_Management.Name = "Enrollment_Management";
+            Enrollment_Management.Size = new Size(155, 22);
+            Enrollment_Management.Text = "Enrollment Management";
+            // 
+            // Evaluation_Management
+            // 
+            Evaluation_Management.Font = new Font("Trebuchet MS", 7.7F, FontStyle.Bold);
+            Evaluation_Management.Image = (Image)resources.GetObject("Evaluation_Management.Image");
+            Evaluation_Management.ImageTransparentColor = Color.Magenta;
+            Evaluation_Management.Name = "Evaluation_Management";
+            Evaluation_Management.Size = new Size(152, 22);
+            Evaluation_Management.Text = "Evaluation Management";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 25);
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 25);
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(6, 25);
             // 
             // MainForm
             // 
@@ -147,7 +199,14 @@
         private TabPage Stats;
         private ToolStrip toolStrip1;
         private ToolStripButton Register_Class;
-        private ToolStripButton Registration_CollegeSubject;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton Registration_CollegeSubject;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton Enrollment_Management;
+        private ToolStripButton Evaluation_Management;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator3;
     }
 }

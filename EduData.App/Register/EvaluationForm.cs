@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EduData.App.Others
+namespace EduData.App.Register
 {
-    public partial class EnrollmentForm : LostForm
+    public partial class EvaluationForm : LostForm
     {
-        public EnrollmentForm()
+        public EvaluationForm()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace EduData.App.Others
 
         }
 
-        private void hopeComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

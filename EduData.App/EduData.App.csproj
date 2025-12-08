@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
     <Folder Include="Config\" />
     <Folder Include="Infra\" />
     <Folder Include="ViewModel\" />

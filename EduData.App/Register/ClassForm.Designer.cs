@@ -41,13 +41,12 @@
             Stats = new TabPage();
             materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
             materialButton5 = new ReaLTaiizor.Controls.MaterialButton();
-            dataGridView1 = new DataGridView();
             materialButton7 = new ReaLTaiizor.Controls.MaterialButton();
             materialButton8 = new ReaLTaiizor.Controls.MaterialButton();
+            poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             Stats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // materialButton2
@@ -241,9 +240,9 @@
             // Stats
             // 
             Stats.BackColor = Color.FromArgb(11, 24, 87);
+            Stats.Controls.Add(poisonListView1);
             Stats.Controls.Add(materialButton6);
             Stats.Controls.Add(materialButton5);
-            Stats.Controls.Add(dataGridView1);
             Stats.Controls.Add(materialButton7);
             Stats.Controls.Add(materialButton8);
             Stats.Location = new Point(0, 40);
@@ -295,14 +294,6 @@
             materialButton5.UseAccentColor = false;
             materialButton5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(205, 49);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(372, 213);
-            dataGridView1.TabIndex = 33;
-            // 
             // materialButton7
             // 
             materialButton7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -345,6 +336,19 @@
             materialButton8.UseAccentColor = false;
             materialButton8.UseVisualStyleBackColor = true;
             // 
+            // poisonListView1
+            // 
+            poisonListView1.Font = new Font("Segoe UI", 12F);
+            poisonListView1.FullRowSelect = true;
+            poisonListView1.HideSelection = true;
+            poisonListView1.Location = new Point(199, 33);
+            poisonListView1.Name = "poisonListView1";
+            poisonListView1.OwnerDraw = true;
+            poisonListView1.Size = new Size(381, 217);
+            poisonListView1.TabIndex = 37;
+            poisonListView1.UseCompatibleStateImageBehavior = false;
+            poisonListView1.UseSelectable = true;
+            // 
             // ClassForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -361,7 +365,6 @@
             Register.PerformLayout();
             Stats.ResumeLayout(false);
             Stats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -379,8 +382,8 @@
         private TabPage Stats;
         private ReaLTaiizor.Controls.MaterialButton materialButton6;
         private ReaLTaiizor.Controls.MaterialButton materialButton5;
-        private DataGridView dataGridView1;
         private ReaLTaiizor.Controls.MaterialButton materialButton7;
         private ReaLTaiizor.Controls.MaterialButton materialButton8;
+        private ReaLTaiizor.Controls.PoisonListView poisonListView1;
     }
 }
