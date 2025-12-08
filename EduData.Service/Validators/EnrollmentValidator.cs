@@ -1,5 +1,6 @@
-using FluentValidation;
 using EduData.Domain.Entities;
+using FluentValidation;
+using System.Xml.Linq;
 
 namespace EduData.Service.Validators
 {
@@ -7,19 +8,18 @@ namespace EduData.Service.Validators
     {
         public EnrollmentValidator()
         {
-            RuleFor(x => x.Id_Student)
-                .GreaterThan(0).WithMessage("Aluno inválido para matrícula.");
+            RuleFor(e => e.FinalScore)
+                .NotNull().WithMessage("A nota final é obrigatória (mesmo que seja 0).");
 
-            RuleFor(x => x.Id_Class)
-                .GreaterThan(0).WithMessage("Turma inválida para matrícula.");
+            // Validação dos Relacionamentos
+            RuleFor(e => e.Student)
+                .NotEmpty().WithMessage("Informe o Aluno da matrícula.");
 
-            RuleFor(x => x.Id_College_Subject)
-                .GreaterThan(0).WithMessage("Disciplina inválida para matrícula.");
+            RuleFor(e => e.Class)
+                .NotEmpty().WithMessage("Informe a Turma da matrícula.");
 
-
-            RuleFor(x => x.Final_Score)
-                .GreaterThanOrEqualTo(0).WithMessage("A nota final não pode ser negativa.")
-                .LessThanOrEqualTo(10).WithMessage("A nota final não pode ser maior que 10.");
+            RuleFor(e => e.CollegeSubject)
+                .NotEmpty().WithMessage("Informe a Disciplina da matrícula.");
         }
     }
 }

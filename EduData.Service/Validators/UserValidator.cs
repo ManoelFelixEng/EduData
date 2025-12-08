@@ -7,7 +7,7 @@ namespace EduData.Service.Validators
     {
         public UserValidator()
         {
-            RuleFor(x => x.Username)
+            RuleFor(x => x.Name) 
                 .NotEmpty().WithMessage("O nome de usuário é obrigatório.")
                 .Length(3, 50).WithMessage("O usuário deve ter entre 3 e 50 caracteres.");
 

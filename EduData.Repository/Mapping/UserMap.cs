@@ -12,10 +12,11 @@ namespace EduData.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("User");
+            builder.ToTable("user"); 
             builder.HasKey(prop => prop.Id);
-            builder.Property(prop => prop.Id).HasColumnName("id_user").IsRequired();
-            builder.Property(prop => prop.Username).HasColumnName("username").HasMaxLength(50).IsRequired();
+
+            builder.Property(prop => prop.Id).HasColumnName("id_user");
+            builder.Property(prop => prop.Name).HasColumnName("username").HasMaxLength(50).IsRequired(); 
             builder.Property(prop => prop.Password).HasColumnName("password").HasMaxLength(100).IsRequired();
             builder.Property(prop => prop.Role).HasColumnName("role").HasMaxLength(100).IsRequired();
 

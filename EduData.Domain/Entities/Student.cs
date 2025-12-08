@@ -9,28 +9,21 @@ namespace EduData.Domain.Entities
 {
     public class Student : BaseEntity<int>
     {
-
         public Student()
         {
-
         }
-       
 
-        public Student(int id, string name, int id_class, DateTime dateBirth) : base(id)
+        public Student(int id, string name, DateTime dateBirth, Class @class) : base(id)
         {
             Name = name;
-            Id_Class = id_class;
-            Date_Birth = dateBirth;
+            DateBirth = dateBirth;
+            Class = @class;
         }
+
         public string Name { get; set; }
-        public DateTime Date_Birth { get; set; }
+        public DateTime DateBirth { get; set; }
 
-        //cHAVE ESTRANGEIRA
-        public int Id_Class { get; set; }
-        
-
-
+        // Propriedade de Navegação (O Objeto Turma, não só o ID)
+        public Class Class { get; set; }
     }
 }
-
-

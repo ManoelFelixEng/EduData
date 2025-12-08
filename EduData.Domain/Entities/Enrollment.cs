@@ -10,25 +10,23 @@ namespace EduData.Domain.Entities
 {
     public class Enrollment : BaseEntity<int>
     {
+        public Enrollment()
+        {
+        }
 
-        public Enrollment() 
+        public Enrollment(int id, Student student, Class @class, CollegeSubject collegeSubject, int finalScore) : base(id)
         {
+            Student = student;
+            Class = @class;
+            CollegeSubject = collegeSubject;
+            FinalScore = finalScore;
         }
-        public Enrollment(int id, int id_student, int id_class, int id_collegeSubject, int finalScore) : base(id)
-        {
-            Id_Student = id_student;
-            Id_Class = id_class;
-            Id_College_Subject = id_collegeSubject;
-            Final_Score = finalScore;
-        }
-        public int Final_Score { get; set; }
-            
-        //chave estrangeira
-        public int Id_Student { get; set; }
-        public int Id_Class { get; set; }
-        public int Id_College_Subject { get; set; }
-  
+
+        public int FinalScore { get; set; }
+
+        // Propriedades de Navegação
+        public Student Student { get; set; }
+        public Class Class { get; set; }
+        public CollegeSubject CollegeSubject { get; set; }
     }
 }
-
-

@@ -4,13 +4,13 @@ namespace EduData.App.ViewModel
 {
     public class StudentViewModel
     {
-        
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime Date_Birth { get; set; }
-        public int Id_class { get; set; } // chave estrangeira
+        public DateTime DateBirth { get; set; }
 
-        
-        public string ClassName { get; set; }
+       
+        public int ClassId { get; set; }      
+        public string ClassCourse { get; set; } 
     }
 }

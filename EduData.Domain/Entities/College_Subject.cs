@@ -7,21 +7,19 @@ using EduData.Domain.Base;
 
 namespace EduData.Domain.Entities
 {
-    public class College_Subject : BaseEntity<int>
+    public class CollegeSubject : BaseEntity<int>
     {
-
-        public College_Subject()
+        public CollegeSubject()
         {
+        }
 
-        }
-        public College_Subject(int id,string name, int courseload  ) : base(id)
+        public CollegeSubject(int id, string name, int courseLoad) : base(id)
         {
-           Name = name;
-           Courseload = courseload;
+            Name = name;
+            CourseLoad = courseLoad;
         }
+
         public string Name { get; set; }
-        public int Courseload { get; set; }
-
-        
+        public int CourseLoad { get; set; }
     }
 }

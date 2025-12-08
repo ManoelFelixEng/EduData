@@ -12,18 +12,17 @@ namespace EduData.Domain.Entities
     {
         public User()
         {
-
         }
-        public User(int id, string username, string password, string role ) : base(id)
+
+        public User(int id, string name, string password, string role) : base(id)
         {
-            Username = username;
+            Name = name;
             Password = password;
             Role = role;
         }
 
-
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public string Name { get; set; }      
+        public string Password { get; set; }  
+        public string Role { get; set; }      
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace EduData.App.ViewModel
 {
     public class CollegeSubjectViewModel

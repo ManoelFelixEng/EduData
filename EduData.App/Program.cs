@@ -1,27 +1,19 @@
-﻿using EduData.App.Infra;
-using System;
-using System.Windows.Forms;
+using EduData.App.Others;
 
 namespace EduData.App
 {
     internal static class Program
     {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
         [STAThread]
         static void Main()
         {
-            // Inicializa as configurações da aplicação
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-
-            // Configura a Injeção de Dependência
-            ConfigureDI.ConfigureServices();
-
-            // Exemplo de como abrir o primeiro formulário usando DI
-            // Supondo que você tenha um form de Login ou Principal
-            // var loginForm = ConfigureDI.ServicesProvider.GetRequiredService<Login>();
-            // Application.Run(loginForm);
-
-            // Por enquanto, como ainda vamos criar os forms, deixamos comentado ou padrão:
-            // Application.Run(new Form1()); 
+            Application.Run(new MainForm());
         }
     }
 }

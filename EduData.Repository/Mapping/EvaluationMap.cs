@@ -15,20 +15,14 @@ namespace EduData.Repository.Mapping
             builder.ToTable("evaluation");
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Id).HasColumnName("id_evaluation").IsRequired();
+            builder.Property(prop => prop.Id).HasColumnName("id_evaluation");
+            builder.Property(prop => prop.NameEvaluation).HasColumnName("name_evaluation").HasMaxLength(100).IsRequired();
+            builder.Property(prop => prop.DateEvaluation).HasColumnName("date_evaluation").HasColumnType("DATE").IsRequired();
+            builder.Property(prop => prop.ScoreValue).HasColumnName("score_value").IsRequired();
 
-            builder.Property(prop => prop.Name_Evaluation).HasColumnName("name_evaluation").HasMaxLength(100).IsRequired();
-
-            builder.Property(prop => prop.Date_Evaluation).HasColumnName("date_evaluation").HasColumnType("DATE").IsRequired();
-
-            builder.Property(prop => prop.Score_Value).HasColumnName("score_value").IsRequired();
-
-            builder.Property(prop => prop.IdEnrollment) .HasColumnName("id_enrollment").IsRequired();
-
-            //estrangeiras
-            builder.Property(prop => prop.Id_student).HasColumnName("enrolment_student_id_student").IsRequired();
-            builder.Property(prop => prop.Id_class).HasColumnName("enrolment_student_id_class").IsRequired();
-            builder.Property(prop => prop.Id_college_subject).HasColumnName("enrolment_college_subject_id_college_subject").IsRequired();
+           
+            // id_enrollment para ligar as tabelas
+            builder.HasOne(prop => prop.Enrollment).WithMany().HasForeignKey("id_enrollment");
 
         }
     }

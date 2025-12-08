@@ -11,12 +11,13 @@ namespace EduData.Service.Validators
                 .NotEmpty().WithMessage("O nome do aluno é obrigatório.")
                 .MaximumLength(100).WithMessage("O nome deve ter no máximo 100 caracteres.");
 
-            RuleFor(x => x.Date_Birth)
+            RuleFor(x => x.DateBirth) 
                 .NotEmpty().WithMessage("A data de nascimento é obrigatória.")
                 .LessThan(DateTime.Now).WithMessage("A data de nascimento deve ser no passado.");
 
-            RuleFor(x => x.Id_Class)
-                .GreaterThan(0).WithMessage("É necessário vincular o aluno a uma turma válida.");
+            
+            RuleFor(x => x.Class)
+                .NotNull().WithMessage("É necessário vincular o aluno a uma turma válida.");
         }
     }
 }

@@ -9,15 +9,16 @@ using EduData.Domain.Entities;
 
 namespace EduData.Repository.Mapping
 {
-    public class College_SubjectMap : IEntityTypeConfiguration<College_Subject>
+    public class College_SubjectMap : IEntityTypeConfiguration<CollegeSubject>
     {
-        public void Configure(EntityTypeBuilder<College_Subject> builder)
+        public void Configure(EntityTypeBuilder<CollegeSubject> builder)
         {
             builder.ToTable("college_subject");
             builder.HasKey(prop => prop.Id);
-            builder.Property(prop => prop.Id).HasColumnName("id_college_subject").IsRequired();
+
+            builder.Property(prop => prop.Id).HasColumnName("id_college_subject");
             builder.Property(prop => prop.Name).HasColumnName("name").HasMaxLength(100).IsRequired();
-            builder.Property(prop => prop.Courseload).HasColumnName("courseload").IsRequired();
+            builder.Property(prop => prop.CourseLoad).HasColumnName("courseload").IsRequired();
         }
 
     }

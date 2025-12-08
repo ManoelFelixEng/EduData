@@ -14,10 +14,13 @@ namespace EduData.Repository.Mapping
         {
             builder.ToTable("student");
             builder.HasKey(prop => prop.Id);
-            builder.Property(prop => prop.Id).HasColumnName("id_student").IsRequired();
+
+            builder.Property(prop => prop.Id).HasColumnName("id_student");
             builder.Property(prop => prop.Name).HasColumnName("name").HasMaxLength(100).IsRequired();
-            builder.Property(prop => prop.Date_Birth).HasColumnName("date_birth").HasColumnType("DATE").IsRequired();
-            builder.Property(prop => prop.Id_Class).HasColumnName("id_class").IsRequired();
+            builder.Property(prop => prop.DateBirth).HasColumnName("date_birth").HasColumnType("DATE").IsRequired();
+
+
+            builder.HasOne(prop => prop.Class).WithMany().HasForeignKey("id_class");
 
         }
 

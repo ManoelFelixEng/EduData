@@ -18,14 +18,14 @@ namespace EduData.Repository.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=IFSPStore;user=root;password=");
+            optionsBuilder.UseMySQL("server=localhost;database=EduData;user=root;password=");
         }
 
 
         public DbSet<User> Users { get; set; }
         public DbSet<Class> Classes { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<College_Subject> CollegeSubjects { get; set; }
+        public DbSet<CollegeSubject> CollegeSubjects { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
 
@@ -35,7 +35,7 @@ namespace EduData.Repository.Context
             modelBuilder.Entity<User>(new UserMap().Configure);
             modelBuilder.Entity<Class>(new ClassMap().Configure);
             modelBuilder.Entity<Student>(new StudentMap().Configure);
-            modelBuilder.Entity<College_Subject>(new College_SubjectMap().Configure);
+            modelBuilder.Entity<CollegeSubject>(new College_SubjectMap().Configure);
             modelBuilder.Entity<Enrollment>(new EnrollmentMap().Configure);
             modelBuilder.Entity<Evaluation>(new EvaluationMap().Configure);
 
@@ -43,3 +43,5 @@ namespace EduData.Repository.Context
 
     }
 }
+
+
