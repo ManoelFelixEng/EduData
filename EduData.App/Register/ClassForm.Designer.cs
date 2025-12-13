@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewGroup listViewGroup1 = new ListViewGroup("ListViewGroup", HorizontalAlignment.Left);
-            ListViewGroup listViewGroup2 = new ListViewGroup("ListViewGroup", HorizontalAlignment.Left);
-            ListViewGroup listViewGroup3 = new ListViewGroup("ListViewGroup", HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassForm));
             Register = new TabPage();
             hopeTextBox3 = new ReaLTaiizor.Controls.HopeTextBox();
@@ -75,7 +72,9 @@
             // 
             // poisonListView1
             // 
-
+            poisonListView1.Location = new Point(53, 33);
+            poisonListView1.OwnerDraw = false;
+            poisonListView1.Size = new Size(696, 217);
             // 
             // Register
             // 
@@ -692,7 +691,7 @@
         private ReaLTaiizor.Controls.MaterialButton btnDelete;
         private ReaLTaiizor.Controls.MaterialButton btnEdit;
         private ReaLTaiizor.Controls.MaterialButton btnBackList;
-        private ReaLTaiizor.Controls.PoisonListView poisonListView1;
+
         private ReaLTaiizor.Controls.MaterialButton materialButton1;
         private ReaLTaiizor.Controls.MaterialButton materialButton2;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox4;
@@ -716,5 +715,6 @@
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox15;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox16;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox17;
+
     }
 }

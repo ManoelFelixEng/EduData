@@ -17,8 +17,12 @@ namespace EduData.App.Register
         {
             _classService = classService;
             InitializeComponent();
-            
-            
+
+            // 1. CHAMA A CRIAÇÃO DO GRID AQUI
+            ConfigurarGrid();
+
+            // 2. DEPOIS CARREGA OS DADOS
+            CarregarGrid();
 
         }
 
@@ -73,6 +77,33 @@ namespace EduData.App.Register
                 MessageBox.Show(ex.Message, "Erro ao salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }*/
+
+        private void ConfigurarGrid()
+        {
+            // Verifica se a lista existe antes de mexer (Segurança contra o erro Null)
+            if (poisonListView1 != null)
+            {
+                // Limpa tudo que tiver antes
+                poisonListView1.Columns.Clear();
+
+                // Configurações visuais importantes
+                poisonListView1.View = View.Details; // Modo Tabela
+                poisonListView1.GridLines = true;
+                poisonListView1.FullRowSelect = true;
+                poisonListView1.OwnerDraw = false;  // Deixa o Windows desenhar (evita tela branca)
+                poisonListView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+
+                // ADICIONA AS COLUNAS (Nome, Largura)
+                poisonListView1.Columns.Add("ID", 50);
+                poisonListView1.Columns.Add("Curso", 250);
+                poisonListView1.Columns.Add("Período", 80);
+                poisonListView1.Columns.Add("Alunos", 80);
+            }
+            else
+            {
+                MessageBox.Show("Erro Crítico: A lista não foi carregada do BaseForm.");
+            }
+        }
         protected override void Salvar()
         {
             try
@@ -118,6 +149,29 @@ namespace EduData.App.Register
             {
                 // Se tentar salvar ID duplicado, o erro cai aqui
                 MessageBox.Show($"Erro ao salvar (Verifique se o ID já existe): {ex.Message}");
+            }
+        }
+        protected override void CarregarGrid()
+        {
+            // 1. Busca os dados do banco e converte para ViewModel
+            var classes = _classService.Get<ClassViewModel>();
+
+            // 2. Limpa a lista visual antes de preencher
+            poisonListView1.Items.Clear();
+
+            // 3. Percorre cada turma encontrada e adiciona na lista
+            foreach (var c in classes)
+            {
+                // Cria a linha começando pelo ID (Coluna 0)
+                var item = new ListViewItem(c.Id.ToString());
+
+                // Adiciona as colunas seguintes na ordem certa
+                item.SubItems.Add(c.Course);                   // Coluna 1: Curso
+                item.SubItems.Add(c.Period.ToString());        // Coluna 2: Período
+                item.SubItems.Add(c.NumberStudents.ToString());// Coluna 3: Alunos
+
+                // Adiciona a linha completa na tabela
+                poisonListView1.Items.Add(item);
             }
         }
 
