@@ -72,7 +72,7 @@
             // 
             // poisonListView1
             // 
-            poisonListView1.Location = new Point(53, 33);
+            poisonListView1.Location = new Point(60, 38);
             poisonListView1.OwnerDraw = false;
             poisonListView1.Size = new Size(696, 217);
             // 

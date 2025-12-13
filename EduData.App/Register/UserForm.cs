@@ -37,9 +37,9 @@ namespace EduData.App.Register
 
                 // salvar
                 _userService.Add<User, User, UserValidator>(newUser);
-      
+
                 MessageBox.Show("Usuário cadastrado com sucesso!", "EduData", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    
+
                 this.Close();
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace EduData.App.Register
             }
         }
 
-  
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -62,6 +62,11 @@ namespace EduData.App.Register
 
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hopeTextBox5_Click(object sender, EventArgs e)
         {
 
         }

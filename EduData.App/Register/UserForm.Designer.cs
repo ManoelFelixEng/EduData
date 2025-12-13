@@ -36,6 +36,10 @@
             btnExit = new ReaLTaiizor.Controls.MaterialButton();
             hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             label3 = new Label();
+            hopeTextBox3 = new ReaLTaiizor.Controls.HopeTextBox();
+            hopeTextBox4 = new ReaLTaiizor.Controls.HopeTextBox();
+            label2 = new Label();
+            hopeTextBox5 = new ReaLTaiizor.Controls.HopeTextBox();
             SuspendLayout();
             // 
             // label1
@@ -164,12 +168,100 @@
             label3.Text = "Role";
             label3.Click += label3_Click;
             // 
+            // hopeTextBox3
+            // 
+            hopeTextBox3.BackColor = Color.White;
+            hopeTextBox3.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox3.BorderColorA = Color.FromArgb(64, 158, 255);
+            hopeTextBox3.BorderColorB = Color.FromArgb(220, 223, 230);
+            hopeTextBox3.Font = new Font("Segoe UI", 12F);
+            hopeTextBox3.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeTextBox3.Hint = "id";
+            hopeTextBox3.Location = new Point(639, 418);
+            hopeTextBox3.MaxLength = 32767;
+            hopeTextBox3.Multiline = false;
+            hopeTextBox3.Name = "hopeTextBox3";
+            hopeTextBox3.PasswordChar = '\0';
+            hopeTextBox3.ScrollBars = ScrollBars.None;
+            hopeTextBox3.SelectedText = "";
+            hopeTextBox3.SelectionLength = 0;
+            hopeTextBox3.SelectionStart = 0;
+            hopeTextBox3.Size = new Size(42, 38);
+            hopeTextBox3.TabIndex = 41;
+            hopeTextBox3.TabStop = false;
+            hopeTextBox3.UseSystemPasswordChar = false;
+            hopeTextBox3.Click += this.hopeTextBox3_Click;
+            // 
+            // hopeTextBox4
+            // 
+            hopeTextBox4.BackColor = Color.White;
+            hopeTextBox4.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox4.BorderColorA = Color.FromArgb(64, 158, 255);
+            hopeTextBox4.BorderColorB = Color.FromArgb(220, 223, 230);
+            hopeTextBox4.Font = new Font("Segoe UI", 12F);
+            hopeTextBox4.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeTextBox4.Hint = "COURSE LOAD";
+            hopeTextBox4.Location = new Point(639, 365);
+            hopeTextBox4.MaxLength = 32767;
+            hopeTextBox4.Multiline = false;
+            hopeTextBox4.Name = "hopeTextBox4";
+            hopeTextBox4.PasswordChar = '\0';
+            hopeTextBox4.ScrollBars = ScrollBars.None;
+            hopeTextBox4.SelectedText = "";
+            hopeTextBox4.SelectionLength = 0;
+            hopeTextBox4.SelectionStart = 0;
+            hopeTextBox4.Size = new Size(172, 38);
+            hopeTextBox4.TabIndex = 40;
+            hopeTextBox4.TabStop = false;
+            hopeTextBox4.UseSystemPasswordChar = false;
+            hopeTextBox4.Click += this.hopeTextBox4_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(639, 247);
+            label2.Name = "label2";
+            label2.Size = new Size(332, 35);
+            label2.TabIndex = 39;
+            label2.Text = "Register-College-Subject";
+            label2.Click += this.label2_Click;
+            // 
+            // hopeTextBox5
+            // 
+            hopeTextBox5.BackColor = Color.White;
+            hopeTextBox5.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox5.BorderColorA = Color.FromArgb(64, 158, 255);
+            hopeTextBox5.BorderColorB = Color.FromArgb(220, 223, 230);
+            hopeTextBox5.Font = new Font("Segoe UI", 12F);
+            hopeTextBox5.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeTextBox5.Hint = "NAME";
+            hopeTextBox5.Location = new Point(639, 308);
+            hopeTextBox5.MaxLength = 32767;
+            hopeTextBox5.Multiline = false;
+            hopeTextBox5.Name = "hopeTextBox5";
+            hopeTextBox5.PasswordChar = '\0';
+            hopeTextBox5.ScrollBars = ScrollBars.None;
+            hopeTextBox5.SelectedText = "";
+            hopeTextBox5.SelectionLength = 0;
+            hopeTextBox5.SelectionStart = 0;
+            hopeTextBox5.Size = new Size(172, 38);
+            hopeTextBox5.TabIndex = 38;
+            hopeTextBox5.TabStop = false;
+            hopeTextBox5.UseSystemPasswordChar = false;
+            hopeTextBox5.Click += hopeTextBox5_Click;
+            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
             ClientSize = new Size(800, 450);
+            Controls.Add(hopeTextBox3);
+            Controls.Add(hopeTextBox4);
+            Controls.Add(label2);
+            Controls.Add(hopeTextBox5);
             Controls.Add(label3);
             Controls.Add(hopeComboBox1);
             Controls.Add(btnExit);
@@ -194,5 +286,9 @@
         private ReaLTaiizor.Controls.MaterialButton btnExit;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private Label label3;
+        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox3;
+        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox4;
+        private Label label2;
+        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox5;
     }
 }

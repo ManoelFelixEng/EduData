@@ -40,7 +40,6 @@
             btnDelete = new ReaLTaiizor.Controls.MaterialButton();
             btnEdit = new ReaLTaiizor.Controls.MaterialButton();
             btnBackList = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             Stats.SuspendLayout();
@@ -72,7 +71,6 @@
             // Register
             // 
             Register.BackColor = Color.FromArgb(11, 24, 87);
-            Register.Controls.Add(materialButton1);
             Register.Controls.Add(panel1);
             Register.Controls.Add(btnCreate);
             Register.Controls.Add(btnBack);
@@ -102,7 +100,7 @@
             btnCreate.HighEmphasis = true;
             btnCreate.Icon = null;
             btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCreate.Location = new Point(239, 295);
+            btnCreate.Location = new Point(132, 295);
             btnCreate.Margin = new Padding(4, 6, 4, 6);
             btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCreate.Name = "btnCreate";
@@ -255,27 +253,6 @@
             btnBackList.UseVisualStyleBackColor = true;
             btnBackList.Click += btnBackList_Click;
             // 
-            // materialButton1
-            // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Font = new Font("Segoe UI", 9F);
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(145, 295);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(76, 36);
-            materialButton1.TabIndex = 22;
-            materialButton1.Text = "CREATE";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
-            // 
             // BaseForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -307,6 +284,5 @@
         public Panel panel1;
         public ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         public ReaLTaiizor.Controls.PoisonListView poisonListView1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
     }
 }
