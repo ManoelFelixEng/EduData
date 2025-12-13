@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             Register = new TabPage();
+            panel1 = new Panel();
             btnCreate = new ReaLTaiizor.Controls.MaterialButton();
             btnBack = new ReaLTaiizor.Controls.MaterialButton();
             Stats = new TabPage();
@@ -54,11 +55,11 @@
             hopeTabPage1.ForeColorB = Color.Gray;
             hopeTabPage1.ForeColorC = Color.FromArgb(150, 255, 255, 255);
             hopeTabPage1.ItemSize = new Size(120, 40);
-            hopeTabPage1.Location = new Point(5, 39);
+            hopeTabPage1.Location = new Point(5, 50);
             hopeTabPage1.Name = "hopeTabPage1";
             hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new Size(790, 406);
+            hopeTabPage1.Size = new Size(790, 382);
             hopeTabPage1.SizeMode = TabSizeMode.Fixed;
             hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             hopeTabPage1.TabIndex = 24;
@@ -70,16 +71,25 @@
             // Register
             // 
             Register.BackColor = Color.FromArgb(11, 24, 87);
+            Register.Controls.Add(panel1);
             Register.Controls.Add(btnCreate);
             Register.Controls.Add(btnBack);
             Register.ForeColor = SystemColors.ControlText;
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
             Register.Padding = new Padding(3);
-            Register.Size = new Size(790, 366);
+            Register.Size = new Size(790, 342);
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
             Register.Click += Register_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Location = new Point(48, 39);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(661, 247);
+            panel1.TabIndex = 21;
             // 
             // btnCreate
             // 
@@ -136,7 +146,7 @@
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
-            Stats.Size = new Size(790, 366);
+            Stats.Size = new Size(790, 342);
             Stats.TabIndex = 1;
             Stats.Text = "LIST";
             // 
@@ -152,6 +162,8 @@
             poisonListView1.TabIndex = 37;
             poisonListView1.UseCompatibleStateImageBehavior = false;
             poisonListView1.UseSelectable = true;
+            poisonListView1.View = View.Details;
+            poisonListView1.SelectedIndexChanged += poisonListView1_SelectedIndexChanged;
             // 
             // btnClear
             // 
@@ -162,7 +174,7 @@
             btnClear.HighEmphasis = true;
             btnClear.Icon = null;
             btnClear.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnClear.Location = new Point(314, 296);
+            btnClear.Location = new Point(318, 274);
             btnClear.Margin = new Padding(4, 6, 4, 6);
             btnClear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnClear.Name = "btnClear";
@@ -184,7 +196,7 @@
             btnDelete.HighEmphasis = true;
             btnDelete.Icon = null;
             btnDelete.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnDelete.Location = new Point(406, 296);
+            btnDelete.Location = new Point(392, 274);
             btnDelete.Margin = new Padding(4, 6, 4, 6);
             btnDelete.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnDelete.Name = "btnDelete";
@@ -206,7 +218,7 @@
             btnEdit.HighEmphasis = true;
             btnEdit.Icon = null;
             btnEdit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEdit.Location = new Point(519, 296);
+            btnEdit.Location = new Point(516, 274);
             btnEdit.Margin = new Padding(4, 6, 4, 6);
             btnEdit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnEdit.Name = "btnEdit";
@@ -228,7 +240,7 @@
             btnBackList.HighEmphasis = true;
             btnBackList.Icon = null;
             btnBackList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnBackList.Location = new Point(211, 296);
+            btnBackList.Location = new Point(199, 274);
             btnBackList.Margin = new Padding(4, 6, 4, 6);
             btnBackList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnBackList.Name = "btnBackList";
@@ -261,16 +273,16 @@
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         private TabPage Register;
         private ReaLTaiizor.Controls.MaterialButton btnCreate;
         private ReaLTaiizor.Controls.MaterialButton btnBack;
         private TabPage Stats;
-        private ReaLTaiizor.Controls.PoisonListView poisonListView1;
         private ReaLTaiizor.Controls.MaterialButton btnClear;
         private ReaLTaiizor.Controls.MaterialButton btnDelete;
         private ReaLTaiizor.Controls.MaterialButton btnEdit;
         private ReaLTaiizor.Controls.MaterialButton btnBackList;
+        public Panel panel1;
+        public ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
+        public ReaLTaiizor.Controls.PoisonListView poisonListView1;
     }
 }

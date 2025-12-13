@@ -69,6 +69,7 @@
             btnLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnLogin.UseAccentColor = false;
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnRegister
             // 
@@ -90,6 +91,7 @@
             btnRegister.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnRegister.UseAccentColor = false;
             btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
             // hopeTextBox1
             // 

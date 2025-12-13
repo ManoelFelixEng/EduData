@@ -34,6 +34,8 @@
             hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
             btnCreate = new ReaLTaiizor.Controls.MaterialButton();
             btnExit = new ReaLTaiizor.Controls.MaterialButton();
+            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -57,7 +59,7 @@
             hopeTextBox1.Font = new Font("Segoe UI", 12F);
             hopeTextBox1.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox1.Hint = "NAME";
-            hopeTextBox1.Location = new Point(298, 155);
+            hopeTextBox1.Location = new Point(223, 160);
             hopeTextBox1.MaxLength = 32767;
             hopeTextBox1.Multiline = false;
             hopeTextBox1.Name = "hopeTextBox1";
@@ -80,7 +82,7 @@
             hopeTextBox2.Font = new Font("Segoe UI", 12F);
             hopeTextBox2.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox2.Hint = "PASSWORD";
-            hopeTextBox2.Location = new Point(298, 216);
+            hopeTextBox2.Location = new Point(223, 213);
             hopeTextBox2.MaxLength = 32767;
             hopeTextBox2.Multiline = false;
             hopeTextBox2.Name = "hopeTextBox2";
@@ -102,7 +104,7 @@
             btnCreate.HighEmphasis = true;
             btnCreate.Icon = null;
             btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCreate.Location = new Point(372, 284);
+            btnCreate.Location = new Point(372, 308);
             btnCreate.Margin = new Padding(4, 6, 4, 6);
             btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCreate.Name = "btnCreate";
@@ -113,7 +115,7 @@
             btnCreate.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnCreate.UseAccentColor = false;
             btnCreate.UseVisualStyleBackColor = true;
-            btnCreate.Click += materialButton1_Click;
+            btnCreate.Click += btnCreate_Click;
             // 
             // btnExit
             // 
@@ -123,7 +125,7 @@
             btnExit.HighEmphasis = true;
             btnExit.Icon = null;
             btnExit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnExit.Location = new Point(298, 284);
+            btnExit.Location = new Point(298, 308);
             btnExit.Margin = new Padding(4, 6, 4, 6);
             btnExit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnExit.Name = "btnExit";
@@ -134,6 +136,33 @@
             btnExit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnExit.UseAccentColor = false;
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // hopeComboBox1
+            // 
+            hopeComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            hopeComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            hopeComboBox1.FlatStyle = FlatStyle.Flat;
+            hopeComboBox1.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
+            hopeComboBox1.FormattingEnabled = true;
+            hopeComboBox1.ItemHeight = 30;
+            hopeComboBox1.Items.AddRange(new object[] { "Administrator", "Professor", "Student" });
+            hopeComboBox1.Location = new Point(427, 213);
+            hopeComboBox1.Name = "hopeComboBox1";
+            hopeComboBox1.Size = new Size(172, 36);
+            hopeComboBox1.TabIndex = 28;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            label3.ForeColor = SystemColors.Window;
+            label3.Location = new Point(476, 166);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 32);
+            label3.TabIndex = 37;
+            label3.Text = "Role";
+            label3.Click += label3_Click;
             // 
             // UserForm
             // 
@@ -141,6 +170,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(hopeComboBox1);
             Controls.Add(btnExit);
             Controls.Add(btnCreate);
             Controls.Add(hopeTextBox2);
@@ -161,5 +192,7 @@
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
         private ReaLTaiizor.Controls.MaterialButton btnCreate;
         private ReaLTaiizor.Controls.MaterialButton btnExit;
+        private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
+        private Label label3;
     }
 }

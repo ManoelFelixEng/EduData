@@ -1,4 +1,5 @@
 using EduData.App.Base;
+using EduData.App.Infra;
 using EduData.App.Others;
 using EduData.App.Register;
 
@@ -14,8 +15,9 @@ namespace EduData.App
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            ConfigureDI.ConfigureServices();
             ApplicationConfiguration.Initialize();
-            Application.Run(new BaseForm());
+            Application.Run(new MainForm());
         }
     }
 }

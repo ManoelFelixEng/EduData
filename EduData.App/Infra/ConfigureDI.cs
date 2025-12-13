@@ -1,4 +1,5 @@
 using AutoMapper;
+using EduData.App.Others;
 using EduData.App.ViewModel;
 using EduData.Domain.Base;
 using EduData.Domain.Entities;
@@ -9,7 +10,8 @@ using EduData.Service.Validators;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging.Abstractions; // Necess?rio para NullLoggerFactory
+using Microsoft.Extensions.Logging.Abstractions;
+using EduData.App.Register;
 using System;
 using System.IO;
 
@@ -66,8 +68,14 @@ namespace EduData.App.Infra
             #endregion
 
             #region Forms
-            // services.AddTransient<Login>(); // Descomente quando criar o Login
+           services.AddTransient<Login>();
             // services.AddScoped<CadastroTurma>(); // Exemplo
+            services.AddTransient<Register.UserForm>();
+            services.AddTransient<Register.ClassForm>();
+            services.AddTransient<Register.CollegeSubjectForm>();
+            services.AddTransient<Register.StudentForm>();
+            services.AddTransient<Others.EnrollmentForm>(); 
+            services.AddTransient<Register.EvaluationForm>();
             #endregion
 
             #region Mappings
@@ -76,6 +84,7 @@ namespace EduData.App.Infra
                 new MapperConfiguration(config =>
                 {
                     // --- Mapeamentos Simples ---
+                    config.CreateMap<User, User>(); 
                     config.CreateMap<User, UserViewModel>().ReverseMap();
                     config.CreateMap<Class, ClassViewModel>().ReverseMap();
                     config.CreateMap<CollegeSubject, CollegeSubjectViewModel>().ReverseMap();

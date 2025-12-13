@@ -26,7 +26,6 @@
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Infra\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="Register\Resources\" />
   </ItemGroup>
 
@@ -49,6 +48,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Config\DBConfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

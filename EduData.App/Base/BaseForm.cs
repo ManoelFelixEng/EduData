@@ -80,7 +80,7 @@ namespace EduData.App.Base
         {
             // volta registro
             LimparCampos();
-            hopeTabPage1.SelectedIndex = 1; 
+            hopeTabPage1.SelectedIndex = 1;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace EduData.App.Base
             {
                 IsEditMode = true;
                 PreencherFormulario(poisonListView1.SelectedItems[0]);
-                hopeTabPage1.SelectedIndex = 0; 
+                hopeTabPage1.SelectedIndex = 0;
             }
             else
             {
@@ -116,7 +116,7 @@ namespace EduData.App.Base
 
         private void btnBackList_Click(object sender, EventArgs e)
         {
-            
+
             Close();
         }
 
@@ -126,5 +126,10 @@ namespace EduData.App.Base
             CarregarGrid();
         }
         #endregion
+
+        private void poisonListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
