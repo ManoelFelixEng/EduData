@@ -13,7 +13,6 @@ namespace EduData.App.ViewModel
        
         public int EnrollmentId { get; set; }
 
-        // Exibição (Opcional, se quiser mostrar o nome do aluno na prova)
-        public string StudentName { get; set; }
+
     }
 }

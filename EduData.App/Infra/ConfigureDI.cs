@@ -83,6 +83,8 @@ namespace EduData.App.Infra
             services.AddSingleton(
                 new MapperConfiguration(config =>
                 {
+
+
                     // --- Mapeamentos Simples ---
                     config.CreateMap<User, User>(); 
                     config.CreateMap<User, UserViewModel>().ReverseMap();

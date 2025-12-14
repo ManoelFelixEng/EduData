@@ -15,7 +15,7 @@ namespace EduData.Repository.Mapping
             builder.ToTable("student");
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Id).HasColumnName("id_student");
+            builder.Property(prop => prop.Id).HasColumnName("id_student").ValueGeneratedOnAdd(); ;
             builder.Property(prop => prop.Name).HasColumnName("name").HasMaxLength(100).IsRequired();
             builder.Property(prop => prop.DateBirth).HasColumnName("date_birth").HasColumnType("DATE").IsRequired();
 

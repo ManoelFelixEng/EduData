@@ -69,12 +69,11 @@
             panel1.Controls.Add(hopeTextBox15);
             panel1.Controls.Add(hopeTextBox16);
             panel1.Controls.Add(hopeTextBox17);
+            panel1.Size = new Size(1032, 366);
             // 
             // poisonListView1
             // 
-            poisonListView1.Location = new Point(60, 38);
             poisonListView1.OwnerDraw = false;
-            poisonListView1.Size = new Size(696, 217);
             // 
             // Register
             // 
@@ -571,7 +570,7 @@
             hopeTextBox14.Font = new Font("Segoe UI", 12F);
             hopeTextBox14.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox14.Hint = "id";
-            hopeTextBox14.Location = new Point(240, 78);
+            hopeTextBox14.Location = new Point(21, 305);
             hopeTextBox14.MaxLength = 32767;
             hopeTextBox14.Multiline = false;
             hopeTextBox14.Name = "hopeTextBox14";
@@ -580,7 +579,7 @@
             hopeTextBox14.SelectedText = "";
             hopeTextBox14.SelectionLength = 0;
             hopeTextBox14.SelectionStart = 0;
-            hopeTextBox14.Size = new Size(42, 38);
+            hopeTextBox14.Size = new Size(62, 38);
             hopeTextBox14.TabIndex = 49;
             hopeTextBox14.TabStop = false;
             hopeTextBox14.UseSystemPasswordChar = false;
@@ -588,11 +587,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Bold);
+            label4.Font = new Font("Trebuchet MS", 40F, FontStyle.Bold);
             label4.ForeColor = SystemColors.Window;
-            label4.Location = new Point(12, 25);
+            label4.Location = new Point(21, 0);
             label4.Name = "label4";
-            label4.Size = new Size(194, 35);
+            label4.Size = new Size(378, 67);
             label4.TabIndex = 48;
             label4.Text = "Register-Class";
             // 
@@ -605,7 +604,7 @@
             hopeTextBox15.Font = new Font("Segoe UI", 12F);
             hopeTextBox15.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox15.Hint = "PERIOD";
-            hopeTextBox15.Location = new Point(12, 78);
+            hopeTextBox15.Location = new Point(21, 175);
             hopeTextBox15.MaxLength = 32767;
             hopeTextBox15.Multiline = false;
             hopeTextBox15.Name = "hopeTextBox15";
@@ -629,7 +628,7 @@
             hopeTextBox16.Font = new Font("Segoe UI", 12F);
             hopeTextBox16.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox16.Hint = "COURSE";
-            hopeTextBox16.Location = new Point(12, 133);
+            hopeTextBox16.Location = new Point(21, 99);
             hopeTextBox16.MaxLength = 32767;
             hopeTextBox16.Multiline = false;
             hopeTextBox16.Name = "hopeTextBox16";
@@ -638,7 +637,7 @@
             hopeTextBox16.SelectedText = "";
             hopeTextBox16.SelectionLength = 0;
             hopeTextBox16.SelectionStart = 0;
-            hopeTextBox16.Size = new Size(270, 38);
+            hopeTextBox16.Size = new Size(586, 38);
             hopeTextBox16.TabIndex = 46;
             hopeTextBox16.TabStop = false;
             hopeTextBox16.UseSystemPasswordChar = false;
@@ -652,7 +651,7 @@
             hopeTextBox17.Font = new Font("Segoe UI", 12F);
             hopeTextBox17.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox17.Hint = "NUMBER STUDENTS";
-            hopeTextBox17.Location = new Point(12, 177);
+            hopeTextBox17.Location = new Point(21, 239);
             hopeTextBox17.MaxLength = 32767;
             hopeTextBox17.Multiline = false;
             hopeTextBox17.Name = "hopeTextBox17";
@@ -671,7 +670,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
-            ClientSize = new Size(940, 531);
+            ClientSize = new Size(1366, 768);
             Image = (Image)resources.GetObject("$this.Image");
             Location = new Point(0, 0);
             Name = "ClassForm";

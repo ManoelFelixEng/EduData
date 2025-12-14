@@ -6,6 +6,6 @@ namespace EduData.App.ViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Courseload { get; set; }
+        public int CourseLoad { get; set; }
     }
 }

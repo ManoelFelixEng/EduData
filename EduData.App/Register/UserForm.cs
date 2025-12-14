@@ -35,12 +35,13 @@ namespace EduData.App.Register
                     Role = hopeComboBox1.SelectedItem.ToString()
                 };
 
-                // salvar
+                
                 _userService.Add<User, User, UserValidator>(newUser);
 
                 MessageBox.Show("Usuário cadastrado com sucesso!", "EduData", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
+
             }
             catch (Exception ex)
             {

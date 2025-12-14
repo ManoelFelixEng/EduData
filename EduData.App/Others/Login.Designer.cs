@@ -35,16 +35,20 @@
             hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
             hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
+            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            label3 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 41F, FontStyle.Bold);
+            label1.Font = new Font("Trebuchet MS", 50F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Window;
-            label1.Location = new Point(255, 58);
+            label1.Location = new Point(66, 117);
             label1.Name = "label1";
-            label1.Size = new Size(239, 68);
+            label1.Size = new Size(294, 84);
             label1.TabIndex = 0;
             label1.Text = "EduData";
             label1.Click += label1_Click;
@@ -58,7 +62,7 @@
             btnLogin.HighEmphasis = true;
             btnLogin.Icon = null;
             btnLogin.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnLogin.Location = new Point(185, 330);
+            btnLogin.Location = new Point(183, 433);
             btnLogin.Margin = new Padding(4, 6, 4, 6);
             btnLogin.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnLogin.Name = "btnLogin";
@@ -80,7 +84,7 @@
             btnRegister.HighEmphasis = true;
             btnRegister.Icon = null;
             btnRegister.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnRegister.Location = new Point(77, 330);
+            btnRegister.Location = new Point(66, 561);
             btnRegister.Margin = new Padding(4, 6, 4, 6);
             btnRegister.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnRegister.Name = "btnRegister";
@@ -102,7 +106,7 @@
             hopeTextBox1.Font = new Font("Segoe UI", 12F);
             hopeTextBox1.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox1.Hint = "NAME";
-            hopeTextBox1.Location = new Point(77, 213);
+            hopeTextBox1.Location = new Point(66, 314);
             hopeTextBox1.MaxLength = 32767;
             hopeTextBox1.Multiline = false;
             hopeTextBox1.Name = "hopeTextBox1";
@@ -111,7 +115,7 @@
             hopeTextBox1.SelectedText = "";
             hopeTextBox1.SelectionLength = 0;
             hopeTextBox1.SelectionStart = 0;
-            hopeTextBox1.Size = new Size(172, 38);
+            hopeTextBox1.Size = new Size(181, 38);
             hopeTextBox1.TabIndex = 3;
             hopeTextBox1.TabStop = false;
             hopeTextBox1.UseSystemPasswordChar = false;
@@ -126,16 +130,16 @@
             hopeTextBox2.Font = new Font("Segoe UI", 12F);
             hopeTextBox2.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBox2.Hint = "PASSWORD";
-            hopeTextBox2.Location = new Point(77, 273);
+            hopeTextBox2.Location = new Point(66, 374);
             hopeTextBox2.MaxLength = 32767;
             hopeTextBox2.Multiline = false;
             hopeTextBox2.Name = "hopeTextBox2";
-            hopeTextBox2.PasswordChar = '\0';
+            hopeTextBox2.PasswordChar = '*';
             hopeTextBox2.ScrollBars = ScrollBars.None;
             hopeTextBox2.SelectedText = "";
             hopeTextBox2.SelectionLength = 0;
             hopeTextBox2.SelectionStart = 0;
-            hopeTextBox2.Size = new Size(172, 38);
+            hopeTextBox2.Size = new Size(181, 38);
             hopeTextBox2.TabIndex = 4;
             hopeTextBox2.TabStop = false;
             hopeTextBox2.UseSystemPasswordChar = false;
@@ -145,18 +149,62 @@
             label2.AutoSize = true;
             label2.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Bold);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(77, 161);
+            label2.Location = new Point(66, 262);
             label2.Name = "label2";
             label2.Size = new Size(83, 35);
             label2.TabIndex = 5;
             label2.Text = "Login";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Education_bro;
+            pictureBox1.Location = new Point(348, 39);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(996, 724);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // materialButton1
+            // 
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton1.Location = new Point(66, 433);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(64, 36);
+            materialButton1.TabIndex = 7;
+            materialButton1.Text = "EXIT";
+            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.ForeColor = SystemColors.Window;
+            label3.Location = new Point(66, 525);
+            label3.Name = "label3";
+            label3.Size = new Size(178, 21);
+            label3.TabIndex = 8;
+            label3.Text = "Don´t Have an account ?";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1366, 768);
+            Controls.Add(label3);
+            Controls.Add(materialButton1);
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(hopeTextBox2);
             Controls.Add(hopeTextBox1);
@@ -167,7 +215,9 @@
             Image = (Image)resources.GetObject("$this.Image");
             Name = "Login";
             Text = "Login";
+            WindowState = FormWindowState.Maximized;
             Load += Login_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,5 +230,8 @@
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
         private Label label2;
+        private PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private Label label3;
     }
 }

@@ -36,7 +36,6 @@
             btnBack = new ReaLTaiizor.Controls.MaterialButton();
             Stats = new TabPage();
             poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
-            btnClear = new ReaLTaiizor.Controls.MaterialButton();
             btnDelete = new ReaLTaiizor.Controls.MaterialButton();
             btnEdit = new ReaLTaiizor.Controls.MaterialButton();
             btnBackList = new ReaLTaiizor.Controls.MaterialButton();
@@ -59,7 +58,7 @@
             hopeTabPage1.Name = "hopeTabPage1";
             hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new Size(790, 382);
+            hopeTabPage1.Size = new Size(1356, 713);
             hopeTabPage1.SizeMode = TabSizeMode.Fixed;
             hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             hopeTabPage1.TabIndex = 24;
@@ -78,7 +77,7 @@
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
             Register.Padding = new Padding(3);
-            Register.Size = new Size(790, 342);
+            Register.Size = new Size(1356, 673);
             Register.TabIndex = 0;
             Register.Text = "RESGISTER";
             Register.Click += Register_Click;
@@ -88,7 +87,7 @@
             panel1.BackColor = Color.Transparent;
             panel1.Location = new Point(48, 39);
             panel1.Name = "panel1";
-            panel1.Size = new Size(661, 247);
+            panel1.Size = new Size(1106, 541);
             panel1.TabIndex = 21;
             // 
             // btnCreate
@@ -100,7 +99,7 @@
             btnCreate.HighEmphasis = true;
             btnCreate.Icon = null;
             btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCreate.Location = new Point(132, 295);
+            btnCreate.Location = new Point(539, 589);
             btnCreate.Margin = new Padding(4, 6, 4, 6);
             btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCreate.Name = "btnCreate";
@@ -122,7 +121,7 @@
             btnBack.HighEmphasis = true;
             btnBack.Icon = null;
             btnBack.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnBack.Location = new Point(60, 295);
+            btnBack.Location = new Point(57, 589);
             btnBack.Margin = new Padding(4, 6, 4, 6);
             btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnBack.Name = "btnBack";
@@ -139,14 +138,13 @@
             // 
             Stats.BackColor = Color.FromArgb(11, 24, 87);
             Stats.Controls.Add(poisonListView1);
-            Stats.Controls.Add(btnClear);
             Stats.Controls.Add(btnDelete);
             Stats.Controls.Add(btnEdit);
             Stats.Controls.Add(btnBackList);
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
-            Stats.Size = new Size(790, 342);
+            Stats.Size = new Size(1356, 673);
             Stats.TabIndex = 1;
             Stats.Text = "LIST";
             // 
@@ -158,34 +156,12 @@
             poisonListView1.Location = new Point(199, 33);
             poisonListView1.Name = "poisonListView1";
             poisonListView1.OwnerDraw = true;
-            poisonListView1.Size = new Size(381, 217);
+            poisonListView1.Size = new Size(895, 411);
             poisonListView1.TabIndex = 37;
             poisonListView1.UseCompatibleStateImageBehavior = false;
             poisonListView1.UseSelectable = true;
             poisonListView1.View = View.Details;
             poisonListView1.SelectedIndexChanged += poisonListView1_SelectedIndexChanged;
-            // 
-            // btnClear
-            // 
-            btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnClear.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnClear.Depth = 0;
-            btnClear.Font = new Font("Segoe UI", 9F);
-            btnClear.HighEmphasis = true;
-            btnClear.Icon = null;
-            btnClear.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnClear.Location = new Point(318, 274);
-            btnClear.Margin = new Padding(4, 6, 4, 6);
-            btnClear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnClear.Name = "btnClear";
-            btnClear.NoAccentTextColor = Color.Empty;
-            btnClear.Size = new Size(66, 36);
-            btnClear.TabIndex = 35;
-            btnClear.Text = "CLEAR";
-            btnClear.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnClear.UseAccentColor = false;
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -196,7 +172,7 @@
             btnDelete.HighEmphasis = true;
             btnDelete.Icon = null;
             btnDelete.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnDelete.Location = new Point(392, 274);
+            btnDelete.Location = new Point(949, 472);
             btnDelete.Margin = new Padding(4, 6, 4, 6);
             btnDelete.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnDelete.Name = "btnDelete";
@@ -218,7 +194,7 @@
             btnEdit.HighEmphasis = true;
             btnEdit.Icon = null;
             btnEdit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEdit.Location = new Point(516, 274);
+            btnEdit.Location = new Point(1030, 472);
             btnEdit.Margin = new Padding(4, 6, 4, 6);
             btnEdit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnEdit.Name = "btnEdit";
@@ -240,7 +216,7 @@
             btnBackList.HighEmphasis = true;
             btnBackList.Icon = null;
             btnBackList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnBackList.Location = new Point(199, 274);
+            btnBackList.Location = new Point(199, 472);
             btnBackList.Margin = new Padding(4, 6, 4, 6);
             btnBackList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnBackList.Name = "btnBackList";
@@ -258,7 +234,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(11, 24, 87);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1366, 768);
             Controls.Add(hopeTabPage1);
             HeaderColor = Color.FromArgb(28, 59, 214);
             Image = (Image)resources.GetObject("$this.Image");
@@ -277,7 +253,6 @@
         private ReaLTaiizor.Controls.MaterialButton btnCreate;
         private ReaLTaiizor.Controls.MaterialButton btnBack;
         private TabPage Stats;
-        private ReaLTaiizor.Controls.MaterialButton btnClear;
         private ReaLTaiizor.Controls.MaterialButton btnDelete;
         private ReaLTaiizor.Controls.MaterialButton btnEdit;
         private ReaLTaiizor.Controls.MaterialButton btnBackList;

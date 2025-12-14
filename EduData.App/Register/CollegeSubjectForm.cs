@@ -3,16 +3,9 @@ using EduData.App.ViewModel;
 using EduData.Domain.Base;
 using EduData.Domain.Entities;
 using EduData.Service.Validators;
-using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EduData.App.Register
@@ -29,6 +22,7 @@ namespace EduData.App.Register
             ConfigurarGrid();
             PopulateGrid();
         }
+
         private void ConfigurarGrid()
         {
             if (poisonListView1 != null)
@@ -45,41 +39,44 @@ namespace EduData.App.Register
                 poisonListView1.Columns.Add("Carga Horária", 100);
             }
         }
+
+        // --- SALVAR (SAVE) ---
         protected override void Save()
         {
-            try 
-            { 
-
-                var txtId = hopeTextBoxID;       // TextBox do ID
-                var txtName = hopeTextBoxName;   // TextBox do Nome
-                var txtLoad = hopeTextBoxLoad;   // TextBox do Course Load
-
-                // Validação Básica
-                if (string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtName.Text))
+            try
+            {
+                // Validação Básica de Campos Vazios
+                if (string.IsNullOrEmpty(hopeTextBoxID.Text) || string.IsNullOrEmpty(hopeTextBoxName.Text))
                 {
                     MessageBox.Show("ID e Nome são obrigatórios.", "Atenção");
                     return;
                 }
 
                 // Conversão dos dados
-                int id = int.Parse(txtId.Text);
-                string name = txtName.Text;
-                int courseLoad = int.Parse(txtLoad.Text); // Converte Carga Horária para numero
+                int id = int.Parse(hopeTextBoxID.Text);
+                string name = hopeTextBoxName.Text;
+
+                // Tenta converter a carga horária com segurança
+                if (!int.TryParse(hopeTextBoxLoad.Text, out int courseLoad))
+                {
+                    courseLoad = 0; // Se deixar vazio ou digitar letra, vira 0
+                }
 
                 if (isEditMode)
                 {
-                    // --- EDIÇÃO ---
+                    // --- EDIÇÃO (Busca o original para evitar erro de Tracking) ---
                     var existingSubject = _subjectService.Get<CollegeSubject>().FirstOrDefault(x => x.Id == id);
+
                     if (existingSubject != null)
                     {
                         existingSubject.Name = name;
-                        existingSubject.CourseLoad = courseLoad; // Atualiza Carga Horária
+                        existingSubject.CourseLoad = courseLoad;
 
                         _subjectService.Update<CollegeSubject, CollegeSubject, CollegeSubjectValidator>(existingSubject);
                     }
                     else
                     {
-                        MessageBox.Show("Registro não encontrado para edição.");
+                        MessageBox.Show("Registro não encontrado no banco para edição.");
                         return;
                     }
                 }
@@ -90,9 +87,10 @@ namespace EduData.App.Register
                     {
                         Id = id,
                         Name = name,
-                        CourseLoad = courseLoad // Salva Carga Horária
+                        CourseLoad = courseLoad
                     };
 
+                    // Verifica ID duplicado antes de inserir
                     if (_subjectService.Get<CollegeSubject>().Any(x => x.Id == id))
                     {
                         MessageBox.Show($"Já existe um registro com o ID {id}!", "Erro");
@@ -103,6 +101,7 @@ namespace EduData.App.Register
                 }
 
                 MessageBox.Show("Salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 PopulateGrid();
                 ClearFields();
             }
@@ -111,32 +110,44 @@ namespace EduData.App.Register
                 MessageBox.Show($"Erro ao salvar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // --- POPULAR GRID (CARREGAR LISTA) ---
         protected override void PopulateGrid()
         {
             var subjects = _subjectService.Get<CollegeSubjectViewModel>();
-            poisonListView1.Items.Clear();
 
-            foreach (var s in subjects)
+            if (poisonListView1 != null)
             {
-                var item = new ListViewItem(s.Id.ToString());
-                item.SubItems.Add(s.Name);
-                item.SubItems.Add(s.Courseload.ToString()); // Mostra Carga Horária na lista
+                poisonListView1.Items.Clear();
 
-                poisonListView1.Items.Add(item);
+                foreach (var s in subjects)
+                {
+                    var item = new ListViewItem(s.Id.ToString());
+                    item.SubItems.Add(s.Name);
+                    // Aqui estava o erro: CourseLoad com L maiúsculo
+                    item.SubItems.Add(s.CourseLoad.ToString());
+
+                    poisonListView1.Items.Add(item);
+                }
             }
         }
+
+        // --- GRID PARA O FORMULÁRIO (AO CLICAR EM EDITAR) ---
         protected override void GridToForm(ListViewItem item)
         {
-            // --- TROQUE PELOS SEUS TEXTBOXES REAIS ---
-            hopeTextBoxID.Text = item.SubItems[0].Text;
-            hopeTextBoxName.Text = item.SubItems[1].Text;
-            hopeTextBoxLoad.Text = item.SubItems[2].Text; // Preenche Carga Horária
+            // Preenche os textboxes com os dados da linha selecionada
+            hopeTextBoxID.Text = item.SubItems[0].Text;   // Coluna 0: ID
+            hopeTextBoxName.Text = item.SubItems[1].Text; // Coluna 1: Nome
+            hopeTextBoxLoad.Text = item.SubItems[2].Text; // Coluna 2: Carga Horária
         }
+
+        // --- EXCLUIR ---
         protected override void Excluir()
         {
             try
             {
-                if (int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
+                if (poisonListView1.SelectedItems.Count > 0 &&
+                    int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
                     _subjectService.Delete(id);
                     MessageBox.Show("Registro excluído.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -144,15 +155,16 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao excluir: " + ex.Message, "Erro");
+                MessageBox.Show("Erro ao excluir (Pode estar vinculado a outro registro): " + ex.Message, "Erro");
             }
         }
 
-
-
-
-
+        // Evento do Painel (Pode deixar vazio se não usar)
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void hopeTextBoxLoad_Click(object sender, EventArgs e)
         {
 
         }

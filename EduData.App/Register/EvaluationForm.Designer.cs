@@ -28,392 +28,232 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EvaluationForm));
-            hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
-            Register = new TabPage();
-            hopeTextBox4 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
-            hopeTextBox3 = new ReaLTaiizor.Controls.HopeTextBox();
-            label3 = new Label();
-            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
-            label2 = new Label();
-            btnCreate = new ReaLTaiizor.Controls.MaterialButton();
-            btnBack = new ReaLTaiizor.Controls.MaterialButton();
-            Stats = new TabPage();
-            poisonListView1 = new ReaLTaiizor.Controls.PoisonListView();
-            btnClear = new ReaLTaiizor.Controls.MaterialButton();
-            btnDelete = new ReaLTaiizor.Controls.MaterialButton();
-            btnEdit = new ReaLTaiizor.Controls.MaterialButton();
-            btnBackList = new ReaLTaiizor.Controls.MaterialButton();
-            hopeTabPage1.SuspendLayout();
-            Register.SuspendLayout();
-            Stats.SuspendLayout();
+            txtId = new ReaLTaiizor.Controls.HopeTextBox();
+            BoxClass = new ReaLTaiizor.Controls.HopeComboBox();
+            BoxStudent = new ReaLTaiizor.Controls.HopeComboBox();
+            BoxSubject = new ReaLTaiizor.Controls.HopeComboBox();
+            txtName = new ReaLTaiizor.Controls.HopeTextBox();
+            txtScore = new ReaLTaiizor.Controls.HopeTextBox();
+            txtDate = new ReaLTaiizor.Controls.HopeTextBox();
+            lblTitle = new Label();
+            lblClass = new Label();
+            lblStudent = new Label();
+            lblSubject = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // hopeTabPage1
+            // panel1
             // 
-            hopeTabPage1.BaseColor = Color.FromArgb(28, 38, 89);
-            hopeTabPage1.Controls.Add(Register);
-            hopeTabPage1.Controls.Add(Stats);
-            hopeTabPage1.Font = new Font("Trebuchet MS", 12.12F, FontStyle.Bold);
-            hopeTabPage1.ForeColorA = Color.GhostWhite;
-            hopeTabPage1.ForeColorB = Color.Gray;
-            hopeTabPage1.ForeColorC = Color.FromArgb(150, 255, 255, 255);
-            hopeTabPage1.ItemSize = new Size(120, 40);
-            hopeTabPage1.Location = new Point(5, 39);
-            hopeTabPage1.Name = "hopeTabPage1";
-            hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new Size(790, 406);
-            hopeTabPage1.SizeMode = TabSizeMode.Fixed;
-            hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            hopeTabPage1.TabIndex = 25;
-            hopeTabPage1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            hopeTabPage1.ThemeColorA = Color.FromArgb(64, 158, 255);
-            hopeTabPage1.ThemeColorB = Color.FromArgb(150, 64, 158, 255);
-            hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
+            panel1.Controls.Add(lblSubject);
+            panel1.Controls.Add(lblStudent);
+            panel1.Controls.Add(lblClass);
+            panel1.Controls.Add(lblTitle);
+            panel1.Controls.Add(txtDate);
+            panel1.Controls.Add(txtScore);
+            panel1.Controls.Add(txtName);
+            panel1.Controls.Add(BoxSubject);
+            panel1.Controls.Add(BoxStudent);
+            panel1.Controls.Add(BoxClass);
+            panel1.Controls.Add(txtId);
+            panel1.ForeColor = SystemColors.Window;
+            panel1.Location = new Point(48, 6);
+            panel1.Size = new Size(890, 529);
             // 
-            // Register
+            // txtId
             // 
-            Register.BackColor = Color.FromArgb(11, 24, 87);
-            Register.Controls.Add(hopeTextBox4);
-            Register.Controls.Add(hopeTextBox2);
-            Register.Controls.Add(hopeTextBox1);
-            Register.Controls.Add(hopeTextBox3);
-            Register.Controls.Add(label3);
-            Register.Controls.Add(hopeComboBox1);
-            Register.Controls.Add(label2);
-            Register.Controls.Add(btnCreate);
-            Register.Controls.Add(btnBack);
-            Register.ForeColor = SystemColors.ControlText;
-            Register.Location = new Point(0, 40);
-            Register.Name = "Register";
-            Register.Padding = new Padding(3);
-            Register.Size = new Size(790, 366);
-            Register.TabIndex = 0;
-            Register.Text = "RESGISTER";
+            txtId.BackColor = Color.White;
+            txtId.BaseColor = Color.FromArgb(44, 55, 66);
+            txtId.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtId.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtId.Enabled = false;
+            txtId.Font = new Font("Segoe UI", 12F);
+            txtId.ForeColor = Color.FromArgb(48, 49, 51);
+            txtId.Hint = "ID";
+            txtId.Location = new Point(24, 467);
+            txtId.MaxLength = 32767;
+            txtId.Multiline = false;
+            txtId.Name = "txtId";
+            txtId.PasswordChar = '\0';
+            txtId.ScrollBars = ScrollBars.None;
+            txtId.SelectedText = "";
+            txtId.SelectionLength = 0;
+            txtId.SelectionStart = 0;
+            txtId.Size = new Size(60, 38);
+            txtId.TabIndex = 7;
+            txtId.TabStop = false;
+            txtId.UseSystemPasswordChar = false;
             // 
-            // hopeTextBox4
+            // BoxClass
             // 
-            hopeTextBox4.BackColor = Color.White;
-            hopeTextBox4.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox4.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox4.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox4.Font = new Font("Segoe UI", 12F);
-            hopeTextBox4.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox4.Hint = "DATE";
-            hopeTextBox4.Location = new Point(301, 176);
-            hopeTextBox4.MaxLength = 32767;
-            hopeTextBox4.Multiline = false;
-            hopeTextBox4.Name = "hopeTextBox4";
-            hopeTextBox4.PasswordChar = '\0';
-            hopeTextBox4.ScrollBars = ScrollBars.None;
-            hopeTextBox4.SelectedText = "";
-            hopeTextBox4.SelectionLength = 0;
-            hopeTextBox4.SelectionStart = 0;
-            hopeTextBox4.Size = new Size(154, 38);
-            hopeTextBox4.TabIndex = 44;
-            hopeTextBox4.TabStop = false;
-            hopeTextBox4.UseSystemPasswordChar = false;
+            BoxClass.DrawMode = DrawMode.OwnerDrawFixed;
+            BoxClass.FlatStyle = FlatStyle.Flat;
+            BoxClass.Font = new Font("Segoe UI", 12F);
+            BoxClass.FormattingEnabled = true;
+            BoxClass.ItemHeight = 30;
+            BoxClass.Location = new Point(24, 120);
+            BoxClass.Name = "BoxClass";
+            BoxClass.Size = new Size(556, 36);
+            BoxClass.TabIndex = 1;
             // 
-            // hopeTextBox2
+            // BoxStudent
             // 
-            hopeTextBox2.BackColor = Color.White;
-            hopeTextBox2.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox2.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox2.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox2.Font = new Font("Segoe UI", 12F);
-            hopeTextBox2.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox2.Hint = "SCORE";
-            hopeTextBox2.Location = new Point(301, 90);
-            hopeTextBox2.MaxLength = 32767;
-            hopeTextBox2.Multiline = false;
-            hopeTextBox2.Name = "hopeTextBox2";
-            hopeTextBox2.PasswordChar = '\0';
-            hopeTextBox2.ScrollBars = ScrollBars.None;
-            hopeTextBox2.SelectedText = "";
-            hopeTextBox2.SelectionLength = 0;
-            hopeTextBox2.SelectionStart = 0;
-            hopeTextBox2.Size = new Size(154, 38);
-            hopeTextBox2.TabIndex = 43;
-            hopeTextBox2.TabStop = false;
-            hopeTextBox2.UseSystemPasswordChar = false;
+            BoxStudent.DrawMode = DrawMode.OwnerDrawFixed;
+            BoxStudent.FlatStyle = FlatStyle.Flat;
+            BoxStudent.Font = new Font("Segoe UI", 12F);
+            BoxStudent.FormattingEnabled = true;
+            BoxStudent.ItemHeight = 30;
+            BoxStudent.Location = new Point(24, 207);
+            BoxStudent.Name = "BoxStudent";
+            BoxStudent.Size = new Size(556, 36);
+            BoxStudent.TabIndex = 2;
             // 
-            // hopeTextBox1
+            // BoxSubject
             // 
-            hopeTextBox1.BackColor = Color.White;
-            hopeTextBox1.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox1.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox1.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox1.Font = new Font("Segoe UI", 12F);
-            hopeTextBox1.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox1.Hint = "NAME";
-            hopeTextBox1.Location = new Point(60, 90);
-            hopeTextBox1.MaxLength = 32767;
-            hopeTextBox1.Multiline = false;
-            hopeTextBox1.Name = "hopeTextBox1";
-            hopeTextBox1.PasswordChar = '\0';
-            hopeTextBox1.ScrollBars = ScrollBars.None;
-            hopeTextBox1.SelectedText = "";
-            hopeTextBox1.SelectionLength = 0;
-            hopeTextBox1.SelectionStart = 0;
-            hopeTextBox1.Size = new Size(154, 38);
-            hopeTextBox1.TabIndex = 42;
-            hopeTextBox1.TabStop = false;
-            hopeTextBox1.UseSystemPasswordChar = false;
+            BoxSubject.DrawMode = DrawMode.OwnerDrawFixed;
+            BoxSubject.FlatStyle = FlatStyle.Flat;
+            BoxSubject.Font = new Font("Segoe UI", 12F);
+            BoxSubject.FormattingEnabled = true;
+            BoxSubject.ItemHeight = 30;
+            BoxSubject.Location = new Point(24, 292);
+            BoxSubject.Name = "BoxSubject";
+            BoxSubject.Size = new Size(280, 36);
+            BoxSubject.TabIndex = 3;
             // 
-            // hopeTextBox3
+            // txtName
             // 
-            hopeTextBox3.BackColor = Color.White;
-            hopeTextBox3.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox3.BorderColorA = Color.FromArgb(64, 158, 255);
-            hopeTextBox3.BorderColorB = Color.FromArgb(220, 223, 230);
-            hopeTextBox3.Font = new Font("Segoe UI", 12F);
-            hopeTextBox3.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeTextBox3.Hint = "id";
-            hopeTextBox3.Location = new Point(237, 90);
-            hopeTextBox3.MaxLength = 32767;
-            hopeTextBox3.Multiline = false;
-            hopeTextBox3.Name = "hopeTextBox3";
-            hopeTextBox3.PasswordChar = '\0';
-            hopeTextBox3.ScrollBars = ScrollBars.None;
-            hopeTextBox3.SelectedText = "";
-            hopeTextBox3.SelectionLength = 0;
-            hopeTextBox3.SelectionStart = 0;
-            hopeTextBox3.Size = new Size(42, 38);
-            hopeTextBox3.TabIndex = 41;
-            hopeTextBox3.TabStop = false;
-            hopeTextBox3.UseSystemPasswordChar = false;
+            txtName.BackColor = Color.White;
+            txtName.BaseColor = Color.FromArgb(44, 55, 66);
+            txtName.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtName.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtName.Font = new Font("Segoe UI", 12F);
+            txtName.ForeColor = Color.FromArgb(48, 49, 51);
+            txtName.Hint = "EVALUATION NAME";
+            txtName.Location = new Point(24, 353);
+            txtName.MaxLength = 32767;
+            txtName.Multiline = false;
+            txtName.Name = "txtName";
+            txtName.PasswordChar = '\0';
+            txtName.ScrollBars = ScrollBars.None;
+            txtName.SelectedText = "";
+            txtName.SelectionLength = 0;
+            txtName.SelectionStart = 0;
+            txtName.Size = new Size(162, 38);
+            txtName.TabIndex = 6;
+            txtName.TabStop = false;
+            txtName.UseSystemPasswordChar = false;
             // 
-            // label3
+            // txtScore
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.Window;
-            label3.Location = new Point(60, 144);
-            label3.Name = "label3";
-            label3.Size = new Size(119, 27);
-            label3.TabIndex = 36;
-            label3.Text = "Enrollment";
-            label3.Click += label3_Click;
+            txtScore.BackColor = SystemColors.Window;
+            txtScore.BaseColor = Color.FromArgb(44, 55, 66);
+            txtScore.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtScore.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtScore.Font = new Font("Segoe UI", 12F);
+            txtScore.ForeColor = Color.FromArgb(48, 49, 51);
+            txtScore.Hint = "SCORE";
+            txtScore.Location = new Point(96, 467);
+            txtScore.MaxLength = 32767;
+            txtScore.Multiline = false;
+            txtScore.Name = "txtScore";
+            txtScore.PasswordChar = '\0';
+            txtScore.ScrollBars = ScrollBars.None;
+            txtScore.SelectedText = "";
+            txtScore.SelectionLength = 0;
+            txtScore.SelectionStart = 0;
+            txtScore.Size = new Size(72, 38);
+            txtScore.TabIndex = 5;
+            txtScore.TabStop = false;
+            txtScore.UseSystemPasswordChar = false;
             // 
-            // hopeComboBox1
+            // txtDate
             // 
-            hopeComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            hopeComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            hopeComboBox1.FlatStyle = FlatStyle.Flat;
-            hopeComboBox1.Font = new Font("Segoe UI", 12F);
-            hopeComboBox1.FormattingEnabled = true;
-            hopeComboBox1.ItemHeight = 30;
-            hopeComboBox1.Location = new Point(63, 176);
-            hopeComboBox1.Name = "hopeComboBox1";
-            hopeComboBox1.Size = new Size(216, 36);
-            hopeComboBox1.TabIndex = 35;
+            txtDate.BackColor = Color.White;
+            txtDate.BaseColor = Color.FromArgb(44, 55, 66);
+            txtDate.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtDate.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtDate.Font = new Font("Segoe UI", 12F);
+            txtDate.ForeColor = Color.FromArgb(48, 49, 51);
+            txtDate.Hint = "(dd/mm/aaaa)";
+            txtDate.Location = new Point(24, 409);
+            txtDate.MaxLength = 32767;
+            txtDate.Multiline = false;
+            txtDate.Name = "txtDate";
+            txtDate.PasswordChar = '\0';
+            txtDate.ScrollBars = ScrollBars.None;
+            txtDate.SelectedText = "";
+            txtDate.SelectionLength = 0;
+            txtDate.SelectionStart = 0;
+            txtDate.Size = new Size(144, 38);
+            txtDate.TabIndex = 4;
+            txtDate.TabStop = false;
+            txtDate.UseSystemPasswordChar = false;
             // 
-            // label2
+            // lblTitle
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Bold);
-            label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(60, 32);
-            label2.Name = "label2";
-            label2.Size = new Size(314, 35);
-            label2.TabIndex = 14;
-            label2.Text = "Evaluation Management";
-            label2.Click += label2_Click;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Trebuchet MS", 40F, FontStyle.Bold);
+            lblTitle.ForeColor = SystemColors.Window;
+            lblTitle.Location = new Point(24, -3);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(515, 67);
+            lblTitle.TabIndex = 3;
+            lblTitle.Text = "Register Evaluation";
             // 
-            // btnCreate
+            // lblClass
             // 
-            btnCreate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCreate.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnCreate.Depth = 0;
-            btnCreate.Font = new Font("Segoe UI", 9F);
-            btnCreate.HighEmphasis = true;
-            btnCreate.Icon = null;
-            btnCreate.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCreate.Location = new Point(159, 242);
-            btnCreate.Margin = new Padding(4, 6, 4, 6);
-            btnCreate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnCreate.Name = "btnCreate";
-            btnCreate.NoAccentTextColor = Color.Empty;
-            btnCreate.Size = new Size(76, 36);
-            btnCreate.TabIndex = 20;
-            btnCreate.Text = "CREATE";
-            btnCreate.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCreate.UseAccentColor = false;
-            btnCreate.UseVisualStyleBackColor = true;
+            lblClass.AutoSize = true;
+            lblClass.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            lblClass.Location = new Point(24, 85);
+            lblClass.Name = "lblClass";
+            lblClass.Size = new Size(71, 32);
+            lblClass.TabIndex = 2;
+            lblClass.Text = "Class";
             // 
-            // btnBack
+            // lblStudent
             // 
-            btnBack.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnBack.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnBack.Depth = 0;
-            btnBack.Font = new Font("Segoe UI", 9F);
-            btnBack.HighEmphasis = true;
-            btnBack.Icon = null;
-            btnBack.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnBack.Location = new Point(63, 242);
-            btnBack.Margin = new Padding(4, 6, 4, 6);
-            btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnBack.Name = "btnBack";
-            btnBack.NoAccentTextColor = Color.Empty;
-            btnBack.Size = new Size(64, 36);
-            btnBack.TabIndex = 19;
-            btnBack.Text = "Back";
-            btnBack.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnBack.UseAccentColor = false;
-            btnBack.UseVisualStyleBackColor = true;
+            lblStudent.AutoSize = true;
+            lblStudent.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            lblStudent.Location = new Point(24, 172);
+            lblStudent.Name = "lblStudent";
+            lblStudent.Size = new Size(106, 32);
+            lblStudent.TabIndex = 1;
+            lblStudent.Text = "Student";
             // 
-            // Stats
+            // lblSubject
             // 
-            Stats.BackColor = Color.FromArgb(11, 24, 87);
-            Stats.Controls.Add(poisonListView1);
-            Stats.Controls.Add(btnClear);
-            Stats.Controls.Add(btnDelete);
-            Stats.Controls.Add(btnEdit);
-            Stats.Controls.Add(btnBackList);
-            Stats.Location = new Point(0, 40);
-            Stats.Name = "Stats";
-            Stats.Padding = new Padding(3);
-            Stats.Size = new Size(790, 366);
-            Stats.TabIndex = 1;
-            Stats.Text = "LIST";
-            // 
-            // poisonListView1
-            // 
-            poisonListView1.Font = new Font("Segoe UI", 12F);
-            poisonListView1.FullRowSelect = true;
-            poisonListView1.HideSelection = true;
-            poisonListView1.Location = new Point(202, 40);
-            poisonListView1.Name = "poisonListView1";
-            poisonListView1.OwnerDraw = true;
-            poisonListView1.Size = new Size(381, 217);
-            poisonListView1.TabIndex = 36;
-            poisonListView1.UseCompatibleStateImageBehavior = false;
-            poisonListView1.UseSelectable = true;
-            // 
-            // btnClear
-            // 
-            btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnClear.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnClear.Depth = 0;
-            btnClear.Font = new Font("Segoe UI", 9F);
-            btnClear.HighEmphasis = true;
-            btnClear.Icon = null;
-            btnClear.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnClear.Location = new Point(317, 299);
-            btnClear.Margin = new Padding(4, 6, 4, 6);
-            btnClear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnClear.Name = "btnClear";
-            btnClear.NoAccentTextColor = Color.Empty;
-            btnClear.Size = new Size(66, 36);
-            btnClear.TabIndex = 35;
-            btnClear.Text = "CLEAR";
-            btnClear.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnClear.UseAccentColor = false;
-            btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            btnDelete.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnDelete.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnDelete.Depth = 0;
-            btnDelete.Font = new Font("Segoe UI", 9F);
-            btnDelete.HighEmphasis = true;
-            btnDelete.Icon = null;
-            btnDelete.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnDelete.Location = new Point(409, 299);
-            btnDelete.Margin = new Padding(4, 6, 4, 6);
-            btnDelete.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnDelete.Name = "btnDelete";
-            btnDelete.NoAccentTextColor = Color.Empty;
-            btnDelete.Size = new Size(73, 36);
-            btnDelete.TabIndex = 34;
-            btnDelete.Text = "DELETE";
-            btnDelete.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnDelete.UseAccentColor = false;
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEdit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnEdit.Depth = 0;
-            btnEdit.Font = new Font("Segoe UI", 9F);
-            btnEdit.HighEmphasis = true;
-            btnEdit.Icon = null;
-            btnEdit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEdit.Location = new Point(522, 299);
-            btnEdit.Margin = new Padding(4, 6, 4, 6);
-            btnEdit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnEdit.Name = "btnEdit";
-            btnEdit.NoAccentTextColor = Color.Empty;
-            btnEdit.Size = new Size(64, 36);
-            btnEdit.TabIndex = 32;
-            btnEdit.Text = "EDIT";
-            btnEdit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnEdit.UseAccentColor = false;
-            btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnBackList
-            // 
-            btnBackList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnBackList.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnBackList.Depth = 0;
-            btnBackList.Font = new Font("Segoe UI", 9F);
-            btnBackList.HighEmphasis = true;
-            btnBackList.Icon = null;
-            btnBackList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnBackList.Location = new Point(214, 299);
-            btnBackList.Margin = new Padding(4, 6, 4, 6);
-            btnBackList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnBackList.Name = "btnBackList";
-            btnBackList.NoAccentTextColor = Color.Empty;
-            btnBackList.Size = new Size(64, 36);
-            btnBackList.TabIndex = 31;
-            btnBackList.Text = "BACK";
-            btnBackList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnBackList.UseAccentColor = false;
-            btnBackList.UseVisualStyleBackColor = true;
+            lblSubject.AutoSize = true;
+            lblSubject.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            lblSubject.Location = new Point(24, 259);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(195, 32);
+            lblSubject.TabIndex = 0;
+            lblSubject.Text = "College Subject";
             // 
             // EvaluationForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(11, 24, 87);
-            ClientSize = new Size(800, 450);
-            Controls.Add(hopeTabPage1);
-            HeaderColor = Color.FromArgb(28, 59, 214);
-            Image = (Image)resources.GetObject("$this.Image");
+            ClientSize = new Size(1366, 768);
+            Location = new Point(0, 0);
             Name = "EvaluationForm";
-            Text = "EvaluationForm";
-            hopeTabPage1.ResumeLayout(false);
-            Register.ResumeLayout(false);
-            Register.PerformLayout();
-            Stats.ResumeLayout(false);
-            Stats.PerformLayout();
+            Text = "Evaluation Form";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
-        private TabPage Register;
-        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox3;
-        private Label label3;
-        private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
-        private Label label2;
-        private ReaLTaiizor.Controls.MaterialButton btnCreate;
-        private ReaLTaiizor.Controls.MaterialButton btnBack;
-        private TabPage Stats;
-        private ReaLTaiizor.Controls.PoisonListView poisonListView1;
-        private ReaLTaiizor.Controls.MaterialButton btnClear;
-        private ReaLTaiizor.Controls.MaterialButton btnDelete;
-        private ReaLTaiizor.Controls.MaterialButton btnEdit;
-        private ReaLTaiizor.Controls.MaterialButton btnBackList;
-        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
-        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox4;
-        public ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
+        private ReaLTaiizor.Controls.HopeTextBox txtId;
+        private ReaLTaiizor.Controls.HopeComboBox BoxClass;
+        private ReaLTaiizor.Controls.HopeComboBox BoxStudent;
+        private ReaLTaiizor.Controls.HopeComboBox BoxSubject;
+        private ReaLTaiizor.Controls.HopeTextBox txtName;
+        private ReaLTaiizor.Controls.HopeTextBox txtScore;
+        private ReaLTaiizor.Controls.HopeTextBox txtDate;
+        private Label lblTitle;
+        private Label lblClass;
+        private Label lblStudent;
+        private Label lblSubject;
     }
 }

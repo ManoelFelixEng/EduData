@@ -23,7 +23,7 @@ namespace EduData.Domain.Entities
         public string Name { get; set; }
         public DateTime DateBirth { get; set; }
 
-        // Propriedade de Navegação (O Objeto Turma, não só o ID)
+        
         public Class Class { get; set; }
     }
 }

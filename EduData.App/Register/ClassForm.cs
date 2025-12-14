@@ -6,7 +6,7 @@ using EduData.Service.Validators;
 using ReaLTaiizor.Forms;
 using System;
 using System.Collections.Generic;
-using System.Linq; // Importante para o FirstOrDefault
+using System.Linq; 
 using System.Windows.Forms;
 
 namespace EduData.App.Register
@@ -136,6 +136,7 @@ namespace EduData.App.Register
         protected override void GridToForm(ListViewItem item)
         {
             hopeTextBox14.Text = item.SubItems[0].Text; // ID
+            hopeTextBox14.Enabled = false;
             hopeTextBox16.Text = item.SubItems[1].Text; // Course
             hopeTextBox15.Text = item.SubItems[2].Text; // Period
             hopeTextBox17.Text = item.SubItems[3].Text; // Students
@@ -158,7 +159,12 @@ namespace EduData.App.Register
             }
         }
 
-        
+        protected override void ClearFields()
+        {
+            base.ClearFields();
+            hopeTextBox14.Enabled = true;
+        }
+
         private void materialButton1_Click(object sender, EventArgs e) 
         {
 
