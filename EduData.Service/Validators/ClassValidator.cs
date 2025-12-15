@@ -8,14 +8,14 @@ namespace EduData.Service.Validators
         public ClassValidator()
         {
             RuleFor(x => x.Course)
-                  .NotEmpty().WithMessage("O nome do curso é obrigatório.")
-                  .MaximumLength(100).WithMessage("O curso deve ter no máximo 100 caracteres.");
+                  .NotEmpty().WithMessage("The course name is required.")
+                  .MaximumLength(100).WithMessage("The course should have a maximum of 100 characters.");
 
             RuleFor(x => x.Period)
-                .GreaterThan(0).WithMessage("O período deve ser maior que zero.");
+                .GreaterThan(0).WithMessage("The period must be greater than zero.");
 
             RuleFor(x => x.NumberStudents) 
-                .GreaterThanOrEqualTo(0).WithMessage("A capacidade de alunos não pode ser negativa.");
+                .GreaterThanOrEqualTo(0).WithMessage("The ability of students cannot be negative.");
         }
     }
 }

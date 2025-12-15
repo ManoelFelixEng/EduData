@@ -14,7 +14,7 @@ namespace EduData.App.Others
     {
         private readonly IBaseService<Enrollment> _enrollmentService;
         private readonly IBaseService<Student> _studentService;
-        private readonly IBaseService<Class> _classService; // Reintroduzido
+        private readonly IBaseService<Class> _classService;
         private readonly IBaseService<CollegeSubject> _subjectService;
 
         public EnrollmentForm(
@@ -31,7 +31,7 @@ namespace EduData.App.Others
             InitializeComponent();
             ConfigurarGrid();
 
-            // Associação do evento manualmente, caso não consiga pelo Designer
+            // Associação do evento manualmente
             this.cboClass.SelectedIndexChanged += new EventHandler(this.cboClass_SelectedIndexChanged);
         }
 
@@ -50,9 +50,11 @@ namespace EduData.App.Others
                 poisonListView1.View = View.Details;
                 poisonListView1.GridLines = true;
                 poisonListView1.FullRowSelect = true;
+                poisonListView1.OwnerDraw = false;
+                poisonListView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
 
                 poisonListView1.Columns.Add("ID", 50);
-                poisonListView1.Columns.Add("Turma (ID - Curso)", 150); // Alterado conforme pedido
+                poisonListView1.Columns.Add("Turma (ID - Curso)", 150);
                 poisonListView1.Columns.Add("Aluno", 200);
                 poisonListView1.Columns.Add("Disciplina", 150);
                 poisonListView1.Columns.Add("Média", 80);
@@ -66,9 +68,6 @@ namespace EduData.App.Others
                 // Carrega Turmas
                 var classes = _classService.Get<ClassViewModel>().ToList();
                 cboClass.DataSource = classes;
-                // Exibe "ID - Curso" para facilitar seleção
-                // Mas como DisplayMember pega só uma propriedade, vamos usar "Course" 
-                // e assumir que o usuário checa o ID se houver duplicidade ou concatenar na ViewModel
                 cboClass.DisplayMember = "Course";
                 cboClass.ValueMember = "Id";
                 cboClass.SelectedIndex = -1;
@@ -89,12 +88,30 @@ namespace EduData.App.Others
             }
         }
 
+
         // EVENTO: Disparado ao escolher uma turma
         private void cboClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboClass.SelectedValue != null && int.TryParse(cboClass.SelectedValue.ToString(), out int classId))
             {
+                // --- ATUALIZAÇÃO DO TXTIDCLASS ---
+                // Verifica se o controle txtIdClass existe antes de tentar atribuir
+                if (txtIdClass != null)
+                {
+                    txtIdClass.Text = classId.ToString();
+                }
+                // ---------------------------------
+
                 CarregarAlunosDaTurma(classId);
+            }
+            else
+            {
+                // Limpa o campo se a seleção for inválida
+                if (txtIdClass != null)
+                {
+                    txtIdClass.Text = "";
+                }
+                cboStudent.DataSource = null; // Limpa alunos se não houver turma válida
             }
         }
 
@@ -133,13 +150,30 @@ namespace EduData.App.Others
                 var turma = _classService.GetById<Class>((int)cboClass.SelectedValue);
                 var subject = _subjectService.GetById<CollegeSubject>((int)cboSubject.SelectedValue);
 
+                // VERIFICAÇÃO INTELIGENTE (Permite DP em turma diferente)
+                if (!isEditMode)
+                {
+                    var todasMatriculas = _enrollmentService.Get<Enrollment>(new List<string> { "Student", "Class", "CollegeSubject" });
+
+                    bool jaExisteNaMesmaTurma = todasMatriculas.Any(x =>
+                        x.Student.Id == student.Id &&
+                        x.Class.Id == turma.Id &&
+                        x.CollegeSubject.Id == subject.Id);
+
+                    if (jaExisteNaMesmaTurma)
+                    {
+                        MessageBox.Show("Este aluno já está matriculado nesta disciplina DENTRO DESTA TURMA.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 int finalScore = 0;
                 int.TryParse(txtFinalScore.Text, out finalScore);
 
                 var enrollment = new Enrollment
                 {
                     Student = student,
-                    Class = turma, // Salva explicitamente a turma selecionada
+                    Class = turma,
                     CollegeSubject = subject,
                     FinalScore = finalScore
                 };
@@ -181,10 +215,7 @@ namespace EduData.App.Others
                     foreach (var e in enrollments)
                     {
                         var item = new ListViewItem(e.Id.ToString());
-
-                        // Exibe ID da Turma - Nome do Curso (Conforme pedido)
                         item.SubItems.Add($"{e.ClassId} - {e.ClassCourse}");
-
                         item.SubItems.Add(e.StudentName);
                         item.SubItems.Add(e.CollegeSubjectName);
                         item.SubItems.Add(e.FinalScore.ToString());
@@ -213,10 +244,12 @@ namespace EduData.App.Others
                         txtId.Text = enrollment.Id.ToString();
                         txtFinalScore.Text = enrollment.FinalScore.ToString();
 
-                        // 1. Seta a Turma primeiro
+                        // 1. Seta a Turma primeiro (Isso dispara o evento SelectedIndexChanged)
                         cboClass.SelectedValue = enrollment.Class.Id;
 
-                        // 2. Força o carregamento dos alunos dessa turma (caso o evento não dispare a tempo)
+                        // O evento SelectedIndexChanged já atualiza o txtIdClass e carrega os alunos.
+                        // Mas, para garantir em caso de delay ou ordem de execução:
+                        if (txtIdClass != null) txtIdClass.Text = enrollment.Class.Id.ToString();
                         CarregarAlunosDaTurma(enrollment.Class.Id);
 
                         // 3. Seta o Aluno
@@ -253,9 +286,17 @@ namespace EduData.App.Others
             base.ClearFields();
             txtId.Text = "";
             cboClass.SelectedIndex = -1;
-            cboStudent.DataSource = null; // Limpa alunos ao resetar
+            cboStudent.DataSource = null;
             cboSubject.SelectedIndex = -1;
             txtFinalScore.Text = "0";
+
+            // Limpa o txtIdClass
+            if (txtIdClass != null) txtIdClass.Text = "";
+        }
+
+        private void hopeTextBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

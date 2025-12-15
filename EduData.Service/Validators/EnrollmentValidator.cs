@@ -9,17 +9,18 @@ namespace EduData.Service.Validators
         public EnrollmentValidator()
         {
             RuleFor(e => e.FinalScore)
-                .NotNull().WithMessage("A nota final é obrigatória (mesmo que seja 0).");
+                .NotNull().WithMessage("The final grade is mandatory (even if it's 0).");
 
-            // Validação dos Relacionamentos
+            
             RuleFor(e => e.Student)
-                .NotEmpty().WithMessage("Informe o Aluno da matrícula.");
+                .NotEmpty().WithMessage("Inform the student of their enrollment number.");
 
             RuleFor(e => e.Class)
-                .NotEmpty().WithMessage("Informe a Turma da matrícula.");
+                .NotEmpty().WithMessage("Please provide the class name for enrollment.");
 
             RuleFor(e => e.CollegeSubject)
-                .NotEmpty().WithMessage("Informe a Disciplina da matrícula.");
+                .NotEmpty().WithMessage("Please specify the course you are enrolled in.");
         }
+
     }
 }

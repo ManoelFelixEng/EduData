@@ -17,19 +17,34 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CollegeSubjectForm));
             hopeTextBoxID = new ReaLTaiizor.Controls.HopeTextBox();
             hopeTextBoxLoad = new ReaLTaiizor.Controls.HopeTextBox();
             hopeTextBoxName = new ReaLTaiizor.Controls.HopeTextBox();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(hopeTextBoxID);
             panel1.Controls.Add(hopeTextBoxLoad);
             panel1.Controls.Add(hopeTextBoxName);
-            panel1.Controls.Add(label2);
+            panel1.Size = new Size(1305, 541);
+            panel1.Controls.SetChildIndex(groupBox1, 0);
+            panel1.Controls.SetChildIndex(hopeTextBoxName, 0);
+            panel1.Controls.SetChildIndex(hopeTextBoxLoad, 0);
+            panel1.Controls.SetChildIndex(hopeTextBoxID, 0);
+            panel1.Controls.SetChildIndex(pictureBox1, 0);
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label2);
+            groupBox1.Location = new Point(9, 3);
             // 
             // hopeTextBoxID
             // 
@@ -76,7 +91,6 @@
             hopeTextBoxLoad.TabIndex = 1;
             hopeTextBoxLoad.TabStop = false;
             hopeTextBoxLoad.UseSystemPasswordChar = false;
-            hopeTextBoxLoad.Click += hopeTextBoxLoad_Click;
             // 
             // hopeTextBoxName
             // 
@@ -96,7 +110,7 @@
             hopeTextBoxName.SelectedText = "";
             hopeTextBoxName.SelectionLength = 0;
             hopeTextBoxName.SelectionStart = 0;
-            hopeTextBoxName.Size = new Size(586, 38);
+            hopeTextBoxName.Size = new Size(528, 38);
             hopeTextBoxName.TabIndex = 2;
             hopeTextBoxName.TabStop = false;
             hopeTextBoxName.UseSystemPasswordChar = false;
@@ -104,13 +118,23 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Trebuchet MS", 40F, FontStyle.Bold);
+            label2.Font = new Font("Trebuchet MS", 30F, FontStyle.Bold);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(24, 0);
+            label2.Location = new Point(42, 28);
             label2.Name = "label2";
-            label2.Size = new Size(650, 67);
+            label2.Size = new Size(482, 49);
             label2.TabIndex = 3;
             label2.Text = "Register-College-Subject";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(662, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(535, 496);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // CollegeSubjectForm
             // 
@@ -120,9 +144,12 @@
             ClientSize = new Size(1366, 768);
             Location = new Point(0, 0);
             Name = "CollegeSubjectForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CollegeSubjectForm";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -132,5 +159,6 @@
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBoxLoad;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBoxName;
         public ReaLTaiizor.Controls.HopeTextBox hopeTextBoxID;
+        private PictureBox pictureBox1;
     }
 }

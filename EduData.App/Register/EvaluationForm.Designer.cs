@@ -39,25 +39,44 @@
             lblClass = new Label();
             lblStudent = new Label();
             lblSubject = new Label();
+            txtClassId = new ReaLTaiizor.Controls.HopeTextBox();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(lblSubject);
-            panel1.Controls.Add(lblStudent);
-            panel1.Controls.Add(lblClass);
-            panel1.Controls.Add(lblTitle);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(txtName);
             panel1.Controls.Add(txtDate);
             panel1.Controls.Add(txtScore);
-            panel1.Controls.Add(txtName);
+            panel1.Controls.Add(txtClassId);
             panel1.Controls.Add(BoxSubject);
-            panel1.Controls.Add(BoxStudent);
             panel1.Controls.Add(BoxClass);
             panel1.Controls.Add(txtId);
             panel1.ForeColor = SystemColors.Window;
-            panel1.Location = new Point(48, 6);
-            panel1.Size = new Size(890, 529);
+            panel1.Size = new Size(1302, 541);
+            panel1.Controls.SetChildIndex(groupBox1, 0);
+            panel1.Controls.SetChildIndex(txtId, 0);
+            panel1.Controls.SetChildIndex(BoxClass, 0);
+            panel1.Controls.SetChildIndex(BoxSubject, 0);
+            panel1.Controls.SetChildIndex(txtClassId, 0);
+            panel1.Controls.SetChildIndex(txtScore, 0);
+            panel1.Controls.SetChildIndex(txtDate, 0);
+            panel1.Controls.SetChildIndex(txtName, 0);
+            panel1.Controls.SetChildIndex(pictureBox1, 0);
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(lblTitle);
+            groupBox1.Controls.Add(lblClass);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(lblStudent);
+            groupBox1.Controls.Add(lblSubject);
+            groupBox1.Controls.Add(BoxStudent);
             // 
             // txtId
             // 
@@ -69,7 +88,7 @@
             txtId.Font = new Font("Segoe UI", 12F);
             txtId.ForeColor = Color.FromArgb(48, 49, 51);
             txtId.Hint = "ID";
-            txtId.Location = new Point(24, 467);
+            txtId.Location = new Point(24, 478);
             txtId.MaxLength = 32767;
             txtId.Multiline = false;
             txtId.Name = "txtId";
@@ -92,7 +111,7 @@
             BoxClass.ItemHeight = 30;
             BoxClass.Location = new Point(24, 120);
             BoxClass.Name = "BoxClass";
-            BoxClass.Size = new Size(556, 36);
+            BoxClass.Size = new Size(528, 36);
             BoxClass.TabIndex = 1;
             // 
             // BoxStudent
@@ -102,9 +121,9 @@
             BoxStudent.Font = new Font("Segoe UI", 12F);
             BoxStudent.FormattingEnabled = true;
             BoxStudent.ItemHeight = 30;
-            BoxStudent.Location = new Point(24, 207);
+            BoxStudent.Location = new Point(24, 274);
             BoxStudent.Name = "BoxStudent";
-            BoxStudent.Size = new Size(556, 36);
+            BoxStudent.Size = new Size(528, 36);
             BoxStudent.TabIndex = 2;
             // 
             // BoxSubject
@@ -114,9 +133,9 @@
             BoxSubject.Font = new Font("Segoe UI", 12F);
             BoxSubject.FormattingEnabled = true;
             BoxSubject.ItemHeight = 30;
-            BoxSubject.Location = new Point(24, 292);
+            BoxSubject.Location = new Point(24, 359);
             BoxSubject.Name = "BoxSubject";
-            BoxSubject.Size = new Size(280, 36);
+            BoxSubject.Size = new Size(528, 36);
             BoxSubject.TabIndex = 3;
             // 
             // txtName
@@ -128,7 +147,7 @@
             txtName.Font = new Font("Segoe UI", 12F);
             txtName.ForeColor = Color.FromArgb(48, 49, 51);
             txtName.Hint = "EVALUATION NAME";
-            txtName.Location = new Point(24, 353);
+            txtName.Location = new Point(24, 420);
             txtName.MaxLength = 32767;
             txtName.Multiline = false;
             txtName.Name = "txtName";
@@ -151,7 +170,7 @@
             txtScore.Font = new Font("Segoe UI", 12F);
             txtScore.ForeColor = Color.FromArgb(48, 49, 51);
             txtScore.Hint = "SCORE";
-            txtScore.Location = new Point(96, 467);
+            txtScore.Location = new Point(114, 478);
             txtScore.MaxLength = 32767;
             txtScore.Multiline = false;
             txtScore.Name = "txtScore";
@@ -174,7 +193,7 @@
             txtDate.Font = new Font("Segoe UI", 12F);
             txtDate.ForeColor = Color.FromArgb(48, 49, 51);
             txtDate.Hint = "(dd/mm/aaaa)";
-            txtDate.Location = new Point(24, 409);
+            txtDate.Location = new Point(208, 420);
             txtDate.MaxLength = 32767;
             txtDate.Multiline = false;
             txtDate.Name = "txtDate";
@@ -187,15 +206,16 @@
             txtDate.TabIndex = 4;
             txtDate.TabStop = false;
             txtDate.UseSystemPasswordChar = false;
+            txtDate.Click += txtDate_Click;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Trebuchet MS", 40F, FontStyle.Bold);
+            lblTitle.Font = new Font("Trebuchet MS", 30F, FontStyle.Bold);
             lblTitle.ForeColor = SystemColors.Window;
-            lblTitle.Location = new Point(24, -3);
+            lblTitle.Location = new Point(79, 28);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(515, 67);
+            lblTitle.Size = new Size(383, 49);
             lblTitle.TabIndex = 3;
             lblTitle.Text = "Register Evaluation";
             // 
@@ -203,6 +223,7 @@
             // 
             lblClass.AutoSize = true;
             lblClass.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            lblClass.ForeColor = SystemColors.Window;
             lblClass.Location = new Point(24, 85);
             lblClass.Name = "lblClass";
             lblClass.Size = new Size(71, 32);
@@ -213,7 +234,8 @@
             // 
             lblStudent.AutoSize = true;
             lblStudent.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
-            lblStudent.Location = new Point(24, 172);
+            lblStudent.ForeColor = SystemColors.Window;
+            lblStudent.Location = new Point(24, 239);
             lblStudent.Name = "lblStudent";
             lblStudent.Size = new Size(106, 32);
             lblStudent.TabIndex = 1;
@@ -223,11 +245,57 @@
             // 
             lblSubject.AutoSize = true;
             lblSubject.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
-            lblSubject.Location = new Point(24, 259);
+            lblSubject.ForeColor = SystemColors.Window;
+            lblSubject.Location = new Point(24, 324);
             lblSubject.Name = "lblSubject";
             lblSubject.Size = new Size(195, 32);
             lblSubject.TabIndex = 0;
             lblSubject.Text = "College Subject";
+            // 
+            // txtClassId
+            // 
+            txtClassId.BackColor = Color.White;
+            txtClassId.BaseColor = Color.FromArgb(44, 55, 66);
+            txtClassId.BorderColorA = Color.FromArgb(64, 158, 255);
+            txtClassId.BorderColorB = Color.FromArgb(220, 223, 230);
+            txtClassId.Enabled = false;
+            txtClassId.Font = new Font("Segoe UI", 12F);
+            txtClassId.ForeColor = Color.FromArgb(48, 49, 51);
+            txtClassId.Hint = "ID";
+            txtClassId.Location = new Point(24, 198);
+            txtClassId.MaxLength = 32767;
+            txtClassId.Multiline = false;
+            txtClassId.Name = "txtClassId";
+            txtClassId.PasswordChar = '\0';
+            txtClassId.ScrollBars = ScrollBars.None;
+            txtClassId.SelectedText = "";
+            txtClassId.SelectionLength = 0;
+            txtClassId.SelectionStart = 0;
+            txtClassId.Size = new Size(60, 38);
+            txtClassId.TabIndex = 8;
+            txtClassId.TabStop = false;
+            txtClassId.UseSystemPasswordChar = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Trebuchet MS", 18.18F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Window;
+            label1.Location = new Point(24, 163);
+            label1.Name = "label1";
+            label1.Size = new Size(116, 32);
+            label1.TabIndex = 9;
+            label1.Text = "ID CLASS";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Grades_bro__1_;
+            pictureBox1.Location = new Point(648, 28);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(584, 558);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // EvaluationForm
             // 
@@ -236,9 +304,12 @@
             ClientSize = new Size(1366, 768);
             Location = new Point(0, 0);
             Name = "EvaluationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Evaluation Form";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -255,5 +326,8 @@
         private Label lblClass;
         private Label lblStudent;
         private Label lblSubject;
+        private Label label1;
+        private ReaLTaiizor.Controls.HopeTextBox txtClassId;
+        private PictureBox pictureBox1;
     }
 }

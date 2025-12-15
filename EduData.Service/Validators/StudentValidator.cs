@@ -8,16 +8,16 @@ namespace EduData.Service.Validators
         public StudentValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("O nome do aluno é obrigatório.")
-                .MaximumLength(100).WithMessage("O nome deve ter no máximo 100 caracteres.");
+                .NotEmpty().WithMessage("The student's name is required.")
+                .MaximumLength(100).WithMessage("The name must have a maximum of 100 characters.");
 
             RuleFor(x => x.DateBirth) 
-                .NotEmpty().WithMessage("A data de nascimento é obrigatória.")
+                .NotEmpty().WithMessage("Date of birth is required.")
                 .LessThan(DateTime.Now).WithMessage("A data de nascimento deve ser no passado.");
 
             
             RuleFor(x => x.Class)
-                .NotNull().WithMessage("É necessário vincular o aluno a uma turma válida.");
+                .NotNull().WithMessage("It is necessary to link the student to a valid class.");
         }
     }
 }

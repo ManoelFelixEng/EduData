@@ -42,10 +42,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.add_user;
-            pictureBox1.Location = new Point(737, 115);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(602, 70);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(523, 563);
+            pictureBox1.Size = new Size(646, 563);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
             // 
@@ -192,6 +193,7 @@
             HeaderColor = Color.FromArgb(28, 59, 214);
             Image = (Image)resources.GetObject("$this.Image");
             Name = "UserForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

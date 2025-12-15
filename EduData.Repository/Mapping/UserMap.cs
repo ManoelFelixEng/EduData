@@ -14,9 +14,9 @@ namespace EduData.Repository.Mapping
         {
             builder.ToTable("user"); 
             builder.HasKey(prop => prop.Id);
-
+            builder.HasIndex(prop => prop.Name).IsUnique();
             builder.Property(prop => prop.Id).HasColumnName("id_user");
-            builder.Property(prop => prop.Name).HasColumnName("username").HasMaxLength(50).IsRequired(); 
+            builder.Property(prop => prop.Name).HasColumnName("username").HasMaxLength(50).IsRequired();
             builder.Property(prop => prop.Password).HasColumnName("password").HasMaxLength(100).IsRequired();
             builder.Property(prop => prop.Role).HasColumnName("role").HasMaxLength(100).IsRequired();
 

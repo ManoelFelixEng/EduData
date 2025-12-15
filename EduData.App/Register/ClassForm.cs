@@ -46,7 +46,7 @@ namespace EduData.App.Register
             }
         }
 
-        
+
         protected override void Save()
         {
             try
@@ -56,14 +56,14 @@ namespace EduData.App.Register
                     MessageBox.Show("O ID é obrigatório.", "Atenção");
                     return;
                 }
-                
+
 
                 int id = int.Parse(hopeTextBox14.Text);
                 string course = hopeTextBox16.Text;
                 int period = int.Parse(hopeTextBox15.Text);
                 int numStudents = int.Parse(hopeTextBox17.Text);
 
-                
+
                 if (isEditMode)
                 {
                     var existingClass = _classService.Get<Class>().FirstOrDefault(x => x.Id == id);
@@ -104,7 +104,7 @@ namespace EduData.App.Register
 
                 MessageBox.Show("Salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                
+
                 PopulateGrid();
                 ClearFields();
             }
@@ -114,7 +114,7 @@ namespace EduData.App.Register
             }
         }
 
-        
+
         protected override void PopulateGrid()
         {
             var classes = _classService.Get<ClassViewModel>();
@@ -132,7 +132,7 @@ namespace EduData.App.Register
             }
         }
 
-        
+
         protected override void GridToForm(ListViewItem item)
         {
             hopeTextBox14.Text = item.SubItems[0].Text; // ID
@@ -142,7 +142,7 @@ namespace EduData.App.Register
             hopeTextBox17.Text = item.SubItems[3].Text; // Students
         }
 
-       
+
         protected override void Excluir()
         {
             try
@@ -165,23 +165,28 @@ namespace EduData.App.Register
             hopeTextBox14.Enabled = true;
         }
 
-        private void materialButton1_Click(object sender, EventArgs e) 
+        private void materialButton1_Click(object sender, EventArgs e)
         {
 
         }
-        private void hopeTextBox4_Click(object sender, EventArgs e) 
+        private void hopeTextBox4_Click(object sender, EventArgs e)
         {
 
         }
-        private void hopeTextBox14_Click(object sender, EventArgs e) 
+        private void hopeTextBox14_Click(object sender, EventArgs e)
         {
 
         }
-        private void hopeTextBox15_Click(object sender, EventArgs e) 
+        private void hopeTextBox15_Click(object sender, EventArgs e)
         {
 
         }
-        private void poisonListView1_SelectedIndexChanged(object sender, EventArgs e) 
+        private void poisonListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClassForm_Load(object sender, EventArgs e)
         {
 
         }

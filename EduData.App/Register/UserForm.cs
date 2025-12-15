@@ -25,8 +25,19 @@ namespace EduData.App.Register
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
+
             try
             {
+                if (hopeComboBox1.SelectedItem == null)
+                {
+                    MessageBox.Show(
+                        "Select a (Role) for User.",
+                        "Required field",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
 
                 var newUser = new User
                 {
@@ -38,14 +49,14 @@ namespace EduData.App.Register
                 
                 _userService.Add<User, User, UserValidator>(newUser);
 
-                MessageBox.Show("Usuário cadastrado com sucesso!", "EduData", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("User successfully registered!", "EduData", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro ao cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error registering", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

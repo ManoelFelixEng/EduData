@@ -19,7 +19,7 @@ namespace EduData.App.Others
 {
     public partial class Login : LostForm
     {
-        private readonly IBaseService<User> _userService;// entender
+        private readonly IBaseService<User> _userService;
         public Login(IBaseService<User> userService)
         {
             _userService = userService;
@@ -27,33 +27,33 @@ namespace EduData.App.Others
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrEmpty(hopeTextBox1.Text) || string.IsNullOrEmpty(hopeTextBox2.Text))
             {
-                MessageBox.Show("Por favor, informe usuário e senha.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter your username and password.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
 
             User user = GetUser(hopeTextBox1.Text, hopeTextBox2.Text);
 
-            //verificar
+            
             if (user != null)
             {
 
-                MainForm.User = user; // Salva a sessão
-                DialogResult = DialogResult.OK; 
-                Close(); 
+                MainForm.User = user; 
+                DialogResult = DialogResult.OK;
+                Close();
             }
             else
             {
 
-                MessageBox.Show("Usuário ou senha inválidos!", "Erro de Acesso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid username or password!", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 hopeTextBox2.Text = string.Empty;
-                hopeTextBox2.Focus(); 
+                hopeTextBox2.Focus();
             }
         }
-        
+
 
         private User? GetUser(string login, string password)
         {
@@ -75,8 +75,8 @@ namespace EduData.App.Others
                 var user = new User
                 {
                     Name = "admin",
-                    Password = "admin123",
-                    Role = "Administrator" 
+                    Password = "admin7227",
+                    Role = "Administrator"
                 };
                 _userService.Add<User, User, UserValidator>(user);
             }
@@ -84,7 +84,7 @@ namespace EduData.App.Others
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
- 
+
             var userForm = ConfigureDI.serviceProvider.GetService<UserForm>();
 
             if (userForm != null && !userForm.IsDisposed)
@@ -98,7 +98,7 @@ namespace EduData.App.Others
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void hopeTextBox1_Click(object sender, EventArgs e)
@@ -109,6 +109,11 @@ namespace EduData.App.Others
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

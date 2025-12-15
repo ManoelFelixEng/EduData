@@ -32,6 +32,7 @@
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             Register = new TabPage();
             panel1 = new Panel();
+            groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             btnCreate = new ReaLTaiizor.Controls.MaterialButton();
             btnBack = new ReaLTaiizor.Controls.MaterialButton();
             Stats = new TabPage();
@@ -41,6 +42,7 @@
             btnBackList = new ReaLTaiizor.Controls.MaterialButton();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
+            panel1.SuspendLayout();
             Stats.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,7 +75,7 @@
             Register.Controls.Add(panel1);
             Register.Controls.Add(btnCreate);
             Register.Controls.Add(btnBack);
-            Register.ForeColor = SystemColors.ControlText;
+            Register.ForeColor = SystemColors.Window;
             Register.Location = new Point(0, 40);
             Register.Name = "Register";
             Register.Padding = new Padding(3);
@@ -85,10 +87,29 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(48, 39);
             panel1.Name = "panel1";
             panel1.Size = new Size(1106, 541);
             panel1.TabIndex = 21;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.Transparent;
+            groupBox1.BackGColor = Color.DarkBlue;
+            groupBox1.BaseColor = Color.Transparent;
+            groupBox1.BorderColorG = Color.FromArgb(159, 159, 161);
+            groupBox1.BorderColorH = Color.FromArgb(182, 180, 186);
+            groupBox1.Font = new Font("Tahoma", 9F);
+            groupBox1.ForeColor = Color.FromArgb(53, 53, 53);
+            groupBox1.HeaderColor = Color.Navy;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.MinimumSize = new Size(136, 50);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(5, 28, 5, 5);
+            groupBox1.Size = new Size(567, 538);
+            groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            groupBox1.TabIndex = 0;
             // 
             // btnCreate
             // 
@@ -243,6 +264,7 @@
             hopeTabPage1.ResumeLayout(false);
             Register.ResumeLayout(false);
             Register.PerformLayout();
+            panel1.ResumeLayout(false);
             Stats.ResumeLayout(false);
             Stats.PerformLayout();
             ResumeLayout(false);
@@ -259,5 +281,6 @@
         public Panel panel1;
         public ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         public ReaLTaiizor.Controls.PoisonListView poisonListView1;
+        public ReaLTaiizor.Controls.GroupBox groupBox1;
     }
 }

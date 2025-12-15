@@ -8,10 +8,10 @@ namespace EduData.Service.Validators
         public CollegeSubjectValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("O nome da disciplina é obrigatório.");
+                .NotEmpty().WithMessage("The subject name is required.");
 
             RuleFor(x => x.CourseLoad) 
-                .GreaterThan(0).WithMessage("A carga horária deve ser maior que zero.");
+                .GreaterThan(0).WithMessage("The workload must be greater than zero.");
         }
     }
 }

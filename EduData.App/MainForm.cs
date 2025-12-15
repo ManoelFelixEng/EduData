@@ -21,6 +21,8 @@ namespace EduData.App
         public static User User { get; set; }
         public MainForm()
         {
+
+
             InitializeComponent();
             LoadLogin();
         }
@@ -48,9 +50,32 @@ namespace EduData.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao abrir o formulário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error opening the form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            TesteGrafico();
+        }
+
+        private void TesteGrafico()
+        {
+            formsPlot1.Plot.Clear();
+
+            double[] valores = { 10, 20, 30 };
+
+            var bars = formsPlot1.Plot.Add.Bars(valores);
+
+            formsPlot1.Plot.Title("Gráfico de Teste");
+            formsPlot1.Plot.YLabel("Valor");
+            formsPlot1.Plot.XLabel("Itens");
+
+            formsPlot1.Refresh();
+        }
+
+
 
         private void Register_Class_Click(object sender, EventArgs e)
         {
@@ -81,19 +106,13 @@ namespace EduData.App
         }
 
 
+
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void RegisterTable_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -36,7 +36,7 @@
             hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            btnExit = new ReaLTaiizor.Controls.MaterialButton();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -165,25 +165,26 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
-            // materialButton1
+            // btnExit
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(66, 433);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(64, 36);
-            materialButton1.TabIndex = 7;
-            materialButton1.Text = "EXIT";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnExit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnExit.Depth = 0;
+            btnExit.HighEmphasis = true;
+            btnExit.Icon = null;
+            btnExit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnExit.Location = new Point(66, 433);
+            btnExit.Margin = new Padding(4, 6, 4, 6);
+            btnExit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnExit.Name = "btnExit";
+            btnExit.NoAccentTextColor = Color.Empty;
+            btnExit.Size = new Size(64, 36);
+            btnExit.TabIndex = 7;
+            btnExit.Text = "EXIT";
+            btnExit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnExit.UseAccentColor = false;
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // label3
             // 
@@ -203,7 +204,7 @@
             BackColor = Color.FromArgb(11, 24, 87);
             ClientSize = new Size(1366, 768);
             Controls.Add(label3);
-            Controls.Add(materialButton1);
+            Controls.Add(btnExit);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(hopeTextBox2);
@@ -214,8 +215,8 @@
             HeaderColor = Color.FromArgb(28, 59, 214);
             Image = (Image)resources.GetObject("$this.Image");
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            WindowState = FormWindowState.Maximized;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -231,7 +232,7 @@
         private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
         private Label label2;
         private PictureBox pictureBox1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private ReaLTaiizor.Controls.MaterialButton btnExit;
         private Label label3;
     }
 }

@@ -42,9 +42,14 @@
             toolStripSeparator5 = new ToolStripSeparator();
             Register_Student = new ToolStripButton();
             Stats = new TabPage();
+            pictureBox1 = new PictureBox();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             toolStrip1.SuspendLayout();
+            Stats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // hopeTabPage1
@@ -167,13 +172,42 @@
             // 
             // Stats
             // 
+            Stats.AutoScroll = true;
+            Stats.AutoScrollMargin = new Size(0, 10000);
             Stats.BackColor = Color.FromArgb(11, 24, 87);
+            Stats.Controls.Add(pictureBox1);
+            Stats.Controls.Add(formsPlot1);
             Stats.Location = new Point(0, 40);
             Stats.Name = "Stats";
             Stats.Padding = new Padding(3);
             Stats.Size = new Size(1356, 684);
             Stats.TabIndex = 1;
             Stats.Text = "Stats";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Analysis_amico;
+            pictureBox1.Location = new Point(701, 158);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(563, 489);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // formsPlot1
+            // 
+            formsPlot1.DisplayScale = 1F;
+            formsPlot1.Location = new Point(135, 72);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new Size(476, 356);
+            formsPlot1.TabIndex = 0;
+            // 
+            // mySqlCommand1
+            // 
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
             // 
             // MainForm
             // 
@@ -185,13 +219,15 @@
             HeaderColor = Color.FromArgb(28, 59, 214);
             Image = (Image)resources.GetObject("$this.Image");
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
-            WindowState = FormWindowState.Maximized;
             hopeTabPage1.ResumeLayout(false);
             Register.ResumeLayout(false);
             Register.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            Stats.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -210,5 +246,8 @@
         private ToolStripButton Evaluation_Management;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private ScottPlot.WinForms.FormsPlot formsPlot1;
+        private PictureBox pictureBox1;
     }
 }

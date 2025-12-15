@@ -23,6 +23,7 @@ namespace EduData.App.Register
 
             InitializeComponent();
 
+            this.ComboClass.SelectedIndexChanged += new EventHandler(this.ComboClass_SelectedIndexChanged);
             ConfigurarGrid();
         }
 
@@ -41,11 +42,25 @@ namespace EduData.App.Register
                 poisonListView1.View = View.Details;
                 poisonListView1.GridLines = true;
                 poisonListView1.FullRowSelect = true;
+                poisonListView1.OwnerDraw = false;
+                poisonListView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
 
                 poisonListView1.Columns.Add("ID", 50);
-                poisonListView1.Columns.Add("Nome", 250);
-                poisonListView1.Columns.Add("Nascimento", 120);
-                poisonListView1.Columns.Add("Turma", 200);
+                poisonListView1.Columns.Add("Name", 250);
+                poisonListView1.Columns.Add("Birth", 120);
+                poisonListView1.Columns.Add("Class", 200);
+            }
+        }
+        private void ComboClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (ComboClass.SelectedValue != null && int.TryParse(ComboClass.SelectedValue.ToString(), out int idTurma))
+            {
+                lblIdClass.Text = idTurma.ToString(); 
+            }
+            else
+            {
+                lblIdClass.Text = ""; 
             }
         }
 
@@ -72,6 +87,12 @@ namespace EduData.App.Register
             try
             {
                 // 1. Validações
+                if(string.IsNullOrEmpty(txtId.Text))
+        {
+                    MessageBox.Show("O ID (Matrícula) é obrigatório.");
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(lblName.Text))
                 {
                     MessageBox.Show("O nome é obrigatório.");
@@ -80,23 +101,24 @@ namespace EduData.App.Register
 
                 if (!DateTime.TryParse(lblDATE.Text, out DateTime dataNascimento))
                 {
-                    MessageBox.Show("Data inválida. Use o formato DD/MM/AAAA.");
+                    MessageBox.Show("Data inválida.");
                     return;
                 }
 
                 if (ComboClass.SelectedValue == null)
                 {
-                    MessageBox.Show("Selecione uma turma para o aluno.");
+                    MessageBox.Show("Selecione uma turma.");
                     return;
                 }
 
-                // 2. Montar objeto
+                int idManual = int.Parse(txtId.Text);
                 int idTurma = (int)ComboClass.SelectedValue;
                 // Busca a entidade turma para vincular corretamente
                 var turmaSelecionada = _classService.GetById<Class>(idTurma);
 
                 var student = new Student
                 {
+                    Id = idManual,  
                     Name = lblName.Text,
                     DateBirth = dataNascimento,
                     Class = turmaSelecionada
@@ -105,6 +127,8 @@ namespace EduData.App.Register
                 // 3. Salvar
                 if (isEditMode)
                 {
+                    _studentService.Update<Student, Student, StudentValidator>(student);
+                    MessageBox.Show("Aluno atualizado!");
                     // EDIÇÃO: Usa o ID que está na tela (escondido/travado)
                     if (int.TryParse(txtId.Text, out int id))
                     {
@@ -120,8 +144,12 @@ namespace EduData.App.Register
                 }
                 else
                 {
-                    // CRIAÇÃO: Auto Increment
-                    // Não definimos o ID aqui. O banco criará automaticamente.
+                    var existe = _studentService.GetById<Student>(idManual);
+                    if (existe != null)
+                    {
+                        MessageBox.Show($"Já existe um aluno com a matrícula {idManual}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     _studentService.Add<Student, Student, StudentValidator>(student);
                     MessageBox.Show("Aluno cadastrado com sucesso!");
                 }
@@ -171,10 +199,12 @@ namespace EduData.App.Register
 
                     if (student != null)
                     {
+                        txtId.Enabled = false;
                         txtId.Text = student.Id.ToString(); // Preenche o ID travado
                         lblName.Text = student.Name;
                         lblDATE.Text = student.DateBirth.ToString("dd/MM/yyyy");
                         ComboClass.SelectedValue = student.ClassId;
+
                     }
                 }
             }
@@ -212,6 +242,7 @@ namespace EduData.App.Register
             base.ClearFields();
             txtId.Text = "";
             ComboClass.SelectedIndex = -1;
+            lblIdClass.Text = ""; 
         }
     }
 }

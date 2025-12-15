@@ -31,7 +31,7 @@ namespace EduData.App.Register
             InitializeComponent();
             ConfigurarGrid();
 
-            // Eventos dos filtros
+            // Eventos manuais para os filtros em cascata
             this.BoxClass.SelectedIndexChanged += new EventHandler(this.BoxClass_SelectedIndexChanged);
             this.BoxStudent.SelectedIndexChanged += new EventHandler(this.BoxStudent_SelectedIndexChanged);
         }
@@ -52,15 +52,51 @@ namespace EduData.App.Register
                 poisonListView1.GridLines = true;
                 poisonListView1.FullRowSelect = true;
 
+                // Configuração Visual Dark
+                poisonListView1.OwnerDraw = false;
+                poisonListView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+
                 poisonListView1.Columns.Add("ID", 50);
                 poisonListView1.Columns.Add("Nome Avaliação", 200);
-                poisonListView1.Columns.Add("Cód. Matrícula", 100); // Mostra a ligação
+                poisonListView1.Columns.Add("Cód. Matrícula", 100);
                 poisonListView1.Columns.Add("Nota", 80);
                 poisonListView1.Columns.Add("Data", 100);
             }
         }
 
-        // --- LÓGICA DE SELEÇÃO (Mantida para encontrar o Enrollment ID) ---
+        // --- MÉTODOS AUXILIARES ---
+
+        private void AtualizarMediaFinal(int enrollmentId)
+        {
+            try
+            {
+                // 1. Busca todas as avaliações da matrícula
+                var avaliacoes = _evaluationService
+                    .Get<Evaluation>(new List<string> { "Enrollment" })
+                    .Where(e => e.Enrollment.Id == enrollmentId)
+                    .ToList();
+
+                // 2. Calcula a média (Arredondada)
+                int media = avaliacoes.Any()
+                    ? (int)Math.Round(avaliacoes.Average(e => e.ScoreValue))
+                    : 0;
+
+                // 3. Atualiza a matrícula
+                var enrollment = _enrollmentService.GetById<Enrollment>(enrollmentId);
+
+                if (enrollment != null)
+                {
+                    enrollment.FinalScore = media;
+                    _enrollmentService.Update<Enrollment, Enrollment, EnrollmentValidator>(enrollment);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar média final: " + ex.Message);
+            }
+        }
+
+        // --- LÓGICA DE FILTROS (CASCATA) ---
 
         private void CarregarTurmas()
         {
@@ -79,7 +115,10 @@ namespace EduData.App.Register
         {
             if (BoxClass.SelectedValue != null && int.TryParse(BoxClass.SelectedValue.ToString(), out int classId))
             {
-                // Carrega alunos da turma selecionada
+                // Mostra o ID da Turma na tela
+                if (txtClassId != null) txtClassId.Text = classId.ToString();
+
+                // Carrega alunos da turma
                 var allStudents = _studentService.Get<StudentViewModel>();
                 var filteredStudents = allStudents.Where(s => s.ClassId == classId).ToList();
 
@@ -88,6 +127,11 @@ namespace EduData.App.Register
                 BoxStudent.ValueMember = "Id";
                 BoxStudent.SelectedIndex = -1;
                 BoxSubject.DataSource = null;
+            }
+            else
+            {
+                if (txtClassId != null) txtClassId.Text = "";
+                BoxStudent.DataSource = null;
             }
         }
 
@@ -98,43 +142,16 @@ namespace EduData.App.Register
                 && BoxClass.SelectedValue != null
                 && int.TryParse(BoxClass.SelectedValue.ToString(), out int classId))
             {
-                // Carrega as matrículas (disciplinas) desse aluno nessa turma
+                // Carrega as disciplinas (matrículas) deste aluno nesta turma
                 var enrollments = _enrollmentService.Get<EnrollmentViewModel>();
                 var studentEnrollments = enrollments.Where(en => en.StudentId == studentId && en.ClassId == classId).ToList();
 
-                // O ValueMember aqui é o EnrollmentId (ID da Matrícula)
                 var lista = studentEnrollments.Select(en => new { Id = en.Id, Name = en.CollegeSubjectName }).ToList();
 
                 BoxSubject.DataSource = lista;
                 BoxSubject.DisplayMember = "Name";
-                BoxSubject.ValueMember = "Id";
+                BoxSubject.ValueMember = "Id"; // ID da Matrícula!
                 BoxSubject.SelectedIndex = -1;
-            }
-        }
-        private void AtualizarMediaNaMatricula(int enrollmentId)
-        {
-            try
-            {
-                // 1. Busca todas as avaliações dessa matrícula específica
-                var todasAvaliacoes = _evaluationService.Get<Evaluation>(new List<string> { "Enrollment" });
-                var avaliacoesDaMatricula = todasAvaliacoes.Where(ev => ev.Enrollment.Id == enrollmentId).ToList();
-
-                // 2. Calcula a média (se houver notas, senão é 0)
-                int mediaFinal = avaliacoesDaMatricula.Count > 0
-                    ? (int)avaliacoesDaMatricula.Average(ev => ev.ScoreValue)
-                    : 0;
-
-                // 3. Atualiza a tabela Enrollment
-                var enrollment = _enrollmentService.GetById<Enrollment>(enrollmentId);
-                if (enrollment != null)
-                {
-                    enrollment.FinalScore = mediaFinal;
-                    _enrollmentService.Update<Enrollment, Enrollment, EnrollmentValidator>(enrollment);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao atualizar média: " + ex.Message);
             }
         }
 
@@ -144,6 +161,7 @@ namespace EduData.App.Register
         {
             try
             {
+                // 1. Validações
                 if (BoxSubject.SelectedValue == null)
                 {
                     MessageBox.Show("Selecione a Disciplina (Matrícula).");
@@ -155,9 +173,8 @@ namespace EduData.App.Register
                     return;
                 }
 
-                // Recupera ID da Matrícula
+                // 2. Preparação
                 int enrollmentId = (int)BoxSubject.SelectedValue;
-                // Busca objeto Enrollment
                 var enrollment = _enrollmentService.GetById<Enrollment>(enrollmentId);
 
                 int.TryParse(txtScore.Text, out int score);
@@ -168,24 +185,27 @@ namespace EduData.App.Register
                     NameEvaluation = txtName.Text,
                     ScoreValue = score,
                     DateEvaluation = date,
-                    Enrollment = enrollment // Vincula
+                    Enrollment = enrollment
                 };
 
+                // 3. Salvar
                 if (isEditMode)
                 {
                     if (int.TryParse(txtId.Text, out int id))
                     {
                         evaluation.Id = id;
                         _evaluationService.Update<Evaluation, Evaluation, EvaluationValidator>(evaluation);
-                        MessageBox.Show("Atualizado!");
+                        MessageBox.Show("Avaliação atualizada!");
                     }
                 }
                 else
                 {
                     _evaluationService.Add<Evaluation, Evaluation, EvaluationValidator>(evaluation);
-                    MessageBox.Show("Salvo!");
+                    MessageBox.Show("Avaliação registrada!");
                 }
-                AtualizarMediaNaMatricula(enrollment.Id);
+
+                // 4. Atualizar Média da Matrícula (Pós-Save)
+                AtualizarMediaFinal(enrollmentId);
 
                 ClearFields();
                 PopulateGrid();
@@ -200,7 +220,6 @@ namespace EduData.App.Register
         {
             try
             {
-                // Trazemos Enrollment apenas para pegar o ID dele se necessário
                 var includes = new List<string> { "Enrollment" };
                 var evaluations = _evaluationService.Get<EvaluationViewModel>(includes);
 
@@ -211,10 +230,7 @@ namespace EduData.App.Register
                     {
                         var item = new ListViewItem(ev.Id.ToString());
                         item.SubItems.Add(ev.NameEvaluation);
-
-                        // Mostra apenas o ID da Matrícula (Conforme solicitado)
                         item.SubItems.Add(ev.EnrollmentId.ToString());
-
                         item.SubItems.Add(ev.ScoreValue.ToString());
                         item.SubItems.Add(ev.DateEvaluation.ToShortDateString());
 
@@ -234,8 +250,8 @@ namespace EduData.App.Register
             {
                 if (int.TryParse(item.SubItems[0].Text, out int id))
                 {
-                    // Busca dados básicos
-                    var ev = _evaluationService.GetById<Evaluation>(id, new List<string> { "Enrollment" });
+                    // Traz também a turma para preencher o ID visualmente
+                    var ev = _evaluationService.GetById<Evaluation>(id, new List<string> { "Enrollment.Class" });
 
                     if (ev != null)
                     {
@@ -244,10 +260,11 @@ namespace EduData.App.Register
                         txtScore.Text = ev.ScoreValue.ToString();
                         txtDate.Text = ev.DateEvaluation.ToString("dd/MM/yyyy");
 
-                        // Na edição simplificada, apenas mostramos os dados. 
-                        // Recarregar a cascata de combos (Turma->Aluno->Matrícula) é complexo 
-                        // e pode ser feito se o usuário quiser alterar a quem a nota pertence.
-                        // Por enquanto, focamos em editar a nota/nome.
+                        // Tenta mostrar o ID da turma
+                        if (ev.Enrollment?.Class != null && txtClassId != null)
+                        {
+                            txtClassId.Text = ev.Enrollment.Class.Id.ToString();
+                        }
                     }
                 }
             }
@@ -263,22 +280,20 @@ namespace EduData.App.Register
             {
                 if (int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
-                    if (MessageBox.Show("Excluir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Excluir esta avaliação?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        // --- TRECHO ALTERADO ---
-                        // 1. Descobre a matrícula antes de deletar a prova
+                        // 1. Descobre a matrícula antes de deletar
                         var avaliacao = _evaluationService.GetById<Evaluation>(id, new List<string> { "Enrollment" });
                         int enrollmentId = avaliacao?.Enrollment?.Id ?? 0;
 
-                        // 2. Deleta a prova
+                        // 2. Deleta
                         _evaluationService.Delete(id);
 
-                        // 3. Recalcula a média da matrícula (agora sem essa nota)
+                        // 3. Recalcula média
                         if (enrollmentId > 0)
                         {
-                            AtualizarMediaNaMatricula(enrollmentId);
+                            AtualizarMediaFinal(enrollmentId);
                         }
-                        // -----------------------
 
                         PopulateGrid();
                     }
@@ -293,6 +308,13 @@ namespace EduData.App.Register
             BoxClass.SelectedIndex = -1;
             BoxStudent.DataSource = null;
             BoxSubject.DataSource = null;
+
+            if (txtClassId != null) txtClassId.Text = "";
+        }
+
+        private void txtDate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
