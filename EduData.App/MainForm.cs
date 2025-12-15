@@ -128,8 +128,8 @@ namespace EduData.App
                 formsPlot1.Plot.Axes.Bottom.TickLabelStyle.Rotation = 0; // Reto
                 formsPlot1.Plot.Axes.Bottom.TickLabelStyle.Alignment = ScottPlot.Alignment.MiddleCenter; // Centralizado
 
-                formsPlot1.Plot.Axes.SetLimitsY(0, 10); // Nota 0 a 10
-                formsPlot1.UserInputProcessor.Disable();
+                //formsPlot1.Plot.Axes.SetLimitsY(0, 10); // Nota 0 a 10
+                //formsPlot1.UserInputProcessor.Disable();
                 formsPlot1.Refresh();
             }
             catch (Exception ex)
@@ -206,8 +206,8 @@ namespace EduData.App
                 formsPlot2.Plot.Axes.Bottom.TickLabelStyle.Rotation = 0;
                 formsPlot2.Plot.Axes.Bottom.TickLabelStyle.Alignment = ScottPlot.Alignment.MiddleCenter;
 
-                formsPlot2.Plot.Axes.SetLimitsY(0, 10);
-                formsPlot2.UserInputProcessor.Disable();
+                //formsPlot2.Plot.Axes.SetLimitsY(0, 10);
+                //formsPlot2.UserInputProcessor.Disable();
                 formsPlot2.Refresh();
             }
             catch (Exception ex)
@@ -283,8 +283,8 @@ namespace EduData.App
                 formsPlot3.Plot.Axes.Bottom.TickGenerator = ticks;
                 formsPlot3.Plot.Axes.Bottom.TickLabelStyle.Rotation = 0;
                 formsPlot3.Plot.Axes.Bottom.TickLabelStyle.Alignment = ScottPlot.Alignment.MiddleCenter;
-                formsPlot3.Plot.Axes.SetLimitsY(0, 120);
-                formsPlot3.UserInputProcessor.Disable();
+                //formsPlot3.Plot.Axes.SetLimitsY(0, 120);
+                //formsPlot3.UserInputProcessor.Disable();
                 formsPlot3.Refresh();
             }
             catch (Exception ex)
@@ -349,27 +349,14 @@ namespace EduData.App
             AtualizarDashboard();
         }
 
-        private void txtRefresh_Click(object sender, EventArgs e)
+
+        private void hopeTabPage1_Click(object sender, EventArgs e)
         {
-            try
+            if (hopeTabPage1.SelectedTab == Stats)
             {
-                
-                this.Cursor = Cursors.WaitCursor;
-
-                
                 AtualizarDashboard();
-
-                MessageBox.Show("Dashboard updated successfully!", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating dashboard: " + ex.Message);
-            }
-            finally
-            {
-                
-                this.Cursor = Cursors.Default;
-            }
+           
         }
     }
 }

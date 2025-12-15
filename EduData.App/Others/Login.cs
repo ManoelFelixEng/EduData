@@ -75,7 +75,7 @@ namespace EduData.App.Others
                 var user = new User
                 {
                     Name = "admin",
-                    Password = "admin7227",
+                    Password = "Admin@7227",
                     Role = "Administrator"
                 };
                 _userService.Add<User, User, UserValidator>(user);

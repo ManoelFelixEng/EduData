@@ -59,7 +59,6 @@
             pictureBox1 = new PictureBox();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            txtRefresh = new ReaLTaiizor.Controls.MaterialButton();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -90,6 +89,7 @@
             hopeTabPage1.ThemeColorA = Color.FromArgb(64, 158, 255);
             hopeTabPage1.ThemeColorB = Color.FromArgb(150, 64, 158, 255);
             hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
+            hopeTabPage1.Click += hopeTabPage1_Click;
             // 
             // Register
             // 
@@ -246,7 +246,6 @@
             // 
             Stats.AutoScroll = true;
             Stats.BackColor = Color.FromArgb(11, 24, 87);
-            Stats.Controls.Add(txtRefresh);
             Stats.Controls.Add(label8);
             Stats.Controls.Add(label7);
             Stats.Controls.Add(label6);
@@ -388,27 +387,6 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // txtRefresh
-            // 
-            txtRefresh.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtRefresh.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            txtRefresh.Depth = 0;
-            txtRefresh.HighEmphasis = true;
-            txtRefresh.Icon = null;
-            txtRefresh.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            txtRefresh.Location = new Point(225, 513);
-            txtRefresh.Margin = new Padding(4, 6, 4, 6);
-            txtRefresh.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            txtRefresh.Name = "txtRefresh";
-            txtRefresh.NoAccentTextColor = Color.Empty;
-            txtRefresh.Size = new Size(159, 36);
-            txtRefresh.TabIndex = 13;
-            txtRefresh.Text = "Refresh Graphics";
-            txtRefresh.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            txtRefresh.UseAccentColor = false;
-            txtRefresh.UseVisualStyleBackColor = true;
-            txtRefresh.Click += txtRefresh_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -465,6 +443,5 @@
         private Label label9;
         private PictureBox pictureBox2;
         private ReaLTaiizor.Controls.MaterialButton txtExit;
-        private ReaLTaiizor.Controls.MaterialButton txtRefresh;
     }
 }

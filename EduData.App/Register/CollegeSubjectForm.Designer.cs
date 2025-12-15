@@ -41,6 +41,10 @@
             panel1.Controls.SetChildIndex(hopeTextBoxID, 0);
             panel1.Controls.SetChildIndex(pictureBox1, 0);
             // 
+            // poisonListView1
+            // 
+            poisonListView1.Location = new Point(199, 38);
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(label2);

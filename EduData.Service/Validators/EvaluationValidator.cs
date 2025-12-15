@@ -12,7 +12,7 @@ namespace EduData.Service.Validators
 
             RuleFor(x => x.ScoreValue) 
                 .GreaterThanOrEqualTo(0).WithMessage("The value of the grade cannot be negative.")
-                .LessThanOrEqualTo(100).WithMessage("The maximum grade allowed is 100.");
+                .LessThanOrEqualTo(10).WithMessage("The maximum grade allowed is 10.");
 
             RuleFor(x => x.DateEvaluation) 
                 .NotEmpty().WithMessage("The evaluation date is mandatory.");

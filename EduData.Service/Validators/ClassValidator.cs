@@ -9,7 +9,7 @@ namespace EduData.Service.Validators
         {
             RuleFor(x => x.Course)
                   .NotEmpty().WithMessage("The course name is required.")
-                  .MaximumLength(100).WithMessage("The course should have a maximum of 100 characters.");
+                  .MaximumLength(50).WithMessage("The course should have a maximum of 50 characters.");
 
             RuleFor(x => x.Period)
                 .GreaterThan(0).WithMessage("The period must be greater than zero.");
