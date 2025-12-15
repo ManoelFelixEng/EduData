@@ -50,6 +50,11 @@ namespace EduData.App.Infra
             #endregion
 
             #region Services
+            services.AddTransient<MainForm>();
+            services.AddScoped<IBaseService<Student>, BaseService<Student>>();
+            services.AddScoped<IBaseService<Class>, BaseService<Class>>();
+            services.AddScoped<IBaseService<Enrollment>, BaseService<Enrollment>>();
+
             services.AddScoped<IBaseService<User>, BaseService<User>>();
             services.AddScoped<IBaseService<Class>, BaseService<Class>>();
             services.AddScoped<IBaseService<Student>, BaseService<Student>>();

@@ -103,6 +103,16 @@ namespace EduData.App.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Data_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Data-rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Education_bro {
             get {
                 object obj = ResourceManager.GetObject("Education-bro", resourceCulture);

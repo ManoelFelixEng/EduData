@@ -1,24 +1,33 @@
 using EduData.App;
-using EduData.App.Base;
 using EduData.App.Infra;
-using EduData.App.Others;
-using EduData.App.Register;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Windows.Forms;
 
 namespace EduData.App
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ConfigureDI.ConfigureServices();
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+
+            // 1. Configura os serviços (Injeção de Dependência)
+            ConfigureDI.ConfigureServices();
+
+            // 2. Pega o MainForm já construído com os serviços injetados
+            var mainForm = ConfigureDI.serviceProvider.GetService<MainForm>();
+
+            // 3. Roda a aplicação
+            if (mainForm != null)
+            {
+                Application.Run(mainForm);
+            }
+            else
+            {
+                MessageBox.Show("Erro fatal: Não foi possível iniciar o MainForm.");
+            }
         }
     }
 }

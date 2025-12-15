@@ -26,14 +26,10 @@ namespace EduData.Test
             {
                 Console.WriteLine("Connected!");
 
-                var class1 = new Class(1, 1, "Engenharia de Software", 40);
-                var class2 = new Class(2, 3, "Ciência de Dados", 35);
-                var class3 = new Class(3, 5, "Redes de Computadores", 30);
-
-                // Adiciona se não existir (para não duplicar em múltiplos testes)
-                if (!context.Classes.Any(c => c.Id == 1)) context.Classes.Add(class1);
-                if (!context.Classes.Any(c => c.Id == 2)) context.Classes.Add(class2);
-                if (!context.Classes.Any(c => c.Id == 3)) context.Classes.Add(class3);
+                var class1 = new Class(231, 1, "Engenharia de Software", 40);
+                var class4 = new Class(223, 1, "Engenharia de Software", 40);
+                var class2 = new Class(224, 3, "Ciência de Dados", 35);
+                var class3 = new Class(112, 5, "Redes de Computadores", 30);
 
                 context.SaveChanges();
                 Console.WriteLine("Insert Class done!");
@@ -50,7 +46,7 @@ namespace EduData.Test
         }
 
         [TestMethod]
-        public void TestCollegeSubject() // Testa Disciplinas
+        public void TestCollegeSubject() 
         {
             using (var context = GetContext())
             {
@@ -58,11 +54,8 @@ namespace EduData.Test
 
                 var subject1 = new CollegeSubject(1, "Programação Orientada a Objetos", 80);
                 var subject2 = new CollegeSubject(2, "Banco de Dados", 60);
-                var subject3 = new CollegeSubject(3, "Matemática Discreta", 40);
-
-                if (!context.CollegeSubjects.Any(c => c.Id == 1)) context.CollegeSubjects.Add(subject1);
-                if (!context.CollegeSubjects.Any(c => c.Id == 2)) context.CollegeSubjects.Add(subject2);
-                if (!context.CollegeSubjects.Any(c => c.Id == 3)) context.CollegeSubjects.Add(subject3);
+                var subject3 = new CollegeSubject(3, "Matemática Aplicada", 40);
+                var subject4 = new CollegeSubject(4, "Algebra linear", 40);
 
                 context.SaveChanges();
                 Console.WriteLine("Insert Subject done!");
@@ -70,15 +63,15 @@ namespace EduData.Test
         }
 
         [TestMethod]
-        public void TestStudent() // Testa Alunos (Depende de Turma)
+        public void TestStudent() 
         {
             using (var context = GetContext())
             {
                 Console.WriteLine("Connected!");
 
-                // Busca as turmas criadas no teste anterior
-                var turma1 = context.Classes.Find(1);
-                var turma2 = context.Classes.Find(2);
+               
+                var turma1 = context.Classes.Find(231);
+                var turma2 = context.Classes.Find(112);
 
                 if (turma1 != null && turma2 != null)
                 {
@@ -97,7 +90,7 @@ namespace EduData.Test
         }
 
         [TestMethod]
-        public void TestUser() // Testa Usuários
+        public void TestUser()
         {
             using (var context = GetContext())
             {
@@ -115,7 +108,7 @@ namespace EduData.Test
         }
 
         [TestMethod]
-        public void TestEnrollment() // Testa Matrícula (Liga Aluno, Turma e Disciplina)
+        public void TestEnrollment() 
         {
             using (var context = GetContext())
             {
@@ -127,7 +120,7 @@ namespace EduData.Test
 
                 if (aluno != null && turma != null && disciplina != null)
                 {
-                    // Aluno 1, na Turma 1, fazendo POO, com Nota 8
+                   
                     var enrollment = new Enrollment(1, aluno, turma, disciplina, 8);
 
                     if (!context.Enrollments.Any(e => e.Id == 1)) context.Enrollments.Add(enrollment);
@@ -139,7 +132,7 @@ namespace EduData.Test
         }
 
         [TestMethod]
-        public void TestEvaluation() // Testa Avaliação
+        public void TestEvaluation() 
         {
             using (var context = GetContext())
             {
@@ -159,25 +152,26 @@ namespace EduData.Test
             }
         }
 
+
         [TestMethod]
-        public void TestRepositoryPattern() // Testa usando a classe BaseRepository
+        public void TestRepositoryPattern() 
         {
             var context = GetContext();
             var _classRepository = new BaseRepository<Class>(context);
             var _studentRepository = new BaseRepository<Student>(context);
 
-            // Cria uma nova turma via Repository
+            
             var novaTurma = new Class();
             novaTurma.Course = "Medicina";
             novaTurma.Period = 1;
             novaTurma.NumberStudents = 60;
             _classRepository.Insert(novaTurma);
 
-            // Cria um novo aluno para essa turma
+            
             var novoAluno = new Student();
             novoAluno.Name = "Dr. House";
             novoAluno.DateBirth = new DateTime(1980, 1, 1);
-            novoAluno.Class = novaTurma; // Associa o objeto
+            novoAluno.Class = novaTurma; 
 
             _studentRepository.Insert(novoAluno);
 
