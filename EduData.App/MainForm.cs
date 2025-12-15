@@ -15,14 +15,14 @@ namespace EduData.App
 {
     public partial class MainForm : LostForm
     {
-        // --- PROPRIEDADES E SERVIÇOS ---
+
         public static User User { get; set; }
 
         private readonly IBaseService<Student> _studentService;
         private readonly IBaseService<Class> _classService;
         private readonly IBaseService<Enrollment> _enrollmentService;
 
-        // --- CONSTRUTOR E LOAD ---
+
         public MainForm(
             IBaseService<Student> studentService,
             IBaseService<Class> classService,
@@ -39,7 +39,7 @@ namespace EduData.App
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            AtualizarDashboard(); // Carrega todos os gráficos
+            AtualizarDashboard();
         }
 
         private void LoadLogin()
@@ -54,24 +54,24 @@ namespace EduData.App
             }
         }
 
-        // --- MÉTODO CENTRALIZADOR ---
+
         private void AtualizarDashboard()
         {
-            // Chama todos os métodos de gráficos para atualizar a tela
+
             CarregarGraficoMedia();
             CarregarGraficoMelhoresAlunos();
             CarregarGraficoTaxaAprovacao();
         }
 
-        // --- GRÁFICO 1: MÉDIA POR TURMA (formsPlot1) ---
+        // media da turma
         private void CarregarGraficoMedia()
         {
             try
             {
                 formsPlot1.Plot.Clear();
-                formsPlot1.Plot.Title("Média de Notas por Turma");
-                formsPlot1.Plot.Axes.Left.Label.Text = "Nota Média";
-                formsPlot1.Plot.Axes.Bottom.Label.Text = "Turmas";
+                formsPlot1.Plot.Title("Average Grades per Class");
+                formsPlot1.Plot.Axes.Left.Label.Text = "Average Grade";
+                formsPlot1.Plot.Axes.Bottom.Label.Text = "Classes";
 
                 // Estilo Dark
                 formsPlot1.Plot.FigureBackground.Color = ScottPlot.Color.FromHex("#1c1c1c");
@@ -83,7 +83,7 @@ namespace EduData.App
 
                 if (!matriculas.Any())
                 {
-                    formsPlot1.Plot.Title("Sem dados");
+                    formsPlot1.Plot.Title("No Date");
                     formsPlot1.Refresh();
                     return;
                 }
@@ -134,19 +134,19 @@ namespace EduData.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao atualizar Média: " + ex.Message);
+                MessageBox.Show("Error updating Average: " + ex.Message);
             }
         }
 
-        // --- GRÁFICO 2: MELHORES ALUNOS (formsPlot2) ---
+        // grafico melhores alunos
         private void CarregarGraficoMelhoresAlunos()
         {
             try
             {
                 formsPlot2.Plot.Clear();
-                formsPlot2.Plot.Title("Melhor Aluno por Turma");
-                formsPlot2.Plot.Axes.Left.Label.Text = "Nota";
-                formsPlot2.Plot.Axes.Bottom.Label.Text = "Aluno (Turma)";
+                formsPlot2.Plot.Title("Best Student in Class");
+                formsPlot2.Plot.Axes.Left.Label.Text = "Note";
+                formsPlot2.Plot.Axes.Bottom.Label.Text = "Student (class)";
 
                 formsPlot2.Plot.FigureBackground.Color = ScottPlot.Color.FromHex("#1c1c1c");
                 formsPlot2.Plot.DataBackground.Color = ScottPlot.Color.FromHex("#2d2d2d");
@@ -157,7 +157,7 @@ namespace EduData.App
 
                 if (!enrollments.Any())
                 {
-                    formsPlot2.Plot.Title("Sem dados");
+                    formsPlot2.Plot.Title("No Data");
                     formsPlot2.Refresh();
                     return;
                 }
@@ -193,7 +193,7 @@ namespace EduData.App
                     };
 
                     bars.Add(barra);
-                    // Já estava com \n aqui
+
                     string textoEixoX = $"{item.Aluno}\n({item.Turma})";
                     ticks.AddMajor(i, textoEixoX);
                 }
@@ -212,19 +212,19 @@ namespace EduData.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar Melhores Alunos: " + ex.Message);
+                MessageBox.Show("Error loading Best Students: " + ex.Message);
             }
         }
 
-        // --- GRÁFICO 3: TAXA DE APROVAÇÃO (formsPlot3) ---
+        // grafico aprovaçao
         private void CarregarGraficoTaxaAprovacao()
         {
             try
             {
                 formsPlot3.Plot.Clear();
-                formsPlot3.Plot.Title("Taxa de Aprovação por Turma");
-                formsPlot3.Plot.Axes.Left.Label.Text = "Aprovação (%)";
-                formsPlot3.Plot.Axes.Bottom.Label.Text = "Turma (ID)";
+                formsPlot3.Plot.Title("Class Approval Rate");
+                formsPlot3.Plot.Axes.Left.Label.Text = "Approval (%)";
+                formsPlot3.Plot.Axes.Bottom.Label.Text = "Class (ID)";
 
                 formsPlot3.Plot.FigureBackground.Color = ScottPlot.Color.FromHex("#1c1c1c");
                 formsPlot3.Plot.DataBackground.Color = ScottPlot.Color.FromHex("#2d2d2d");
@@ -235,7 +235,7 @@ namespace EduData.App
 
                 if (!enrollments.Any())
                 {
-                    formsPlot3.Plot.Title("Sem dados");
+                    formsPlot3.Plot.Title("No Date");
                     formsPlot3.Refresh();
                     return;
                 }
@@ -251,7 +251,7 @@ namespace EduData.App
 
                         return new
                         {
-                            // AQUI ESTÁ A MUDANÇA: \n para quebrar a linha
+
                             Turma = $"{grupo.Key.Id}\n{grupo.Key.Course}",
                             Porcentagem = porcentagem
                         };
@@ -283,18 +283,17 @@ namespace EduData.App
                 formsPlot3.Plot.Axes.Bottom.TickGenerator = ticks;
                 formsPlot3.Plot.Axes.Bottom.TickLabelStyle.Rotation = 0;
                 formsPlot3.Plot.Axes.Bottom.TickLabelStyle.Alignment = ScottPlot.Alignment.MiddleCenter;
-                //formsPlot3.Plot.Axes.SetLimitsY(0, 110);
-                formsPlot1.Plot.Axes.Bottom.MinimumSize = 10;
-                //formsPlot3.UserInputProcessor.Disable();
+                formsPlot3.Plot.Axes.SetLimitsY(0, 120);
+                formsPlot3.UserInputProcessor.Disable();
                 formsPlot3.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro na Taxa de Aprovação: " + ex.Message);
+                MessageBox.Show("Error in Approval Rate: " + ex.Message);
             }
         }
 
-        // --- NAVEGAÇÃO E HELPERS ---
+        //navegação
         private void ExibirFormulario<TFormulario>() where TFormulario : Form
         {
             try
@@ -307,24 +306,24 @@ namespace EduData.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao abrir: {ex.Message}");
+                MessageBox.Show($"Error opening: {ex.Message}");
             }
         }
 
         private void txtExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja realmente sair e voltar ao login?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you really want to log out and log back in?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Restart();
                 Environment.Exit(0);
             }
         }
 
-        // --- EVENTOS DE BOTÕES (Menus) ---
+
         private void Register_Class_Click(object sender, EventArgs e)
         {
             ExibirFormulario<ClassForm>();
-            AtualizarDashboard(); // Recarrega gráficos ao voltar
+            AtualizarDashboard();
         }
 
         private void Registration_CollegeSubject_Click(object sender, EventArgs e)
@@ -350,8 +349,27 @@ namespace EduData.App
             AtualizarDashboard();
         }
 
-        // Eventos vazios mantidos para não quebrar o designer
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
-        private void label10_Click(object sender, EventArgs e) { }
+        private void txtRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                this.Cursor = Cursors.WaitCursor;
+
+                
+                AtualizarDashboard();
+
+                MessageBox.Show("Dashboard updated successfully!", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating dashboard: " + ex.Message);
+            }
+            finally
+            {
+                
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

@@ -54,12 +54,12 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            formsPlot4 = new ScottPlot.WinForms.FormsPlot();
             formsPlot3 = new ScottPlot.WinForms.FormsPlot();
             formsPlot2 = new ScottPlot.WinForms.FormsPlot();
             pictureBox1 = new PictureBox();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            txtRefresh = new ReaLTaiizor.Controls.MaterialButton();
             hopeTabPage1.SuspendLayout();
             Register.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -148,7 +148,6 @@
             label10.TabIndex = 7;
             label10.Text = resources.GetString("label10.Text");
             label10.TextAlign = ContentAlignment.MiddleCenter;
-            label10.Click += label10_Click;
             // 
             // label9
             // 
@@ -168,7 +167,6 @@
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1350, 50);
             toolStrip1.TabIndex = 0;
-            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // Register_Class
             // 
@@ -248,6 +246,7 @@
             // 
             Stats.AutoScroll = true;
             Stats.BackColor = Color.FromArgb(11, 24, 87);
+            Stats.Controls.Add(txtRefresh);
             Stats.Controls.Add(label8);
             Stats.Controls.Add(label7);
             Stats.Controls.Add(label6);
@@ -256,7 +255,6 @@
             Stats.Controls.Add(label3);
             Stats.Controls.Add(label2);
             Stats.Controls.Add(label1);
-            Stats.Controls.Add(formsPlot4);
             Stats.Controls.Add(formsPlot3);
             Stats.Controls.Add(formsPlot2);
             Stats.Controls.Add(pictureBox1);
@@ -349,14 +347,6 @@
             label1.TabIndex = 5;
             label1.Text = "ANALYSIS";
             // 
-            // formsPlot4
-            // 
-            formsPlot4.DisplayScale = 1F;
-            formsPlot4.Location = new Point(44, 1286);
-            formsPlot4.Name = "formsPlot4";
-            formsPlot4.Size = new Size(547, 350);
-            formsPlot4.TabIndex = 4;
-            // 
             // formsPlot3
             // 
             formsPlot3.DisplayScale = 1F;
@@ -397,6 +387,27 @@
             mySqlCommand1.Connection = null;
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
+            // 
+            // txtRefresh
+            // 
+            txtRefresh.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            txtRefresh.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            txtRefresh.Depth = 0;
+            txtRefresh.HighEmphasis = true;
+            txtRefresh.Icon = null;
+            txtRefresh.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            txtRefresh.Location = new Point(225, 513);
+            txtRefresh.Margin = new Padding(4, 6, 4, 6);
+            txtRefresh.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            txtRefresh.Name = "txtRefresh";
+            txtRefresh.NoAccentTextColor = Color.Empty;
+            txtRefresh.Size = new Size(159, 36);
+            txtRefresh.TabIndex = 13;
+            txtRefresh.Text = "Refresh Graphics";
+            txtRefresh.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            txtRefresh.UseAccentColor = false;
+            txtRefresh.UseVisualStyleBackColor = true;
+            txtRefresh.Click += txtRefresh_Click;
             // 
             // MainForm
             // 
@@ -442,7 +453,6 @@
         private PictureBox pictureBox1;
         private ScottPlot.WinForms.FormsPlot formsPlot2;
         private ScottPlot.WinForms.FormsPlot formsPlot3;
-        private ScottPlot.WinForms.FormsPlot formsPlot4;
         private Label label1;
         private Label label3;
         private Label label2;
@@ -455,5 +465,6 @@
         private Label label9;
         private PictureBox pictureBox2;
         private ReaLTaiizor.Controls.MaterialButton txtExit;
+        private ReaLTaiizor.Controls.MaterialButton txtRefresh;
     }
 }
