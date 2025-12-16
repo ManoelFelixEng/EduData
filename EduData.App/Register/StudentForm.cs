@@ -86,34 +86,34 @@ namespace EduData.App.Register
         {
             try
             {
-                // 1. Validações
+               
                 if(string.IsNullOrEmpty(txtId.Text))
         {
-                    MessageBox.Show("O ID (Matrícula) é obrigatório.");
+                    MessageBox.Show("The ID (Registration Number) is required.");
                     return;
                 }
 
                 if (string.IsNullOrEmpty(lblName.Text))
                 {
-                    MessageBox.Show("O nome é obrigatório.");
+                    MessageBox.Show("The name is required.");
                     return;
                 }
 
                 if (!DateTime.TryParse(lblDATE.Text, out DateTime dataNascimento))
                 {
-                    MessageBox.Show("Data inválida.");
+                    MessageBox.Show("Invalid date.");
                     return;
                 }
 
                 if (ComboClass.SelectedValue == null)
                 {
-                    MessageBox.Show("Selecione uma turma.");
+                    MessageBox.Show("Select a class.");
                     return;
                 }
 
                 int idManual = int.Parse(txtId.Text);
                 int idTurma = (int)ComboClass.SelectedValue;
-                // Busca a entidade turma para vincular corretamente
+                
                 var turmaSelecionada = _classService.GetById<Class>(idTurma);
 
                 var student = new Student
@@ -124,21 +124,21 @@ namespace EduData.App.Register
                     Class = turmaSelecionada
                 };
 
-                // 3. Salvar
+                //salvar
                 if (isEditMode)
                 {
                     _studentService.Update<Student, Student, StudentValidator>(student);
-                    MessageBox.Show("Aluno atualizado!");
-                    // EDIÇÃO: Usa o ID que está na tela (escondido/travado)
+                    MessageBox.Show("Student up-to-date!");
+                    
                     if (int.TryParse(txtId.Text, out int id))
                     {
                         student.Id = id;
                         _studentService.Update<Student, Student, StudentValidator>(student);
-                        MessageBox.Show("Aluno atualizado com sucesso!");
+                        MessageBox.Show("Student updated successfully!");
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao identificar o aluno para edição.");
+                        MessageBox.Show("Error identifying the student for editing.");
                         return;
                     }
                 }
@@ -147,11 +147,11 @@ namespace EduData.App.Register
                     var existe = _studentService.GetById<Student>(idManual);
                     if (existe != null)
                     {
-                        MessageBox.Show($"Já existe um aluno com a matrícula {idManual}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"There is already a student with this registration number. {idManual}!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     _studentService.Add<Student, Student, StudentValidator>(student);
-                    MessageBox.Show("Aluno cadastrado com sucesso!");
+                    MessageBox.Show("Student successfully registered.!");
                 }
 
                 ClearFields();
@@ -159,7 +159,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar: " + ex.Message);
+                MessageBox.Show("Error saving: " + ex.Message);
             }
         }
 
@@ -177,7 +177,7 @@ namespace EduData.App.Register
                         var item = new ListViewItem(s.Id.ToString());
                         item.SubItems.Add(s.Name);
                         item.SubItems.Add(s.DateBirth.ToShortDateString());
-                        item.SubItems.Add(s.ClassCourse ?? "Sem Turma");
+                        item.SubItems.Add(s.ClassCourse ?? "Without a Class");
 
                         poisonListView1.Items.Add(item);
                     }
@@ -185,7 +185,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao listar alunos: " + ex.Message);
+                MessageBox.Show("Error listing students: " + ex.Message);
             }
         }
 
@@ -200,7 +200,7 @@ namespace EduData.App.Register
                     if (student != null)
                     {
                         txtId.Enabled = false;
-                        txtId.Text = student.Id.ToString(); // Preenche o ID travado
+                        txtId.Text = student.Id.ToString(); // colocar no id travado
                         lblName.Text = student.Name;
                         lblDATE.Text = student.DateBirth.ToString("dd/MM/yyyy");
                         ComboClass.SelectedValue = student.ClassId;
@@ -210,7 +210,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar dados para edição: " + ex.Message);
+                MessageBox.Show("Error loading data for editing: " + ex.Message);
             }
         }
 
@@ -220,17 +220,17 @@ namespace EduData.App.Register
             {
                 if (int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
-                    if (MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete this?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         try
                         {
                             _studentService.Delete(id);
-                            MessageBox.Show("Aluno excluído com sucesso.");
+                            MessageBox.Show("Student successfully removed.");
                             PopulateGrid();
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Erro ao excluir (verifique dependências): " + ex.Message);
+                            MessageBox.Show("Error deleting (check dependencies): " + ex.Message);
                         }
                     }
                 }

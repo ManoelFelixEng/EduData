@@ -102,7 +102,7 @@
             hopeComboBox1.Font = new Font("Trebuchet MS", 15.15F, FontStyle.Bold);
             hopeComboBox1.FormattingEnabled = true;
             hopeComboBox1.ItemHeight = 30;
-            hopeComboBox1.Items.AddRange(new object[] { "Administrator", "Professor", "Student" });
+            hopeComboBox1.Items.AddRange(new object[] { "Professor", "Student" });
             hopeComboBox1.Location = new Point(161, 283);
             hopeComboBox1.Name = "hopeComboBox1";
             hopeComboBox1.Size = new Size(150, 36);

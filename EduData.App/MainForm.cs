@@ -32,7 +32,7 @@ namespace EduData.App
             _classService = classService;
             _enrollmentService = enrollmentService;
 
-            InitializeComponent();
+            InitializeComponent ();
             LoadLogin();
         }
 
@@ -73,7 +73,7 @@ namespace EduData.App
                 formsPlot1.Plot.Axes.Left.Label.Text = "Average Grade";
                 formsPlot1.Plot.Axes.Bottom.Label.Text = "Classes";
 
-                // Estilo Dark
+                //dark
                 formsPlot1.Plot.FigureBackground.Color = ScottPlot.Color.FromHex("#1c1c1c");
                 formsPlot1.Plot.DataBackground.Color = ScottPlot.Color.FromHex("#2d2d2d");
                 formsPlot1.Plot.Axes.Color(ScottPlot.Colors.White);
@@ -93,7 +93,7 @@ namespace EduData.App
                     .GroupBy(x => new { x.Class.Id, x.Class.Course })
                     .Select(g => new
                     {
-                        // AQUI ESTÁ A MUDANÇA: \n para quebrar a linha
+                       
                         Turma = $"{g.Key.Id}\n{g.Key.Course}",
                         Media = g.Any() ? g.Average(x => x.FinalScore) : 0
                     })
@@ -119,11 +119,11 @@ namespace EduData.App
 
                 var barPlot = formsPlot1.Plot.Add.Bars(bars);
 
-                // Estilo do Texto
+               
                 barPlot.ValueLabelStyle.ForeColor = ScottPlot.Colors.White;
                 barPlot.ValueLabelStyle.FontSize = 14;
 
-                // Eixos
+                
                 formsPlot1.Plot.Axes.Bottom.TickGenerator = ticks;
                 formsPlot1.Plot.Axes.Bottom.TickLabelStyle.Rotation = 0; // Reto
                 formsPlot1.Plot.Axes.Bottom.TickLabelStyle.Alignment = ScottPlot.Alignment.MiddleCenter; // Centralizado

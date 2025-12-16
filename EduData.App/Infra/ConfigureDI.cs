@@ -24,7 +24,7 @@ namespace EduData.App.Infra
 
         public static void ConfigureServices()
         {
-            // 1. Configura??o do Banco de Dados (Igual ao IFSPStore)
+            
             var dbConfigFile = "Config/DBConfig.txt";
 
 
@@ -74,7 +74,6 @@ namespace EduData.App.Infra
 
             #region Forms
            services.AddTransient<Login>();
-            // services.AddScoped<CadastroTurma>(); // Exemplo
             services.AddTransient<Register.UserForm>();
             services.AddTransient<Register.ClassForm>();
             services.AddTransient<Register.CollegeSubjectForm>();
@@ -90,14 +89,14 @@ namespace EduData.App.Infra
                 {
 
 
-                    // --- Mapeamentos Simples ---
+                    
                     config.CreateMap<User, User>(); 
                     config.CreateMap<User, UserViewModel>().ReverseMap();
                     config.CreateMap<Class, ClassViewModel>().ReverseMap();
                     config.CreateMap<CollegeSubject, CollegeSubjectViewModel>().ReverseMap();
                     config.CreateMap<Evaluation, EvaluationViewModel>().ReverseMap();
 
-                    // --- Mapeamentos Complexos (Student) ---
+                   
                     config.CreateMap<Student, StudentViewModel>()
                         .ForMember(dest => dest.ClassId, opt => opt.MapFrom(src => src.Class.Id))
                         .ForMember(dest => dest.ClassCourse, opt => opt.MapFrom(src => src.Class.Course));
@@ -105,7 +104,7 @@ namespace EduData.App.Infra
                     config.CreateMap<StudentViewModel, Student>()
                         .ForMember(dest => dest.Class, opt => opt.Ignore());
 
-                    // --- Mapeamentos Complexos (Enrollment) ---
+                 
                     config.CreateMap<Enrollment, EnrollmentViewModel>()
                         .ForMember(dest => dest.StudentName, opt => opt.MapFrom(src => src.Student.Name))
                         .ForMember(dest => dest.ClassCourse, opt => opt.MapFrom(src => src.Class.Course))
@@ -116,7 +115,7 @@ namespace EduData.App.Infra
                          .ForMember(dest => dest.Class, opt => opt.Ignore())
                          .ForMember(dest => dest.CollegeSubject, opt => opt.Ignore());
 
-                }, NullLoggerFactory.Instance).CreateMapper() // <--- O SEGREDO EST? AQUI
+                }, NullLoggerFactory.Instance).CreateMapper() 
             );
             #endregion
 

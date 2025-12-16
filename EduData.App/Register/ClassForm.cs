@@ -37,12 +37,12 @@ namespace EduData.App.Register
 
                 poisonListView1.Columns.Add("ID", 50);
                 poisonListView1.Columns.Add("Curso", 250);
-                poisonListView1.Columns.Add("Período", 80);
-                poisonListView1.Columns.Add("Alunos", 80);
+                poisonListView1.Columns.Add("Period", 80);
+                poisonListView1.Columns.Add("Students", 80);
             }
             else
             {
-                MessageBox.Show("Erro Crítico: A lista não foi carregada do BaseForm.");
+                MessageBox.Show("Critical Error: The list was not loaded from BaseForm.");
             }
         }
 
@@ -53,7 +53,7 @@ namespace EduData.App.Register
             {
                 if (string.IsNullOrEmpty(hopeTextBox14.Text))
                 {
-                    MessageBox.Show("O ID é obrigatório.", "Atenção");
+                    MessageBox.Show("ID is required.", "Attention");
                     return;
                 }
 
@@ -78,7 +78,7 @@ namespace EduData.App.Register
                     }
                     else
                     {
-                        MessageBox.Show("Erro: Turma não encontrada no banco para edição.");
+                        MessageBox.Show("Error: Class not found in the database for editing");
                         return;
                     }
                 }
@@ -95,14 +95,14 @@ namespace EduData.App.Register
                     var exists = _classService.Get<Class>().Any(x => x.Id == id);
                     if (exists)
                     {
-                        MessageBox.Show($"Já existe uma turma com o ID {id}!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"There is already a class with the ID. {id}!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     _classService.Add<Class, Class, ClassValidator>(newClass);
                 }
 
-                MessageBox.Show("Salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 PopulateGrid();
@@ -110,7 +110,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao salvar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saving: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -135,11 +135,11 @@ namespace EduData.App.Register
 
         protected override void GridToForm(ListViewItem item)
         {
-            hopeTextBox14.Text = item.SubItems[0].Text; // ID
+            hopeTextBox14.Text = item.SubItems[0].Text; // id
             hopeTextBox14.Enabled = false;
-            hopeTextBox16.Text = item.SubItems[1].Text; // Course
-            hopeTextBox15.Text = item.SubItems[2].Text; // Period
-            hopeTextBox17.Text = item.SubItems[3].Text; // Students
+            hopeTextBox16.Text = item.SubItems[1].Text; // course
+            hopeTextBox15.Text = item.SubItems[2].Text; // period
+            hopeTextBox17.Text = item.SubItems[3].Text; // students
         }
 
 
@@ -150,12 +150,12 @@ namespace EduData.App.Register
                 if (int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
                     _classService.Delete(id);
-                    MessageBox.Show("Turma excluída.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Class excluded.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Não é possível excluir esta turma pois existem alunos matriculados nela.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("It is not possible to delete this class because there are students enrolled in it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
