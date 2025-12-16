@@ -31,9 +31,9 @@ namespace EduData.App.Register
             InitializeComponent();
             ConfigurarGrid();
 
-            // Eventos manuais para os filtros em cascata
-            this.BoxClass.SelectedIndexChanged += new EventHandler(this.BoxClass_SelectedIndexChanged);
-            this.BoxStudent.SelectedIndexChanged += new EventHandler(this.BoxStudent_SelectedIndexChanged);
+            
+            BoxClass.SelectedIndexChanged += new EventHandler(this.BoxClass_SelectedIndexChanged);
+            BoxStudent.SelectedIndexChanged += new EventHandler(this.BoxStudent_SelectedIndexChanged);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -52,36 +52,35 @@ namespace EduData.App.Register
                 poisonListView1.GridLines = true;
                 poisonListView1.FullRowSelect = true;
 
-                // Configuração Visual Dark
+                // dark
                 poisonListView1.OwnerDraw = false;
                 poisonListView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
 
                 poisonListView1.Columns.Add("ID", 50);
-                poisonListView1.Columns.Add("Nome Avaliação", 200);
-                poisonListView1.Columns.Add("Cód. Matrícula", 100);
-                poisonListView1.Columns.Add("Nota", 80);
-                poisonListView1.Columns.Add("Data", 100);
+                poisonListView1.Columns.Add("Name Rating", 200);
+                poisonListView1.Columns.Add("ID enrollment", 100);
+                poisonListView1.Columns.Add("Note", 80);
+                poisonListView1.Columns.Add("Date", 100);
             }
         }
 
-        // --- MÉTODOS AUXILIARES ---
 
         private void AtualizarMediaFinal(int enrollmentId)
         {
             try
             {
-                // 1. Busca todas as avaliações da matrícula
+                // as avaliações da disciplicna
                 var avaliacoes = _evaluationService
                     .Get<Evaluation>(new List<string> { "Enrollment" })
                     .Where(e => e.Enrollment.Id == enrollmentId)
                     .ToList();
 
-                // 2. Calcula a média (Arredondada)
+                // média (Arredondada)
                 int media = avaliacoes.Any()
                     ? (int)Math.Round(avaliacoes.Average(e => e.ScoreValue))
                     : 0;
 
-                // 3. Atualiza a matrícula
+                // atualiza a matrícula
                 var enrollment = _enrollmentService.GetById<Enrollment>(enrollmentId);
 
                 if (enrollment != null)
@@ -92,11 +91,11 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao atualizar média final: " + ex.Message);
+                MessageBox.Show("Error updating final average:" + ex.Message);
             }
         }
 
-        // --- LÓGICA DE FILTROS (CASCATA) ---
+       
 
         private void CarregarTurmas()
         {
@@ -108,17 +107,17 @@ namespace EduData.App.Register
                 BoxClass.ValueMember = "Id";
                 BoxClass.SelectedIndex = -1;
             }
-            catch (Exception ex) { MessageBox.Show("Erro Turmas: " + ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Error Classes: " + ex.Message); }
         }
 
         private void BoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (BoxClass.SelectedValue != null && int.TryParse(BoxClass.SelectedValue.ToString(), out int classId))
             {
-                // Mostra o ID da Turma na tela
+                // mostra id disciplina
                 if (txtClassId != null) txtClassId.Text = classId.ToString();
 
-                // Carrega alunos da turma
+                // carrega alunos 
                 var allStudents = _studentService.Get<StudentViewModel>();
                 var filteredStudents = allStudents.Where(s => s.ClassId == classId).ToList();
 
@@ -142,7 +141,7 @@ namespace EduData.App.Register
                 && BoxClass.SelectedValue != null
                 && int.TryParse(BoxClass.SelectedValue.ToString(), out int classId))
             {
-                // Carrega as disciplinas (matrículas) deste aluno nesta turma
+                // caregar disciplinas 
                 var enrollments = _enrollmentService.Get<EnrollmentViewModel>();
                 var studentEnrollments = enrollments.Where(en => en.StudentId == studentId && en.ClassId == classId).ToList();
 
@@ -150,30 +149,30 @@ namespace EduData.App.Register
 
                 BoxSubject.DataSource = lista;
                 BoxSubject.DisplayMember = "Name";
-                BoxSubject.ValueMember = "Id"; // ID da Matrícula!
+                BoxSubject.ValueMember = "Id"; 
                 BoxSubject.SelectedIndex = -1;
             }
         }
 
-        // --- CRUD ---
+        // 
 
         protected override void Save()
         {
             try
             {
-                // 1. Validações
+                
                 if (BoxSubject.SelectedValue == null)
                 {
-                    MessageBox.Show("Selecione a Disciplina (Matrícula).");
+                    MessageBox.Show("Select the Subject (enrollment).");
                     return;
                 }
                 if (string.IsNullOrEmpty(txtName.Text))
                 {
-                    MessageBox.Show("Informe o nome da avaliação.");
+                    MessageBox.Show("Please provide the name of the assessment.");
                     return;
                 }
 
-                // 2. Preparação
+                // Preparação
                 int enrollmentId = (int)BoxSubject.SelectedValue;
                 var enrollment = _enrollmentService.GetById<Enrollment>(enrollmentId);
 
@@ -188,23 +187,23 @@ namespace EduData.App.Register
                     Enrollment = enrollment
                 };
 
-                // 3. Salvar
+                // Salvar
                 if (isEditMode)
                 {
                     if (int.TryParse(txtId.Text, out int id))
                     {
                         evaluation.Id = id;
                         _evaluationService.Update<Evaluation, Evaluation, EvaluationValidator>(evaluation);
-                        MessageBox.Show("Avaliação atualizada!");
+                        MessageBox.Show("Updated assessment!");
                     }
                 }
                 else
                 {
                     _evaluationService.Add<Evaluation, Evaluation, EvaluationValidator>(evaluation);
-                    MessageBox.Show("Avaliação registrada!");
+                    MessageBox.Show("Review recorded!");
                 }
 
-                // 4. Atualizar Média da Matrícula (Pós-Save)
+                
                 AtualizarMediaFinal(enrollmentId);
 
                 ClearFields();
@@ -212,7 +211,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar: " + ex.Message);
+                MessageBox.Show("Error saving: " + ex.Message);
             }
         }
 
@@ -250,7 +249,7 @@ namespace EduData.App.Register
             {
                 if (int.TryParse(item.SubItems[0].Text, out int id))
                 {
-                    // Traz também a turma para preencher o ID visualmente
+                    
                     var ev = _evaluationService.GetById<Evaluation>(id, new List<string> { "Enrollment.Class" });
 
                     if (ev != null)
@@ -270,7 +269,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar: " + ex.Message);
+                MessageBox.Show("Loading error: " + ex.Message);
             }
         }
 
@@ -280,16 +279,16 @@ namespace EduData.App.Register
             {
                 if (int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
-                    if (MessageBox.Show("Excluir esta avaliação?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Delete this review?", "Delete this review?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        // 1. Descobre a matrícula antes de deletar
+                        
                         var avaliacao = _evaluationService.GetById<Evaluation>(id, new List<string> { "Enrollment" });
                         int enrollmentId = avaliacao?.Enrollment?.Id ?? 0;
 
-                        // 2. Deleta
+                        
                         _evaluationService.Delete(id);
 
-                        // 3. Recalcula média
+                       
                         if (enrollmentId > 0)
                         {
                             AtualizarMediaFinal(enrollmentId);

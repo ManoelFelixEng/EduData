@@ -71,7 +71,7 @@
             hopeTextBox2.Size = new Size(150, 38);
             hopeTextBox2.TabIndex = 2;
             hopeTextBox2.TabStop = false;
-            hopeTextBox2.UseSystemPasswordChar = false;
+            hopeTextBox2.UseSystemPasswordChar = true;
             // 
             // btnCreate
             // 

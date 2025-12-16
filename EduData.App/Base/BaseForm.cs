@@ -77,7 +77,7 @@ namespace EduData.App.Base
             PopulateGrid();
         }
 
-        // Eventos vazios ou gerados pelo designer
+        
         private void Register_Click(object sender, EventArgs e) { }
         private void poisonListView1_SelectedIndexChanged(object sender, EventArgs e) { }
         #endregion
@@ -88,24 +88,23 @@ namespace EduData.App.Base
         {
             isEditMode = false;
 
-            // 1. Limpa recursivamente (entra em Paineis)
+            
             foreach (Control control in Register.Controls)
             {
                 RecursiveClear(control);
             }
 
-            // 2. Reseta o botão para o estado original "CREATE"
+           
             if (btnCreate != null)
             {
                 btnCreate.Text = "CREATE";
                 btnCreate.Visible = true;
             }
 
-            // Foca na aba de registro (opcional, como no New do professor)
-            // hopeTabPage1.SelectedIndex = 0; 
+         
         }
 
-        // Método auxiliar para recursividade (Mantido por causa do Painel)
+        
         private void RecursiveClear(Control control)
         {
             if (control is HopeTextBox || control is TextBox || control is MaterialMaskedTextBox || control is MaterialTextBoxEdit)
@@ -128,9 +127,7 @@ namespace EduData.App.Base
             {
                 isEditMode = true;
 
-                // Primeiro limpa para garantir
-                // ClearFields(); // Cuidado: ClearFields reseta o botão para "Create". 
-                // Vamos limpar manualmente aqui ou ajustar a ordem.
+             
 
                 GridToForm(poisonListView1.SelectedItems[0]);
 

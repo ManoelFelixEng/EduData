@@ -78,7 +78,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar turmas: " + ex.Message);
+                MessageBox.Show("Error loading classes: " + ex.Message);
             }
         }
 

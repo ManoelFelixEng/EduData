@@ -244,18 +244,14 @@ namespace EduData.App.Others
                         txtId.Text = enrollment.Id.ToString();
                         txtFinalScore.Text = enrollment.FinalScore.ToString();
 
-                        // 1. Seta a Turma primeiro (Isso dispara o evento SelectedIndexChanged)
                         cboClass.SelectedValue = enrollment.Class.Id;
-
-                        // O evento SelectedIndexChanged já atualiza o txtIdClass e carrega os alunos.
-                        // Mas, para garantir em caso de delay ou ordem de execução:
+o:
                         if (txtIdClass != null) txtIdClass.Text = enrollment.Class.Id.ToString();
                         CarregarAlunosDaTurma(enrollment.Class.Id);
 
-                        // 3. Seta o Aluno
                         cboStudent.SelectedValue = enrollment.Student.Id;
 
-                        // 4. Seta a Disciplina
+
                         cboSubject.SelectedValue = enrollment.CollegeSubject.Id;
                     }
                 }

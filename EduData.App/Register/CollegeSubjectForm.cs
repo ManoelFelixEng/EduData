@@ -46,17 +46,17 @@ namespace EduData.App.Register
         {
             try
             {
-                // 1. Validações
+                
                 if (string.IsNullOrEmpty(hopeTextBoxID.Text) || string.IsNullOrEmpty(hopeTextBoxName.Text))
                 {
-                    MessageBox.Show("ID e Nome são obrigatórios.", "Atenção");
+                    MessageBox.Show("ID and Name are required.", "Attention");
                     return;
                 }
 
-                // 2. Conversão
+                
                 if (!int.TryParse(hopeTextBoxID.Text, out int id))
                 {
-                    MessageBox.Show("O ID deve ser um número válido.");
+                    MessageBox.Show("The ID must be a valid number.");
                     return;
                 }
 
@@ -67,11 +67,11 @@ namespace EduData.App.Register
                     courseLoad = 0;
                 }
 
-                // 3. Lógica de Salvar
+                
                 if (isEditMode)
                 {
-                    // EDIÇÃO (ID Travado)
-                    var existingSubject = _subjectService.GetById<CollegeSubject>(id);
+                    
+                    var existingSubject = _subjectService.GetById<CollegeSubject>(id);// id travado
 
                     if (existingSubject != null)
                     {
@@ -79,23 +79,23 @@ namespace EduData.App.Register
                         existingSubject.CourseLoad = courseLoad;
 
                         _subjectService.Update<CollegeSubject, CollegeSubject, CollegeSubjectValidator>(existingSubject);
-                        MessageBox.Show("Disciplina atualizada!");
+                        MessageBox.Show("Updated discipline!");
                     }
                     else
                     {
-                        MessageBox.Show("Registro não encontrado.");
+                        MessageBox.Show("Record not found.");
                         return;
                     }
                 }
                 else
                 {
-                    // CRIAÇÃO (ID Manual)
+                    
 
-                    // Verifica duplicidade antes de inserir
+                    // ver itens duplos
                     var existe = _subjectService.GetById<CollegeSubject>(id);
                     if (existe != null)
                     {
-                        MessageBox.Show($"Já existe uma disciplina com o ID {id}!", "Erro de Duplicidade");
+                        MessageBox.Show($"There is already a course with ID {id}!", "Duplicate Error");
                         return;
                     }
 
@@ -107,7 +107,7 @@ namespace EduData.App.Register
                     };
 
                     _subjectService.Add<CollegeSubject, CollegeSubject, CollegeSubjectValidator>(newSubject);
-                    MessageBox.Show("Disciplina cadastrada!");
+                    MessageBox.Show("Course added!");
                 }
 
                 ClearFields();
@@ -115,7 +115,7 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao salvar: {ex.Message}", "Erro");
+                MessageBox.Show($"Error saving: {ex.Message}", "Error");
             }
         }
 
@@ -153,12 +153,12 @@ namespace EduData.App.Register
                 hopeTextBoxName.Text = item.SubItems[1].Text;
                 hopeTextBoxLoad.Text = item.SubItems[2].Text;
 
-                // TRAVA O ID NA EDIÇÃO (Regra de Ouro)
+                
                 hopeTextBoxID.Enabled = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar: " + ex.Message);
+                MessageBox.Show("Loading error: " + ex.Message);
             }
         }
 
@@ -169,7 +169,7 @@ namespace EduData.App.Register
                 if (poisonListView1.SelectedItems.Count > 0 &&
                     int.TryParse(poisonListView1.SelectedItems[0].Text, out int id))
                 {
-                    if (MessageBox.Show("Deseja excluir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Do you want to delete it?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         _subjectService.Delete(id);
                         PopulateGrid();
@@ -178,21 +178,20 @@ namespace EduData.App.Register
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao excluir (Verifique se há alunos matriculados nesta disciplina): " + ex.Message, "Erro");
+                MessageBox.Show("Error deleting (Check if there are students enrolled in this course): " + ex.Message, "Error");
             }
         }
 
-        // --- IMPORTANTE: Destravar o ID para novos cadastros ---
+        
         protected override void ClearFields()
         {
-            base.ClearFields(); // Limpa os textos (se o base fizer isso)
+            base.ClearFields(); 
 
-            // Garante a limpeza manual
             hopeTextBoxID.Text = "";
             hopeTextBoxName.Text = "";
             hopeTextBoxLoad.Text = "";
 
-            // DESTRAVA O ID
+
             hopeTextBoxID.Enabled = true;
         }
 
